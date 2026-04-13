@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startseite — Trendradar ARTISET (Mockup)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #1a1a2e; }
+
+  /* Mockup banner */
+  .mockup-banner { background: #fff3cd; padding: 8px 16px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0d5a8; }
+  .mockup-banner a { color: #856404; }
+
+  /* Navigation bar */
+  .topbar { background: #1a1a2e; color: white; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .topbar-title { font-size: 18px; font-weight: 600; letter-spacing: 0.5px; }
+  .topbar-nav { display: flex; gap: 16px; font-size: 13px; }
+  .topbar-nav a { color: rgba(255,255,255,0.7); text-decoration: none; cursor: pointer; }
+  .topbar-nav a:hover { color: white; }
+
+  /* Main layout: 3-column */
+  .main { display: grid; grid-template-columns: 220px 1fr 220px; gap: 0; min-height: calc(100vh - 80px); }
+
+  /* Left sidebar: Neuste Entwicklungen */
+  .sidebar-left { background: white; border-right: 1px solid #e8e8e8; padding: 20px 16px; }
+  .sidebar-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-bottom: 16px; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #f0f0f0; cursor: pointer; }
+  .news-item:hover { background: #f8f9fa; margin: 0 -16px; padding: 10px 16px; }
+  .news-title { font-size: 13px; font-weight: 500; color: #2a9d8f; }
+  .news-date { font-size: 11px; color: #999; margin-top: 2px; }
+
+  /* Center: Radar */
+  .radar-area { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; background: #fafbfc; }
+
+  /* SVG Radar */
+  .radar-svg { width: 100%; max-width: 560px; }
+
+  /* Branchenfilter */
+  .filter-bar { display: flex; gap: 8px; margin-top: 20px; }
+  .filter-btn { padding: 6px 14px; border-radius: 20px; border: 2px solid; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .filter-btn--curaviva { border-color: #e07b39; background: #e07b39; color: white; }
+  .filter-btn--insos { border-color: #4a6fa5; background: #4a6fa5; color: white; }
+  .filter-btn--youvita { border-color: #2a9d8f; background: #2a9d8f; color: white; }
+  .filter-btn--inactive { background: white !important; }
+  .filter-btn--curaviva.filter-btn--inactive { color: #e07b39; }
+  .filter-btn--insos.filter-btn--inactive { color: #4a6fa5; }
+  .filter-btn--youvita.filter-btn--inactive { color: #2a9d8f; }
+
+  /* Right sidebar: Megatrends */
+  .sidebar-right { background: white; border-left: 1px solid #e8e8e8; padding: 20px 16px; }
+  .mega-item { padding: 10px 0; border-bottom: 1px solid #f0f0f0; cursor: pointer; }
+  .mega-item:hover { background: #f8f9fa; margin: 0 -16px; padding: 10px 16px; }
+  .mega-icon { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; background: #9b59b6; }
+  .mega-name { font-size: 13px; font-weight: 500; color: #333; }
+
+  /* State sections */
+  .state-section { margin-top: 40px; padding: 20px; background: #fff; border: 2px dashed #ddd; border-radius: 8px; width: 100%; max-width: 900px; }
+  .state-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 12px; }
+  .state-desc { font-size: 13px; color: #666; }
+
+  /* Spec references */
+  .spec-ref { display: inline-block; background: #e8f0fe; color: #4a6fa5; font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+
+  /* Tooltip mockup */
+  .tooltip-demo { position: absolute; background: #1a1a2e; color: white; padding: 4px 10px; border-radius: 4px; font-size: 12px; pointer-events: none; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- Mockup Banner -->
+<div class="mockup-banner">
+  <span><strong>MOCKUP</strong> — Startseite / Radar-Uebersicht · PROJ-2 + PROJ-3 + PROJ-4</span>
+  <a href="sitemap.html">&larr; Zurueck zur Sitemap</a>
+</div>
+
+<!-- Top Navigation -->
+<div class="topbar">
+  <div class="topbar-title">ARTISET Trendradar</div>
+  <div class="topbar-nav">
+    <a>Trendradar lesen</a>
+    <a>Trendradar fuer Ihre Organisation nutzen</a>
+  </div>
+</div>
+
+<!-- Main 3-Column Layout -->
+<div class="main">
+
+  <!-- LEFT: Neuste Entwicklungen -->
+  <div class="sidebar-left">
+    <div class="sidebar-title">Neuste Entwicklungen <span class="spec-ref">PROJ-4 AC-4..7</span></div>
+
+    <a href="PROJ-6-trend-detail.html" style="text-decoration:none; color:inherit;">
+      <div class="news-item">
+        <div class="news-title">Automatisierte Administration</div>
+        <div class="news-date">25. Jan 2026</div>
+      </div>
+    </a>
+    <div class="news-item">
+      <div class="news-title">KI als Therapeutin</div>
+      <div class="news-date">25. Jan 2026</div>
+    </div>
+    <div class="news-item">
+      <div class="news-title">Betreuungs- und Pflegerobotik</div>
+      <div class="news-date">25. Jan 2026</div>
+    </div>
+    <div class="news-item">
+      <div class="news-title">Deinstitutionalisierung</div>
+      <div class="news-date">25. Jan 2026</div>
+    </div>
+    <div class="news-item">
+      <div class="news-title">Hitze-Stress</div>
+      <div class="news-date">25. Jan 2026</div>
+    </div>
+    <div class="news-item">
+      <div class="news-title">Kostentransparenz</div>
+      <div class="news-date">25. Jan 2026</div>
+    </div>
+  </div>
+
+  <!-- CENTER: Radar -->
+  <div class="radar-area">
+
+    <svg class="radar-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="600" fill="#fafbfc"/>
+
+      <!-- Ring 3 (outer): Beobachten -->
+      <circle cx="300" cy="300" r="260" fill="#e8edf3" stroke="#ccc" stroke-width="1"/>
+      <!-- Ring 2 (middle): Vorbereiten -->
+      <circle cx="300" cy="300" r="180" fill="#d4dce8" stroke="#ccc" stroke-width="1"/>
+      <!-- Ring 1 (inner): Handeln -->
+      <circle cx="300" cy="300" r="100" fill="#b8c8db" stroke="#ccc" stroke-width="1"/>
+      <!-- Center dot -->
+      <circle cx="300" cy="300" r="20" fill="#1a1a2e"/>
+
+      <!-- Segment dividers (4 quadrants) -->
+      <line x1="300" y1="40" x2="300" y2="560" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="40" y1="300" x2="560" y2="300" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- Ring labels -->
+      <text x="300" y="215" text-anchor="middle" font-size="11" fill="#666" font-weight="600">HANDELN</text>
+      <text x="300" y="135" text-anchor="middle" font-size="11" fill="#666" font-weight="600">VORBEREITEN</text>
+      <text x="300" y="55" text-anchor="middle" font-size="11" fill="#666" font-weight="600">BEOBACHTEN</text>
+
+      <!-- Segment labels (outside circle) -->
+      <!-- Top: Klientinnen und Klienten -->
+      <text x="440" y="28" text-anchor="middle" font-size="12" fill="#333" font-weight="700" style="cursor:pointer">
+        <tspan>Klientinnen und</tspan>
+        <tspan x="440" dy="15">Klienten</tspan>
+      </text>
+      <!-- Right: Mitarbeitende -->
+      <text x="575" y="295" text-anchor="middle" font-size="12" fill="#333" font-weight="700" style="cursor:pointer" transform="rotate(90, 575, 295)">Mitarbeitende</text>
+      <!-- Bottom: Betrieb -->
+      <text x="440" y="590" text-anchor="middle" font-size="12" fill="#333" font-weight="700" style="cursor:pointer">Betrieb</text>
+      <!-- Left: Externes Umfeld -->
+      <text x="25" y="295" text-anchor="middle" font-size="12" fill="#333" font-weight="700" style="cursor:pointer" transform="rotate(-90, 25, 295)">Externes Umfeld</text>
+
+      <!-- === TREND TRIANGLES === -->
+      <!-- Top-right quadrant: Klientinnen / Handeln -->
+      <!-- Laenger daheim -->
+      <polygon points="380,240 372,254 388,254" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Laenger daheim</title>
+      </polygon>
+
+      <!-- Top-right: Klientinnen / Vorbereiten -->
+      <!-- Diversitaet -->
+      <polygon points="420,170 412,184 428,184" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Diversitaet</title>
+      </polygon>
+      <!-- Langlebigkeit -->
+      <polygon points="370,150 362,164 378,164" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Langlebigkeit</title>
+      </polygon>
+      <!-- Medizinischer Fortschritt -->
+      <polygon points="450,145 442,159 458,159" fill="#4a6fa5" stroke="#3a5a8a" stroke-width="1" style="cursor:pointer">
+        <title>Medizinischer Fortschritt</title>
+      </polygon>
+
+      <!-- Top-right: Klientinnen / Beobachten -->
+      <!-- Assistierter Suizid -->
+      <polygon points="400,85 392,99 408,99" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Assistierter Suizid</title>
+      </polygon>
+      <!-- Neues Alter -->
+      <polygon points="450,75 442,89 458,89" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Neues Alter</title>
+      </polygon>
+
+      <!-- Right quadrant: Mitarbeitende / Handeln -->
+      <!-- New Work -->
+      <polygon points="370,360 362,374 378,374" fill="#4a6fa5" stroke="#3a5a8a" stroke-width="1" style="cursor:pointer">
+        <title>New Work</title>
+      </polygon>
+      <!-- Fachkraeftemangel -->
+      <polygon points="350,385 342,399 358,399" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Fachkraeftemangel</title>
+      </polygon>
+      <!-- Mentale Gesundheit -->
+      <polygon points="390,345 382,359 398,359" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Mentale Gesundheit</title>
+      </polygon>
+
+      <!-- Right: Mitarbeitende / Vorbereiten -->
+      <!-- Betreuungsrobotik -->
+      <polygon points="430,400 422,414 438,414" fill="#2a9d8f" stroke="#1e7a6f" stroke-width="1" style="cursor:pointer">
+        <title>Betreuungs- und Pflegerobotik</title>
+      </polygon>
+
+      <!-- Right: Mitarbeitende / Beobachten -->
+      <!-- KI als Therapeutin -->
+      <polygon points="500,370 492,384 508,384" fill="#9b59b6" stroke="#7d3f9a" stroke-width="1" style="cursor:pointer">
+        <title>KI als Therapeutin</title>
+      </polygon>
+
+      <!-- Bottom quadrant: Betrieb / Handeln -->
+      <!-- Konsolidierungsdruck -->
+      <polygon points="230,370 222,384 238,384" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Konsolidierungsdruck</title>
+      </polygon>
+      <!-- Regulationsdichte -->
+      <polygon points="250,350 242,364 258,364" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Zunehmende Regulationsdichte</title>
+      </polygon>
+      <!-- Skandalisierung -->
+      <polygon points="210,385 202,399 218,399" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Skandalisierung</title>
+      </polygon>
+      <!-- Oeko-Kueche -->
+      <polygon points="270,365 262,379 278,379" fill="#2a9d8f" stroke="#1e7a6f" stroke-width="1" style="cursor:pointer">
+        <title>Oeko-Kueche</title>
+      </polygon>
+      <!-- Klimaneutrale Betriebskonzepte -->
+      <polygon points="190,355 182,369 198,369" fill="#2a9d8f" stroke="#1e7a6f" stroke-width="1" style="cursor:pointer">
+        <title>Klimaneutrale Betriebskonzepte</title>
+      </polygon>
+      <!-- Gruene Gebaeude -->
+      <polygon points="240,395 232,409 248,409" fill="#2a9d8f" stroke="#1e7a6f" stroke-width="1" style="cursor:pointer">
+        <title>Gruene Gebaeude</title>
+      </polygon>
+      <!-- Kostendruck -->
+      <polygon points="165,370 157,384 173,384" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Kostendruck</title>
+      </polygon>
+
+      <!-- Bottom: Betrieb / Vorbereiten -->
+      <!-- Hybridisierung -->
+      <polygon points="220,440 212,454 228,454" fill="#4a6fa5" stroke="#3a5a8a" stroke-width="1" style="cursor:pointer">
+        <title>Hybridisierung</title>
+      </polygon>
+      <!-- Predictive Healthcare -->
+      <polygon points="260,455 252,469 268,469" fill="#4a6fa5" stroke="#3a5a8a" stroke-width="1" style="cursor:pointer">
+        <title>Predictive Healthcare</title>
+      </polygon>
+      <!-- Automatisierte Administration -->
+      <polygon points="180,450 172,464 188,464" fill="#4a6fa5" stroke="#3a5a8a" stroke-width="1" style="cursor:pointer">
+        <title>Automatisierte Administration</title>
+      </polygon>
+
+      <!-- Bottom: Betrieb / Beobachten -->
+      <!-- Netto-Null -->
+      <polygon points="220,520 212,534 228,534" fill="#2a9d8f" stroke="#1e7a6f" stroke-width="1" style="cursor:pointer">
+        <title>Netto-Null-Ziel</title>
+      </polygon>
+      <!-- Outcome-Finanzierung -->
+      <polygon points="270,510 262,524 278,524" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Outcome-Finanzierung</title>
+      </polygon>
+
+      <!-- Left quadrant: Externes Umfeld / Handeln -->
+      <!-- Multikrisen -->
+      <polygon points="230,240 222,254 238,254" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Multikrisen</title>
+      </polygon>
+      <!-- Deinstitutionalisierung -->
+      <polygon points="210,260 202,274 218,274" fill="#4a6fa5" stroke="#3a5a8a" stroke-width="1" style="cursor:pointer">
+        <title>Deinstitutionalisierung</title>
+      </polygon>
+
+      <!-- Left: Externes Umfeld / Vorbereiten -->
+      <!-- Versorgungsluecke -->
+      <polygon points="170,190 162,204 178,204" fill="#e07b39" stroke="#c0612a" stroke-width="1" style="cursor:pointer">
+        <title>Versorgungsluecke</title>
+      </polygon>
+
+      <!-- Tooltip demo (static, positioned near a triangle) -->
+      <rect x="310" y="220" width="120" height="24" rx="4" fill="#1a1a2e" opacity="0.9"/>
+      <text x="370" y="236" text-anchor="middle" font-size="11" fill="white">Laenger daheim</text>
+      <polygon points="370,244 365,250 375,250" fill="#1a1a2e" opacity="0.9"/>
+    </svg>
+
+    <!-- Branchenfilter -->
+    <div class="filter-bar">
+      <span style="font-size:12px; color:#888; margin-right:4px; align-self:center;">Branchen:</span>
+      <button class="filter-btn filter-btn--curaviva">CURAVIVA</button>
+      <button class="filter-btn filter-btn--insos">INSOS</button>
+      <button class="filter-btn filter-btn--youvita">YOUVITA</button>
+      <span class="spec-ref" style="align-self:center; margin-left:8px;">PROJ-3 AC-1..5</span>
+    </div>
+  </div>
+
+  <!-- RIGHT: Megatrends -->
+  <div class="sidebar-right">
+    <div class="sidebar-title">Megatrends <span class="spec-ref">PROJ-4 AC-1..3</span></div>
+
+    <a href="PROJ-7-megatrend.html" style="text-decoration:none; color:inherit;">
+      <div class="mega-item">
+        <span class="mega-icon" style="background:#e74c3c"></span>
+        <span class="mega-name">Demografischer Wandel</span>
+      </div>
+    </a>
+    <div class="mega-item">
+      <span class="mega-icon" style="background:#f39c12"></span>
+      <span class="mega-name">Wertewandel</span>
+    </div>
+    <div class="mega-item">
+      <span class="mega-icon" style="background:#e07b39"></span>
+      <span class="mega-name">Health Shift</span>
+    </div>
+    <div class="mega-item">
+      <span class="mega-icon" style="background:#3498db"></span>
+      <span class="mega-name">Technologisierung</span>
+    </div>
+    <div class="mega-item">
+      <span class="mega-icon" style="background:#95a5a6"></span>
+      <span class="mega-name">Oekonomisierung</span>
+    </div>
+    <div class="mega-item">
+      <span class="mega-icon" style="background:#27ae60"></span>
+      <span class="mega-name">Oekologisierung</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- State Variants -->
+<div style="padding: 24px; display:flex; flex-direction:column; align-items:center; gap:20px;">
+
+  <div class="state-section">
+    <div class="state-label">[Empty State] — Alle Branchen deaktiviert</div>
+    <div class="state-desc">Radar zeigt keine Dreiecke. Hinweis: "Waehlen Sie mindestens eine Branche, um Trends anzuzeigen."</div>
+  </div>
+
+  <div class="state-section">
+    <div class="state-label">[Loading State]</div>
+    <div class="state-desc">Radar-Bereich zeigt Skeleton/Placeholder waehrend JSON-Daten geladen werden. Bei lokalen Daten kaum sichtbar.</div>
+  </div>
+
+  <div class="state-section">
+    <div class="state-label">[Error State]</div>
+    <div class="state-desc">Falls JSON-Dateien nicht geladen werden koennen: "Trenddaten konnten nicht geladen werden. Bitte laden Sie die Seite neu."</div>
+  </div>
+
+</div>
+
+</body>
+</html>

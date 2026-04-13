@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trend-Detailseite — Trendradar ARTISET (Mockup)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #1a1a2e; }
+  .mockup-banner { background: #fff3cd; padding: 8px 16px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0d5a8; }
+  .mockup-banner a { color: #856404; }
+  .topbar { background: #1a1a2e; color: white; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .topbar-title { font-size: 18px; font-weight: 600; }
+  .topbar-actions { display: flex; gap: 12px; }
+  .topbar-btn { background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; text-decoration: none; }
+  .topbar-btn:hover { background: rgba(255,255,255,0.1); }
+  .spec-ref { display: inline-block; background: #e8f0fe; color: #4a6fa5; font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+
+  .content { max-width: 800px; margin: 0 auto; padding: 24px 32px; }
+
+  .breadcrumb { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .breadcrumb a { color: #4a6fa5; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb .sep { margin: 0 8px; color: #ccc; }
+
+  .page-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+
+  /* Zeitbereich badge */
+  .zeitbereich-badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 16px; margin-bottom: 24px; }
+  .zeitbereich-badge--vorbereiten { background: #d4dce8; color: #333; }
+
+  /* Meta info */
+  .meta-row { display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
+  .meta-item { font-size: 13px; }
+  .meta-label { color: #888; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .meta-value { margin-top: 4px; }
+  .meta-value a { color: #4a6fa5; text-decoration: none; }
+  .meta-value a:hover { text-decoration: underline; }
+  .tag { display: inline-block; background: #f0f0f0; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px 2px; }
+  .tag--handlungsfeld { background: #fef3e8; color: #e07b39; border: 1px solid #f0d4b8; }
+  .tag--megatrend { background: #f3edf7; color: #9b59b6; border: 1px solid #dcc8e8; cursor: pointer; }
+  .tag--megatrend:hover { background: #e8ddf0; }
+
+  /* Sections */
+  .section { background: white; border: 1px solid #e8e8e8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; }
+  .section-title { font-size: 16px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-text { font-size: 15px; line-height: 1.7; color: #444; }
+
+  /* Questions list */
+  .questions-list { list-style: none; counter-reset: q; }
+  .questions-list li { counter-increment: q; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; line-height: 1.6; color: #444; display: flex; gap: 12px; }
+  .questions-list li:last-child { border-bottom: none; }
+  .questions-list li::before { content: counter(q) "."; font-weight: 700; color: #4a6fa5; min-width: 20px; }
+
+  /* Branchen sections */
+  .branche-section { border-left: 4px solid; padding-left: 20px; margin-bottom: 16px; }
+  .branche-section--curaviva { border-color: #e07b39; }
+  .branche-section--insos { border-color: #4a6fa5; }
+  .branche-section--youvita { border-color: #2a9d8f; }
+  .branche-name { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .branche-text { font-size: 14px; color: #555; line-height: 1.6; }
+
+  /* State sections */
+  .state-section { margin-top: 24px; padding: 16px; background: #fff; border: 2px dashed #ddd; border-radius: 8px; }
+  .state-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 8px; }
+  .state-desc { font-size: 13px; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">
+  <span><strong>MOCKUP</strong> — Trend-Detailseite · PROJ-6</span>
+  <a href="sitemap.html">&larr; Zurueck zur Sitemap</a>
+</div>
+
+<div class="topbar">
+  <div class="topbar-title">ARTISET Trendradar</div>
+  <div class="topbar-actions">
+    <a href="PROJ-5-handlungsfeld.html" class="topbar-btn">&#8592; Zurueck</a>
+    <a href="PROJ-4-startseite.html" class="topbar-btn">&#8962; Home</a>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <span class="spec-ref">PROJ-8 AC-2</span>
+    <a href="PROJ-4-startseite.html">Startseite</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="PROJ-5-handlungsfeld.html">Handlungsfeld: Betrieb</a>
+    <span class="sep">&rsaquo;</span>
+    <strong>Trend: Automatisierte Administration</strong>
+  </div>
+
+  <!-- Title + Zeitbereich -->
+  <h1 class="page-title">Trend: Automatisierte Administration</h1>
+  <div class="zeitbereich-badge zeitbereich-badge--vorbereiten">
+    Vorbereiten <span class="spec-ref" style="margin-left:6px;">PROJ-6 AC-3</span>
+  </div>
+
+  <!-- Meta: Handlungsfelder + Megatrends -->
+  <div class="meta-row">
+    <div class="meta-item">
+      <div class="meta-label">Handlungsfelder <span class="spec-ref">PROJ-6 AC-11..12</span></div>
+      <div class="meta-value">
+        <a href="PROJ-5-handlungsfeld.html" class="tag tag--handlungsfeld">Betrieb</a>
+        <a href="PROJ-5-handlungsfeld.html" class="tag tag--handlungsfeld">Mitarbeitende</a>
+      </div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Megatrends <span class="spec-ref">PROJ-6 AC-7..8</span></div>
+      <div class="meta-value">
+        <a href="PROJ-7-megatrend.html" class="tag tag--megatrend">Technologisierung</a>
+        <a href="PROJ-7-megatrend.html" class="tag tag--megatrend">Oekonomisierung</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beschreibung -->
+  <div class="section">
+    <div class="section-title">Beschreibung <span class="spec-ref">PROJ-6 AC-1..2</span></div>
+    <div class="section-text">
+      Der Einsatz von KI-gestuetzten Systemen zur Automatisierung administrativer Taetigkeiten nimmt im Gesundheitswesen deutlich zu. In Pflegeeinrichtungen koennen Planung, Pflegedokumentation, Leistungsnachweise, Controlling sowie Reporting zunehmend automatisiert erfolgen. Auch in Buchhaltung, Personaladministration und allgemeiner Verwaltung uebernehmen digitale Systeme repetitive Aufgaben, erstellen Auswertungen und unterstuetzen Entscheidungsprozesse. Ziel ist es, administrative Aufwaende zu reduzieren, Fehlerquoten zu senken und Fachpersonen zu entlasten, damit mehr Zeit fuer direkte Betreuung und Fuehrungsaufgaben zur Verfuegung steht. Gleichzeitig steigen die Anforderungen an Datenqualitaet, Datenschutz, Governance sowie an digitale Kompetenzen der Mitarbeitenden.
+    </div>
+  </div>
+
+  <!-- Reflexionsfragen -->
+  <div class="section">
+    <div class="section-title">Strategische Fragen <span class="spec-ref">PROJ-6 AC-5..6</span></div>
+    <ol class="questions-list">
+      <li>Welche administrativen Prozesse eignen sich in Ihrer Einrichtung fuer eine (teil-)automatisierte Abwicklung?</li>
+      <li>Wie stellen Sie Datenqualitaet, Transparenz und Datenschutz bei KI-gestuetzter Administration sicher?</li>
+      <li>Verfuegen Ihre Mitarbeitenden ueber die notwendigen Kompetenzen, um automatisierte Systeme sinnvoll zu nutzen und zu ueberwachen?</li>
+    </ol>
+  </div>
+
+  <!-- Branchenspezifische Texte -->
+  <div class="section">
+    <div class="section-title">Branchenspezifische Perspektiven <span class="spec-ref">PROJ-6 AC-9..10</span></div>
+
+    <div class="branche-section branche-section--curaviva">
+      <div class="branche-name">CURAVIVA — Menschen im Alter</div>
+      <div class="branche-text">
+        <em style="color:#999;">[Branchenspezifischer Text fuer CURAVIVA wird hier angezeigt, sofern vorhanden. Im aktuellen Datensatz sind die Texte noch nicht differenziert — dieser Bereich zeigt das Layout fuer Phase 2.]</em>
+      </div>
+    </div>
+
+    <div class="branche-section branche-section--insos">
+      <div class="branche-name">INSOS — Menschen mit Behinderungen</div>
+      <div class="branche-text">
+        <em style="color:#999;">[Branchenspezifischer Text fuer INSOS — nur sichtbar wenn Inhalt vorhanden]</em>
+      </div>
+    </div>
+
+    <div class="branche-section branche-section--youvita">
+      <div class="branche-name">YOUVITA — Kinder und Jugendliche</div>
+      <div class="branche-text">
+        <em style="color:#999;">[Branchenspezifischer Text fuer YOUVITA — nur sichtbar wenn Inhalt vorhanden]</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- State variants -->
+  <div class="state-section">
+    <div class="state-label">[Empty State] — Keine branchenspezifischen Texte</div>
+    <div class="state-desc">Der gesamte Abschnitt "Branchenspezifische Perspektiven" wird nicht angezeigt. Nur Beschreibung und Fragen bleiben sichtbar.</div>
+  </div>
+
+  <div class="state-section">
+    <div class="state-label">[Empty State] — Keine Reflexionsfragen</div>
+    <div class="state-desc">Der Abschnitt "Strategische Fragen" wird nicht angezeigt.</div>
+  </div>
+
+  <div class="state-section">
+    <div class="state-label">[Error State] — Trend nicht gefunden</div>
+    <div class="state-desc">404-Seite: "Dieser Trend wurde nicht gefunden." mit Link zurueck zur Startseite.</div>
+  </div>
+
+</div>
+
+</body>
+</html>
