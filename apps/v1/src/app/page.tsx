@@ -9,34 +9,36 @@ export default function Home() {
   const neusteTrends = getNeusteTrends(10);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="h-screen bg-gray-50 overflow-hidden">
       {/* Top bar */}
-      <header className="bg-white border-b border-gray-200 px-6 py-4">
+      <header className="col-span-3 bg-white border-b border-gray-200 px-6 py-4">
         <h1 className="text-xl font-bold text-gray-900">ARTISET Trendradar</h1>
       </header>
 
-      {/* 3-column layout */}
-      <main className="grid grid-cols-[1fr_auto_1fr] gap-6 px-6 py-6 max-w-[1440px] mx-auto">
+      {/* Fullscreen 3-column, 3-row grid */}
+      <main className="grid grid-rows-[auto_1fr_auto] grid-cols-[min-content_1fr_min-content] overflow-hidden h-[calc(100vh-57px)]">
         {/* Left column: Neueste Entwicklungen */}
-        <div className="bg-white rounded-lg border border-gray-200 p-4 self-start">
+        <div className="row-span-3 bg-white border-r border-gray-200 p-4 overflow-y-auto">
           <NeusteEntwicklungen trends={neusteTrends} />
         </div>
 
-        {/* Center column: Radar + BranchenFilter */}
-        <div className="flex flex-col items-center gap-4">
+        {/* Center column: Radar */}
+        <div className="flex items-center justify-center overflow-hidden p-4">
           <TrendRadar
             trends={trends}
             handlungsfelder={handlungsfelder}
             branchen={branchen}
           />
-          <div className="bg-white rounded-lg border border-gray-200 p-4 w-full">
-            <BranchenFilter branchen={branchen} />
-          </div>
         </div>
 
         {/* Right column: Megatrend-Sidebar */}
-        <div className="bg-white rounded-lg border border-gray-200 p-4 self-start">
+        <div className="row-span-3 bg-white border-l border-gray-200 p-4 overflow-y-auto">
           <MegatrendSidebar megatrends={megatrends} />
+        </div>
+
+        {/* Bottom center: BranchenFilter */}
+        <div className="bg-white border-t border-gray-200 p-4">
+          <BranchenFilter branchen={branchen} />
         </div>
       </main>
     </div>
