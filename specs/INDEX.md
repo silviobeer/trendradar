@@ -5,7 +5,8 @@
 Interaktive Webanwendung zur Visualisierung gesellschaftlicher Trends fuer ARTISET (Dachverband CURAVIVA, INSOS, YOUVITA).
 
 **Phase:** 1 — Prototyp (Frontend-only, lokale JSON-Daten)
-**Stack:** Next.js App Router + TypeScript + Tailwind CSS
+**Stack:** Next.js App Router + TypeScript + Tailwind CSS + pnpm Workspaces
+**Struktur:** Monorepo — `packages/shared` (Daten + Types) + `apps/v1` (erste UI-Variante)
 **Status:** Architecture Complete
 
 ## Features
@@ -34,4 +35,5 @@ PROJ-1 + PROJ-8 (Nav) --> PROJ-7 (Megatrend)
 
 - `specs/concepts/2026-04-13-trendradar-prototyp-concept.md` — Freigegebenes Konzept
 - `specs/PROJ-*-spec.md` — Feature Specifications
+- `specs/PROJ-1-8-implementation-plan.md` — Implementierungsplan
 - `specs/mockups/*.html` — UI Mockups (klickbar)

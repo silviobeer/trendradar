@@ -16,10 +16,10 @@ Strukturierte JSON-Dateien als lokale Datenquelle fuer den Prototyp. Enthaelt al
 **And** alle Relationen (Trend -> Handlungsfelder, Trend -> Megatrends, Trend -> Branchen) sind ueber IDs aufloesbar
 
 **Acceptance Criteria:**
-- [ ] AC-1: `data/handlungsfelder.json` enthaelt 4 Handlungsfelder mit id, name, beschreibung
-- [ ] AC-2: `data/megatrends.json` enthaelt 6 Megatrends mit id, name, beschreibung
-- [ ] AC-3: `data/trends.json` enthaelt Trends mit id, name, beschreibung, zeitrahmen, handlungsfeldIds[], megatrendIds[], branchenIds[], fragen[]
-- [ ] AC-4: `data/branchen.json` enthaelt 3 Branchen mit id, name, organisation, farbe
+- [ ] AC-1: `packages/shared/data/handlungsfelder.json` enthaelt 4 Handlungsfelder mit id, name, beschreibung
+- [ ] AC-2: `packages/shared/data/megatrends.json` enthaelt 6 Megatrends mit id, name, beschreibung
+- [ ] AC-3: `packages/shared/data/trends.json` enthaelt Trends mit id, name, beschreibung, zeitrahmen, handlungsfeldIds[], megatrendIds[], branchenIds[], fragen[]
+- [ ] AC-4: `packages/shared/data/branchen.json` enthaelt 3 Branchen mit id, name, organisation, farbe
 - [ ] AC-5: Alle IDs sind konsistent und referenzierbar zwischen den Dateien
 
 ### US-2: Als Entwickler moechte ich realistische Seed-Daten, um die Visualisierung mit echten Inhalten testen zu koennen
@@ -62,7 +62,9 @@ Strukturierte JSON-Dateien als lokale Datenquelle fuer den Prototyp. Enthaelt al
 
 ## Tech Design (Solution Architect)
 
-**Datenhaltung:** 4 JSON-Dateien in `data/` — werden zur Build-Zeit gelesen (Static Site Generation). Kein Runtime-Fetch im Browser.
+**Monorepo-Struktur:** Geteiltes Package `packages/shared` (Types, Daten, Data-Access-Layer) wird von allen App-Varianten (`apps/v1`, `apps/v2`, ...) importiert.
+
+**Datenhaltung:** 4 JSON-Dateien in `packages/shared/data/` — werden zur Build-Zeit gelesen (Static Site Generation). Kein Runtime-Fetch im Browser.
 
 **Relationen:** Alle n:m-Beziehungen als ID-Arrays im Trend-Objekt (handlungsfeldIds[], megatrendIds[], branchenIds[]). Keine separaten Join-Dateien.
 
