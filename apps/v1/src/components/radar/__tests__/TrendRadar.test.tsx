@@ -75,7 +75,7 @@ describe("TrendRadar blip visibility", () => {
     });
   });
 
-  it("AC-3: curaviva blip is hidden when curaviva branch is deactivated", () => {
+  it("AC-3: curaviva blip is visible by default", () => {
     const { container } = render(
       <TrendRadar
         trends={mockTrends}
@@ -85,7 +85,6 @@ describe("TrendRadar blip visibility", () => {
       { wrapper }
     );
 
-    // Find curaviva blip before deactivation
     const curavivaPoly = container.querySelector("polygon[data-slug='trend-curaviva']");
     expect(curavivaPoly).toHaveAttribute("data-visible", "true");
   });
