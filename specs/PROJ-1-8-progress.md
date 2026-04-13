@@ -195,7 +195,8 @@
 ### Wave 2 Completion
 - [x] All teammates completed
 - [x] Ralph Loop: geometry + component tests passing (14/14 v1 tests, 22/22 shared tests)
-- [x] Smoke Test: Deferred to Wave 4 (radar not yet mounted on a page — homepage is placeholder)
+- [ ] CodeRabbit review: `coderabbit review --agent --base-commit d464d7bc` — not yet run
+- [x] Browser Smoke Test: N/A (radar not yet mounted on a page — deferred to Wave 4)
 - [x] progress.md updated with AC results
 - [x] Wave committed (9292c94)
 
@@ -252,7 +253,8 @@
 ### Wave 3 Completion
 - [x] All teammates completed
 - [x] Ralph Loop: every AC verified with actual test/command output (8/8 pass)
-- [x] Smoke Test: N/A — BranchenFilter not yet mounted on a page (deferred to Wave 4)
+- [ ] CodeRabbit review: `coderabbit review --agent --base-commit 9292c94` — not yet run
+- [x] Browser Smoke Test: N/A — BranchenFilter not yet mounted on a page (deferred to Wave 4)
 - [x] progress.md updated with AC results
 - [x] Wave committed (e2a0b4c)
 
@@ -275,35 +277,32 @@
 
 ## Naechste Schritte (fuer neue Session)
 
-### 1. Wave 2 abschliessen: Smoke Test nachholen
-- Dev-Server starten: `pnpm dev`
-- Browser-Check auf `http://localhost:3000`: Radar sichtbar? Dreiecke? Hover-Tooltip?
-- Fehlende visuelle ACs (AC-1..6, AC-11..17) verifizieren
-- Wave 2 Completion Checklist in progress.md abhaken
-
-### 2. Wave 3: PROJ-3 Branchenfilter
-- Task 1.1: BranchenFilter UI-Komponente (3 Toggle-Buttons in Branchenfarben)
-- Task 2.1: Farbkodierung der Dreiecke (Single-Branche = Farbe, Multi = neutral)
-- Integration in TrendRadar-Komponente
-- Ralph Loop: AC-1..10 verifizieren
-- Smoke Test: Filter-Buttons klicken, Dreiecke ein-/ausblenden
-
-### 3. Wave 4: Alle 4 Seiten (parallel)
+### 1. Wave 4: Alle 4 Seiten (parallel)
 - PROJ-4: Startseite Layout (3-Spalten: Neuste Entwicklungen | Radar + Filter | Megatrends)
 - PROJ-5: Handlungsfeld-Seite (`/handlungsfeld/[slug]`)
 - PROJ-6: Trend-Detailseite (`/trend/[slug]`)
 - PROJ-7: Megatrend-Seite (`/megatrend/[slug]`)
 - Alle mit SSG (generateStaticParams), PageHeader, Breadcrumbs
-- Ralph Loop + Smoke Test pro Seite
+- Ralph Loop: alle ACs pro Seite verifizieren
+- CodeRabbit review: `coderabbit review --agent --base-commit e2a0b4c`
+- Browser Smoke Test: `agent-browser` auf /, /handlungsfeld/betrieb, /trend/diversitaet, /megatrend/demografischer-wandel
 
-### 4. Quality Gate
-- Code Review (diff seit BASE_SHA)
-- Alle Tests passing (`pnpm test` in shared + v1)
+### 2. Offene Wave-Reviews nachholen
+- [ ] CodeRabbit Wave 2: `coderabbit review --agent --base-commit d464d7bc`
+- [ ] CodeRabbit Wave 3: `coderabbit review --agent --base-commit 9292c94`
+- Alternativ: zusammen mit Wave 4 als ein Review ueber alles seit BASE_SHA
+
+### 3. Quality Gate
+- Code Review (diff seit BASE_SHA d464d7bc)
+- Alle Tests passing (`pnpm --filter @trendradar/shared test` + `pnpm --filter v1 test`)
 - Build erfolgreich (`pnpm build`)
 
-### 5. QA
-- End-to-End Browser-Test aller Seiten und Flows
-- Alle ACs im Browser verifizieren
+### 4. QA
+- Dev-Server starten: `pnpm dev`
+- Browser Smoke Test mit `agent-browser` auf allen Routen
+- End-to-End: alle ACs im Browser verifizieren
+- Radar: Dreiecke, Hover-Tooltip, Klick-Navigation, Branchenfilter
+- Unterseiten: Breadcrumbs, Zurueck/Home, Trendlisten, Megatrend-Links
 
 ### Referenz-Dateien
 - Plan: `specs/PROJ-1-8-implementation-plan.md`
