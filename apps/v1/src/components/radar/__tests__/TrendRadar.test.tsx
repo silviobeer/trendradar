@@ -54,6 +54,62 @@ function wrapper({ children }: { children: ReactNode }) {
   return <BranchenFilterProvider>{children}</BranchenFilterProvider>;
 }
 
+describe("TrendRadar SVG scaling (US-1 PROJ-9)", () => {
+  it("AC-2: SVG does NOT have max-w-[600px] class", () => {
+    const { container } = render(
+      <TrendRadar
+        trends={mockTrends}
+        handlungsfelder={mockHandlungsfelder}
+        branchen={mockBranchen}
+      />,
+      { wrapper }
+    );
+    const svg = container.querySelector("svg");
+    expect(svg).not.toBeNull();
+    expect(svg!.className.baseVal).not.toContain("max-w-[600px]");
+  });
+
+  it("AC-2: SVG has max-h-full class", () => {
+    const { container } = render(
+      <TrendRadar
+        trends={mockTrends}
+        handlungsfelder={mockHandlungsfelder}
+        branchen={mockBranchen}
+      />,
+      { wrapper }
+    );
+    const svg = container.querySelector("svg");
+    expect(svg!.className.baseVal).toContain("max-h-full");
+  });
+
+  it("AC-3: SVG has viewBox '0 0 600 600' (aspect ratio preserved)", () => {
+    const { container } = render(
+      <TrendRadar
+        trends={mockTrends}
+        handlungsfelder={mockHandlungsfelder}
+        branchen={mockBranchen}
+      />,
+      { wrapper }
+    );
+    const svg = container.querySelector("svg");
+    expect(svg).toHaveAttribute("viewBox", "0 0 600 600");
+  });
+
+  it("AC-4: SVG wrapper div has w-full and h-full for horizontal centering", () => {
+    const { container } = render(
+      <TrendRadar
+        trends={mockTrends}
+        handlungsfelder={mockHandlungsfelder}
+        branchen={mockBranchen}
+      />,
+      { wrapper }
+    );
+    const wrapper_div = container.querySelector("div.relative");
+    expect(wrapper_div!.className).toContain("w-full");
+    expect(wrapper_div!.className).toContain("h-full");
+  });
+});
+
 describe("TrendRadar blip visibility", () => {
   it("AC-3/AC-4: blips for active branches have opacity-100, hidden blips have opacity-0", () => {
     const { container } = render(
