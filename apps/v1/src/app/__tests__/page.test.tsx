@@ -43,3 +43,117 @@ describe("Home page fullscreen layout (US-1 PROJ-9)", () => {
     }
   });
 });
+
+describe("Home page sidebars (US-2 PROJ-9)", () => {
+  it("AC-5/AC-6: left sidebar has max-w-[160px]", () => {
+    const { container } = render(<Home />);
+    const neueste = container.querySelector(
+      '[data-testid="neueste-entwicklungen"]'
+    )?.parentElement as HTMLElement;
+    expect(neueste.className).toContain("max-w-[160px]");
+  });
+
+  it("AC-5/AC-6: right sidebar has max-w-[160px]", () => {
+    const { container } = render(<Home />);
+    const megatrend = container.querySelector(
+      '[data-testid="megatrend-sidebar"]'
+    )?.parentElement as HTMLElement;
+    expect(megatrend.className).toContain("max-w-[160px]");
+  });
+
+  it("AC-7: left sidebar has no horizontal padding toward viewport edge (p-2 or px-2)", () => {
+    const { container } = render(<Home />);
+    const neueste = container.querySelector(
+      '[data-testid="neueste-entwicklungen"]'
+    )?.parentElement as HTMLElement;
+    // Must have compact padding (p-2), not the old p-4
+    expect(neueste.className).not.toContain("p-4");
+  });
+
+  it("AC-8: left sidebar has border-r (border only toward radar)", () => {
+    const { container } = render(<Home />);
+    const neueste = container.querySelector(
+      '[data-testid="neueste-entwicklungen"]'
+    )?.parentElement as HTMLElement;
+    expect(neueste.className).toContain("border-r");
+  });
+
+  it("AC-8: right sidebar has border-l (border only toward radar)", () => {
+    const { container } = render(<Home />);
+    const megatrend = container.querySelector(
+      '[data-testid="megatrend-sidebar"]'
+    )?.parentElement as HTMLElement;
+    expect(megatrend.className).toContain("border-l");
+  });
+
+  it("AC-9: left sidebar has overflow-y-auto", () => {
+    const { container } = render(<Home />);
+    const neueste = container.querySelector(
+      '[data-testid="neueste-entwicklungen"]'
+    )?.parentElement as HTMLElement;
+    expect(neueste.className).toContain("overflow-y-auto");
+  });
+
+  it("AC-9: right sidebar has overflow-y-auto", () => {
+    const { container } = render(<Home />);
+    const megatrend = container.querySelector(
+      '[data-testid="megatrend-sidebar"]'
+    )?.parentElement as HTMLElement;
+    expect(megatrend.className).toContain("overflow-y-auto");
+  });
+});
+
+describe("Home page BranchenFilter (US-3 PROJ-9)", () => {
+  it("AC-11: filter wrapper spans all 3 columns (col-span-3)", () => {
+    const { container } = render(<Home />);
+    const filter = container.querySelector(
+      '[data-testid="branchenfilter"]'
+    )?.parentElement as HTMLElement;
+    expect(filter.className).toContain("col-span-3");
+  });
+
+  it("AC-13: filter wrapper has justify-center", () => {
+    const { container } = render(<Home />);
+    const filter = container.querySelector(
+      '[data-testid="branchenfilter"]'
+    )?.parentElement as HTMLElement;
+    expect(filter.className).toContain("justify-center");
+  });
+
+  it("AC-14: filter wrapper has border-t", () => {
+    const { container } = render(<Home />);
+    const filter = container.querySelector(
+      '[data-testid="branchenfilter"]'
+    )?.parentElement as HTMLElement;
+    expect(filter.className).toContain("border-t");
+  });
+
+  it("AC-12: filter wrapper has compact vertical padding (py-2)", () => {
+    const { container } = render(<Home />);
+    const filter = container.querySelector(
+      '[data-testid="branchenfilter"]'
+    )?.parentElement as HTMLElement;
+    expect(filter.className).toContain("py-2");
+  });
+});
+
+describe("Home page header (US-5 PROJ-9)", () => {
+  it("AC-21: header contains ARTISET Trendradar text", () => {
+    const { getByRole } = render(<Home />);
+    const header = getByRole("banner");
+    expect(header.textContent).toContain("ARTISET Trendradar");
+  });
+
+  it("AC-22: header has col-span-3", () => {
+    const { getByRole } = render(<Home />);
+    const header = getByRole("banner");
+    expect(header.className).toContain("col-span-3");
+  });
+
+  it("AC-23: header has vertical padding consistent with ~60px height", () => {
+    const { getByRole } = render(<Home />);
+    const header = getByRole("banner");
+    // py-4 = 1rem top + 1rem bottom = ~32px + content ~28px ≈ 60px
+    expect(header.className).toContain("py-4");
+  });
+});
