@@ -1,7 +1,7 @@
 # PROJ-1..8 Progress
 
-## Status: in progress
-## Current Wave: 4
+## Status: complete
+## Current Wave: done
 ## BASE_SHA: d464d7bc981e32896709a834587d48ff4e768b58
 
 ---
@@ -492,7 +492,25 @@
 
 ---
 
-## QA Results — pending
+## QA Results — complete
+
+- Bugs found: 0 (Critical: 0, High: 0, Medium: 0, Low: 0)
+- Fixed: 0
+- Deferred: 0
+
+### Browser E2E Tests (agent-browser)
+- Homepage: 3-column layout, radar, sidebars, filter — PASS
+- Branchenfilter toggle: deactivate/reactivate — PASS
+- Filter persistence across navigation — PASS
+- Megatrend sidebar → Megatrend page — PASS
+- Megatrend page → Trend detail — PASS
+- HF page: trend list toggle — PASS
+- HF page → Trend detail — PASS
+- Trend detail: all sections (badge, tags, questions) — PASS
+- Back button navigation — PASS
+- 404 handling for invalid slugs — PASS
+- Build: all 43 routes prerendered — PASS
+- Tests: 82/82 passing — PASS
 
 ---
 
