@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Trend, Handlungsfeld, Megatrend, Branche } from "@trendradar/shared";
 import { TrendRadar } from "@/components/radar/TrendRadar";
 import { BranchenFilter } from "@/components/filter/BranchenFilter";
@@ -25,19 +25,31 @@ export function HomeLayout({
   const [leftOpen, setLeftOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
 
-  return (
-    <div className="h-screen overflow-hidden bg-gray-50 grid grid-rows-[auto_1fr_auto] grid-cols-[1fr] lg:grid-cols-[min-content_1fr_min-content]">
-      {/* Row 1: Header */}
-      <header className="col-span-1 lg:col-span-3 bg-white border-b border-gray-200 px-6 py-4">
-        <h1 className="text-xl font-bold text-gray-900">ARTISET Trendradar</h1>
-      </header>
+  useEffect(() => {
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setLeftOpen(false);
+        setRightOpen(false);
+      }
+    }
+    if (leftOpen || rightOpen) {
+      document.addEventListener("keydown", handleEscape);
+      return () => document.removeEventListener("keydown", handleEscape);
+    }
+  }, [leftOpen, rightOpen]);
 
-      {/* Row 2: Middle row */}
-      <div className="contents">
+  return (
+    <>
+      <div className="h-dvh overflow-hidden bg-gray-50 grid grid-rows-[auto_1fr_auto] grid-cols-[1fr] lg:grid-cols-[min-content_1fr_min-content]">
+        {/* Row 1: Header */}
+        <header className="lg:col-span-3 bg-white border-b border-gray-200 px-6 py-4">
+          <h1 className="text-xl font-bold text-gray-900">ARTISET Trendradar</h1>
+        </header>
+
         {/* Left sidebar — inline, desktop only */}
         <aside
           data-sidebar="left-inline"
-          className="hidden lg:block w-[140px] max-w-[160px] overflow-y-auto border-r border-gray-200 bg-white p-2"
+          className="hidden lg:block w-full max-w-[160px] overflow-y-auto border-r border-gray-200 bg-white p-2"
         >
           <NeusteEntwicklungen trends={neusteTrends} />
         </aside>
@@ -48,6 +60,7 @@ export function HomeLayout({
           <button
             data-testid="toggle-left-sidebar"
             aria-label="Neueste Entwicklungen einblenden"
+            aria-expanded={leftOpen}
             onClick={() => setLeftOpen(true)}
             className="lg:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-md p-1.5 shadow-sm"
           >
@@ -73,6 +86,7 @@ export function HomeLayout({
           <button
             data-testid="toggle-right-sidebar"
             aria-label="Megatrends einblenden"
+            aria-expanded={rightOpen}
             onClick={() => setRightOpen(true)}
             className="lg:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-md p-1.5 shadow-sm"
           >
@@ -96,24 +110,28 @@ export function HomeLayout({
         {/* Right sidebar — inline, desktop only */}
         <aside
           data-sidebar="right-inline"
-          className="hidden lg:block w-[140px] max-w-[160px] overflow-y-auto border-l border-gray-200 bg-white p-2"
+          className="hidden lg:block w-full max-w-[160px] overflow-y-auto border-l border-gray-200 bg-white p-2"
         >
           <MegatrendSidebar megatrends={megatrends} />
         </aside>
+
+        {/* Row 3: BranchenFilter */}
+        <div className="lg:col-span-3 border-t border-gray-200 bg-white px-4 py-2 flex justify-center items-center">
+          <BranchenFilter branchen={branchen} />
+        </div>
       </div>
 
-      {/* Row 3: BranchenFilter */}
-      <div className="col-span-1 lg:col-span-3 border-t border-gray-200 bg-white px-4 py-2 flex justify-center items-center">
-        <BranchenFilter branchen={branchen} />
-      </div>
-
-      {/* Left overlay sidebar — mobile */}
+      {/* Left overlay sidebar — mobile (outside grid, uses position: fixed) */}
       {leftOpen && (
         <>
           <div
             data-testid="overlay-backdrop-left"
             className="fixed inset-0 z-40 bg-black/40"
             onClick={() => setLeftOpen(false)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setLeftOpen(false); }}
+            aria-label="Sidebar schliessen"
           />
           <aside
             data-testid="overlay-left-sidebar"
@@ -146,13 +164,17 @@ export function HomeLayout({
         </>
       )}
 
-      {/* Right overlay sidebar — mobile */}
+      {/* Right overlay sidebar — mobile (outside grid, uses position: fixed) */}
       {rightOpen && (
         <>
           <div
             data-testid="overlay-backdrop-right"
             className="fixed inset-0 z-40 bg-black/40"
             onClick={() => setRightOpen(false)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setRightOpen(false); }}
+            aria-label="Sidebar schliessen"
           />
           <aside
             data-testid="overlay-right-sidebar"
@@ -184,6 +206,6 @@ export function HomeLayout({
           </aside>
         </>
       )}
-    </div>
+    </>
   );
 }

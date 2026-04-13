@@ -17,10 +17,10 @@ vi.mock("@/components/sidebar/NeusteEntwicklungen", () => ({
 }));
 
 describe("Home page fullscreen layout (US-1 PROJ-9)", () => {
-  it("AC-1: root div has h-screen class", () => {
+  it("AC-1: root div has h-dvh class", () => {
     const { container } = render(<Home />);
     const root = container.firstElementChild as HTMLElement;
-    expect(root.className).toContain("h-screen");
+    expect(root.className).toContain("h-dvh");
   });
 
   it("AC-1: root div has overflow-hidden class", () => {

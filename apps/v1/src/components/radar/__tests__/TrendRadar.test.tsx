@@ -69,7 +69,7 @@ describe("TrendRadar SVG scaling (US-1 PROJ-9)", () => {
     expect(svg!.className.baseVal).not.toContain("max-w-[600px]");
   });
 
-  it("AC-2: SVG has max-h-full class", () => {
+  it("AC-2: aspect-square wrapper has max-h-full class (tooltip coordinate fix)", () => {
     const { container } = render(
       <TrendRadar
         trends={mockTrends}
@@ -78,8 +78,8 @@ describe("TrendRadar SVG scaling (US-1 PROJ-9)", () => {
       />,
       { wrapper }
     );
-    const svg = container.querySelector("svg");
-    expect(svg!.className.baseVal).toContain("max-h-full");
+    const wrapper2 = container.querySelector(".aspect-square") as HTMLElement;
+    expect(wrapper2.className).toContain("max-h-full");
   });
 
   it("AC-3: SVG has viewBox '0 0 600 600' (aspect ratio preserved)", () => {

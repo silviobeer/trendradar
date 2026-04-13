@@ -69,10 +69,11 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
   }
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="relative aspect-square max-w-full max-h-full">
       <svg
         viewBox="0 0 600 600"
-        className="max-w-full max-h-full"
+        className="w-full h-full"
         role="img"
         aria-label="Trendradar"
       >
@@ -194,6 +195,7 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
         y={tooltip.y}
         name={tooltip.name}
       />
+      </div>
     </div>
   );
 }
