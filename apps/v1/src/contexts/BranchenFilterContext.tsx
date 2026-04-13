@@ -1,8 +1,9 @@
 "use client";
 
 import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
+import { branchen } from "@trendradar/shared";
 
-const ALL_BRANCHEN = new Set(["curaviva", "insos", "youvita"]);
+const ALL_BRANCHEN = new Set(branchen.map((b) => b.id));
 
 interface BranchenFilterContextValue {
   activeBranchen: Set<string>;
