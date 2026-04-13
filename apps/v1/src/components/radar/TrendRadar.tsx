@@ -151,7 +151,7 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
               fill="#374151"
               className="cursor-pointer hover:fill-blue-600"
               onClick={() => handleSegmentClick(hf.slug)}
-              role="link"
+              role="button"
               tabIndex={0}
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleSegmentClick(hf.slug);

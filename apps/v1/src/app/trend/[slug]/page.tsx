@@ -96,9 +96,11 @@ export default async function TrendDetailPage({ params }: PageProps) {
         </div>
 
         {/* Beschreibung */}
-        <section>
-          <p className="leading-relaxed text-gray-700">{trend.beschreibung}</p>
-        </section>
+        {trend.beschreibung && (
+          <section>
+            <p className="leading-relaxed text-gray-700">{trend.beschreibung}</p>
+          </section>
+        )}
 
         {/* Handlungsfelder */}
         {handlungsfeldItems.length > 0 && (

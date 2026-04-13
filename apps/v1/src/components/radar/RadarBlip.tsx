@@ -44,7 +44,7 @@ export function RadarBlip({
       fill={fill}
       stroke={isMultiBranch ? "#333" : "#fff"}
       strokeWidth={isMultiBranch ? 2 : 1}
-      className="cursor-pointer transition-transform transition-opacity duration-300 origin-center hover:scale-[1.3]"
+      className="cursor-pointer transition-transform transition-opacity duration-300 hover:scale-[1.3]"
       style={{
         transformOrigin: `${x}px ${y}px`,
         opacity: visible ? 1 : 0,
@@ -53,7 +53,7 @@ export function RadarBlip({
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      role="link"
+      role="button"
       tabIndex={visible ? 0 : -1}
       onKeyDown={(e) => {
         if (e.key === "Enter") onClick();
