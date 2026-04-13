@@ -84,3 +84,17 @@ Kreisfoermige SVG-Visualisierung als Kernstueck der Anwendung. Zeigt alle Trends
 - SVG via React (kein D3.js)
 - Responsive via SVG viewBox (skaliert mit Container)
 - Positionierungsalgorithmus muss Ueberlappung vermeiden
+
+---
+
+## Tech Design (Solution Architect)
+
+**Rendering:** Reine React-Komponente die SVG-Elemente rendert. Kein D3.js — React kontrolliert das DOM vollstaendig.
+
+**SVG viewBox:** Feste Koordinaten (z.B. 600x600), skaliert automatisch mit dem Container. Keine pixel-basierten Berechnungen.
+
+**Positionierung:** Jedes Segment (Handlungsfeld) belegt einen Kreissektor (360° / Anzahl Segmente). Innerhalb jedes Sektors werden die 3 Ringe als radiale Zonen definiert. Dreiecke werden im jeweiligen Sektor/Ring-Bereich aequidistant im Winkelbogen verteilt — einfache Geometrie, keine Physik-Simulation.
+
+**Interaktion:** SVG-Elemente erhalten native React-Events (onMouseEnter, onClick). Tooltip als HTML-Element positioniert ueber dem SVG (nicht als SVG-Text), damit er nie abgeschnitten wird.
+
+**Farbkodierung:** Dreieck-Farbe ergibt sich aus der Branchenzuordnung. Trends mit mehreren Branchen: neutrale Farbe oder Farbe der erstgenannten Branche (Implementierungsentscheidung).

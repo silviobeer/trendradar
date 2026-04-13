@@ -64,3 +64,13 @@ Uebergreifende Navigation: Breadcrumbs, Home-Button, Zurueck-Button und Persiste
 
 - Benoetigt: PROJ-1 (Datenmodell)
 - Wird benoetigt von: PROJ-5, PROJ-6, PROJ-7 (Breadcrumbs)
+
+---
+
+## Tech Design (Solution Architect)
+
+**Breadcrumbs:** Wiederverwendbare Komponente. Bekommt strukturierte Daten (Label + URL-Paare). Jede Seite uebergibt ihre eigene Breadcrumb-Konfiguration.
+
+**Home/Zurueck-Buttons:** Teil des App-Layouts. Home = Link auf `/`. Zurueck = kontextabhaengig (aus Breadcrumb-Daten ableitbar).
+
+**Filter-Persistenz:** Ueber React Context (siehe PROJ-3). Der Context-Provider im Root-Layout bleibt beim Client-seitigen Navigieren erhalten. Kein Datenverlust bei Next.js Link-Navigation.

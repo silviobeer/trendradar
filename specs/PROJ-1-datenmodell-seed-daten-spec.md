@@ -57,3 +57,17 @@ Strukturierte JSON-Dateien als lokale Datenquelle fuer den Prototyp. Enthaelt al
 ## Abhaengigkeiten
 
 - Keine (Grundlage fuer alle anderen Features)
+
+---
+
+## Tech Design (Solution Architect)
+
+**Datenhaltung:** 4 JSON-Dateien in `data/` — werden zur Build-Zeit gelesen (Static Site Generation). Kein Runtime-Fetch im Browser.
+
+**Relationen:** Alle n:m-Beziehungen als ID-Arrays im Trend-Objekt (handlungsfeldIds[], megatrendIds[], branchenIds[]). Keine separaten Join-Dateien.
+
+**Slugs:** Jede Entitaet bekommt ein `slug`-Feld (z.B. "automatisierte-administration") fuer URL-Routing.
+
+**Datenzugriff:** TypeScript-Hilfsfunktionen lesen JSON-Dateien und loesen Relationen auf. Diese Funktionen werden von allen Seiten geteilt.
+
+**Branchenspezifische Texte:** Optional im Trend-Objekt als Objekt mit Branchen-IDs als Keys. Fehlende Eintraege = Abschnitt wird nicht angezeigt.

@@ -41,6 +41,16 @@ Detailseite fuer einen einzelnen Megatrend. Zeigt Beschreibungstext und eine Lis
 
 - Benoetigt: PROJ-1 (Datenmodell), PROJ-8 (Navigation fuer Breadcrumbs)
 
+---
+
+## Tech Design (Solution Architect)
+
+**Routing:** `/megatrend/[slug]` — dynamische Route mit generateStaticParams() fuer SSG.
+
+**Trendliste:** Alle Trends die diesen Megatrend in ihrer megatrendIds[] haben. Sortiert nach Zeitbereich (Handeln > Vorbereiten > Beobachten).
+
+---
+
 ## Hinweis zu Seed-Daten
 
 Die Megatrend-Beschreibungstexte sind in den aktuellen Kundendaten nicht enthalten. Fuer den Prototyp werden kurze Platzhalterbeschreibungen erstellt, die den Megatrend in 2-3 Saetzen erklaeren.

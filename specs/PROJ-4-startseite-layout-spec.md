@@ -53,3 +53,13 @@ Gesamtlayout der Startseite mit Radar (zentral), Megatrend-Sidebar (rechts), Neu
 ## Abhaengigkeiten
 
 - Benoetigt: PROJ-1 (Datenmodell), PROJ-2 (Radar), PROJ-3 (Branchenfilter)
+
+---
+
+## Tech Design (Solution Architect)
+
+**Layout:** 3-Spalten-Grid (Neuste Entwicklungen | Radar + Filter | Megatrends). Desktop-first. Radar ist die Hauptkomponente, Sidebars sind ergaenzend.
+
+**SSG:** Startseite wird statisch generiert. Alle Daten sind zur Build-Zeit bekannt. Einzig der Branchenfilter ist client-seitig interaktiv ("use client" fuer die Filter-Komponente).
+
+**Neuste Entwicklungen:** Sortiert nach Erstellungsdatum (absteigend). Begrenzt auf die letzten N Eintraege (z.B. 10).

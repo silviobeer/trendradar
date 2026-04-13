@@ -52,3 +52,13 @@ Multi-Select-Filter fuer die drei Branchen (CURAVIVA, INSOS, YOUVITA). Blendet T
 ## Abhaengigkeiten
 
 - Benoetigt: PROJ-1 (Datenmodell), PROJ-2 (Radar-Visualisierung)
+
+---
+
+## Tech Design (Solution Architect)
+
+**State Management:** React Context haelt den aktiven Filter-Zustand (Set von aktiven Branchen-IDs). Der Context-Provider sitzt im Root-Layout, sodass alle Seiten darauf zugreifen koennen.
+
+**Persistenz:** Kein localStorage, kein URL-Parameter. Filter-State lebt nur im React-State — geht bei Page-Refresh verloren. Akzeptabel fuer Prototyp.
+
+**Filterlogik:** Ein Trend ist sichtbar wenn mindestens eine seiner Branchen aktiv ist. Alle Branchen deaktiviert = kein Trend sichtbar.

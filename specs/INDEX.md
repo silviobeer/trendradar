@@ -1,0 +1,37 @@
+# Trendradar ARTISET — Specs Index
+
+## Projekt
+
+Interaktive Webanwendung zur Visualisierung gesellschaftlicher Trends fuer ARTISET (Dachverband CURAVIVA, INSOS, YOUVITA).
+
+**Phase:** 1 — Prototyp (Frontend-only, lokale JSON-Daten)
+**Stack:** Next.js App Router + TypeScript + Tailwind CSS
+**Status:** Architecture Complete
+
+## Features
+
+| ID | Feature | Status |
+|---|---|---|
+| PROJ-1 | Datenmodell & Seed-Daten | Designed |
+| PROJ-2 | Radar-Visualisierung | Designed |
+| PROJ-3 | Branchenfilter | Designed |
+| PROJ-4 | Startseite Layout | Designed |
+| PROJ-5 | Handlungsfeld-Seite | Designed |
+| PROJ-6 | Trend-Detailseite | Designed |
+| PROJ-7 | Megatrend-Seite | Designed |
+| PROJ-8 | Navigation | Designed |
+
+## Abhaengigkeitskette
+
+```
+PROJ-1 (Daten) --> PROJ-2 (Radar) --> PROJ-3 (Filter) --> PROJ-4 (Startseite)
+PROJ-1 + PROJ-8 (Nav) --> PROJ-5 (Handlungsfeld)
+PROJ-1 + PROJ-8 (Nav) --> PROJ-6 (Trend-Detail)
+PROJ-1 + PROJ-8 (Nav) --> PROJ-7 (Megatrend)
+```
+
+## Artefakte
+
+- `specs/concepts/2026-04-13-trendradar-prototyp-concept.md` — Freigegebenes Konzept
+- `specs/PROJ-*-spec.md` — Feature Specifications
+- `specs/mockups/*.html` — UI Mockups (klickbar)

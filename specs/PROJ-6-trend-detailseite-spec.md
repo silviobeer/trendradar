@@ -71,3 +71,13 @@ Vollstaendige Detailansicht eines einzelnen Trends mit Beschreibung, Reflexionsf
 ## Abhaengigkeiten
 
 - Benoetigt: PROJ-1 (Datenmodell), PROJ-8 (Navigation fuer Breadcrumbs)
+
+---
+
+## Tech Design (Solution Architect)
+
+**Routing:** `/trend/[slug]` — dynamische Route mit generateStaticParams() fuer SSG.
+
+**Breadcrumb-Handlungsfeld:** Wenn ueber ein Handlungsfeld navigiert wurde, zeigt der Breadcrumb dieses an. Bei Direktzugriff via URL wird das erstgenannte Handlungsfeld verwendet.
+
+**Branchenspezifische Texte:** Bedingt gerendert — nur Abschnitte anzeigen fuer die Inhalt vorhanden ist.

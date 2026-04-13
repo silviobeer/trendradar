@@ -51,3 +51,11 @@ Detailseite fuer ein einzelnes Handlungsfeld. Zeigt Beschreibungstext und eine a
 ## Abhaengigkeiten
 
 - Benoetigt: PROJ-1 (Datenmodell), PROJ-8 (Navigation fuer Breadcrumbs)
+
+---
+
+## Tech Design (Solution Architect)
+
+**Routing:** `/handlungsfeld/[slug]` — dynamische Route mit generateStaticParams() fuer SSG.
+
+**Trendliste:** Standardmaessig eingeklappt. Toggle-State ist lokal (kein Context noetig). Branchenfilter liest aus dem globalen Context (PROJ-3).
