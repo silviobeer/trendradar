@@ -6,6 +6,7 @@ import type { Trend, Handlungsfeld, Branche } from "@trendradar/shared";
 import { calculateBlipPositions, type BlipPosition } from "@/lib/radar-geometry";
 import { RadarBlip } from "./RadarBlip";
 import { RadarTooltip } from "./RadarTooltip";
+import { useBranchenFilter } from "@/contexts/BranchenFilterContext";
 
 interface TrendRadarProps {
   trends: Trend[];
@@ -24,6 +25,7 @@ const RINGS = [
 
 export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProps) {
   const router = useRouter();
+  const { isTrendVisible } = useBranchenFilter();
   const [tooltip, setTooltip] = useState<{
     visible: boolean;
     x: number;
@@ -161,23 +163,28 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
         })}
 
         {/* Blips */}
-        {blipPositions.map((blip) => (
-          <RadarBlip
-            key={`${blip.trendId}-${blip.handlungsfeldId}`}
-            x={blip.x}
-            y={blip.y}
-            fill={getBlipColor(blip)}
-            trendSlug={blip.trendSlug}
-            trendName={blip.trendName}
-            onClick={() => handleBlipClick(blip.trendSlug)}
-            onMouseEnter={() =>
-              setTooltip({ visible: true, x: blip.x, y: blip.y, name: blip.trendName })
-            }
-            onMouseLeave={() =>
-              setTooltip((prev) => ({ ...prev, visible: false }))
-            }
-          />
-        ))}
+        {blipPositions.map((blip) => {
+          const visible = isTrendVisible({ branchenIds: blip.branchenIds });
+          return (
+            <RadarBlip
+              key={`${blip.trendId}-${blip.handlungsfeldId}`}
+              x={blip.x}
+              y={blip.y}
+              fill={getBlipColor(blip)}
+              trendSlug={blip.trendSlug}
+              trendName={blip.trendName}
+              visible={visible}
+              isMultiBranch={blip.branchenIds.length > 1}
+              onClick={() => handleBlipClick(blip.trendSlug)}
+              onMouseEnter={() =>
+                setTooltip({ visible: true, x: blip.x, y: blip.y, name: blip.trendName })
+              }
+              onMouseLeave={() =>
+                setTooltip((prev) => ({ ...prev, visible: false }))
+              }
+            />
+          );
+        })}
       </svg>
 
       {/* Tooltip (HTML overlay) */}

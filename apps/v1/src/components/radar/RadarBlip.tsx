@@ -6,6 +6,8 @@ interface RadarBlipProps {
   fill: string;
   trendSlug: string;
   trendName: string;
+  visible?: boolean;
+  isMultiBranch?: boolean;
   onClick: () => void;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
@@ -24,6 +26,8 @@ export function RadarBlip({
   fill,
   trendSlug,
   trendName,
+  visible = true,
+  isMultiBranch = false,
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -38,20 +42,25 @@ export function RadarBlip({
     <polygon
       points={points}
       fill={fill}
-      stroke="#fff"
-      strokeWidth={1}
-      className="cursor-pointer transition-transform duration-150 origin-center hover:scale-[1.3]"
-      style={{ transformOrigin: `${x}px ${y}px` }}
+      stroke={isMultiBranch ? "#333" : "#fff"}
+      strokeWidth={isMultiBranch ? 2 : 1}
+      className="cursor-pointer transition-transform transition-opacity duration-300 origin-center hover:scale-[1.3]"
+      style={{
+        transformOrigin: `${x}px ${y}px`,
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? "auto" : "none",
+      }}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       role="link"
-      tabIndex={0}
+      tabIndex={visible ? 0 : -1}
       onKeyDown={(e) => {
         if (e.key === "Enter") onClick();
       }}
       aria-label={trendName}
       data-slug={trendSlug}
+      data-visible={String(visible)}
     />
   );
 }
