@@ -479,9 +479,21 @@
 - P3: index-as-key in ReflexionsFragen (acceptable for static content)
 - P3: formatDate in NeusteEntwicklungen doesn't validate input (fine for known data)
 
-### SonarCloud
-- Not configured (no SONAR_TOKEN) — manual analysis performed
-- No BLOCKER/CRITICAL/MAJOR issues found
+### SonarCloud (manual analysis — no SONAR_TOKEN configured)
+| Severity | Found | Fixed | Deferred |
+|----------|:-----:|:-----:|:--------:|
+| BLOCKER/CRITICAL | 0 | 0 | 0 |
+| MAJOR | 4 | 1 | 3 |
+| MINOR | 9 | 0 | 9 |
+| INFO | 4 | 0 | 4 |
+
+### Fixed Issues
+- MAJOR: `BranchenFilterContext.tsx:5` — hardcoded branch IDs → fixed in eea5c6f (derives from data)
+
+### Deferred (MAJOR — acceptable for SSG prototype)
+- MAJOR: N+1 `getHandlungsfelderByTrend` in megatrend page render loop (build-time only, 33 records)
+- MAJOR: Linear `.find()` lookups in data.ts (build-time only, trivial dataset)
+- MAJOR: Non-deterministic `Object.entries` ordering for branchenTexte (JSON parse order is stable)
 
 ### Exit Criteria
 - [x] Zero P0/P1 code review findings
