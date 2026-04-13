@@ -253,59 +253,221 @@
 ### Wave 3 Completion
 - [x] All teammates completed
 - [x] Ralph Loop: every AC verified with actual test/command output (8/8 pass)
-- [ ] CodeRabbit review: `coderabbit review --agent --base-commit 9292c94` — not yet run
+- [x] CodeRabbit review: 1 minor finding (test name mismatch) — fixed in ff51873
 - [x] Browser Smoke Test: N/A — BranchenFilter not yet mounted on a page (deferred to Wave 4)
 - [x] progress.md updated with AC results
 - [x] Wave committed (e2a0b4c)
 
 ---
 
-## Wave 4: All pages (parallel) — pending
+## Wave 4: All pages (parallel) — complete
+### WAVE_BASE_SHA: d9e158bb6a65ca8c5dce9347b1eaa37c56246e2b
+
+### US PROJ-4/1: Megatrend-Sidebar — complete
+
+#### Tasks
+| Task | Tests Written | Tests Passing | Done |
+|------|:---:|:---:|:---:|
+| 1.1 MegatrendSidebar-Komponente | ✓ | ✓ | ✓ |
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-1 | Megatrend-Liste wird rechts vom Radar angezeigt | ✓ |
+| AC-2 | Alle 6 Megatrends sind aufgelistet | ✓ |
+| AC-3 | Klick auf einen Megatrend navigiert zur Megatrend-Seite | ✓ |
 
 ---
 
-## Quality Gate — not yet run
+### US PROJ-4/2: Neuste Entwicklungen — complete
 
-## QA Results — not yet run
+#### Tasks
+| Task | Tests Written | Tests Passing | Done |
+|------|:---:|:---:|:---:|
+| 2.1 NeusteEntwicklungen-Komponente | ✓ | ✓ | ✓ |
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-4 | "Neuste Entwicklungen" links vom Radar | ✓ |
+| AC-5 | Trends chronologisch sortiert (neueste zuerst) | ✓ |
+| AC-6 | Jeder Eintrag zeigt Trendname und Erstellungsdatum | ✓ |
+| AC-7 | Klick navigiert zur Trend-Detailseite | ✓ |
+
+---
+
+### US PROJ-4/3: Startseiten-Layout — complete
+
+#### Tasks
+| Task | Tests Written | Tests Passing | Done |
+|------|:---:|:---:|:---:|
+| 3.1 Startseite zusammenbauen | ✓ | ✓ | ✓ |
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-8 | Layout ordnet Radar zentral, Sidebars links/rechts an | ✓ |
+| AC-9 | Branchenfilter ist sichtbar und bedienbar | ✓ |
+| AC-10 | Seite hat klaren visuellen Aufbau ohne Ueberlappungen | ✓ |
+
+#### Ralph Loop — PROJ-4
+- Iterations: 1
+- AC-1..10 verified by browser smoke test (screenshot) + unit tests
+- Commit: `feat(PROJ-4): implement Startseite layout with 3-column grid`
+
+---
+
+### US PROJ-5/1: Handlungsfeld-Beschreibung — complete
+
+#### Tasks
+| Task | Tests Written | Tests Passing | Done |
+|------|:---:|:---:|:---:|
+| 1.1 Handlungsfeld-Seite erstellen | ✓ | ✓ | ✓ |
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-1 | Titel zeigt "Handlungsfeld: [Name]" | ✓ |
+| AC-2 | Beschreibungstext wird angezeigt | ✓ |
+| AC-3 | Seite ueber URL /handlungsfeld/[slug] erreichbar | ✓ |
+
+---
+
+### US PROJ-5/2: Aufklappbare Trendliste — complete
+
+#### Tasks
+| Task | Tests Written | Tests Passing | Done |
+|------|:---:|:---:|:---:|
+| 2.1 TrendList mit Toggle | ✓ | ✓ | ✓ |
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-4 | Button "Trends zu [Name] anzeigen" sichtbar | ✓ |
+| AC-5 | Klick klappt Trendliste auf/zu | ✓ |
+| AC-6 | Jeder Trend zeigt Name und Zeitbereich-Kennzeichnung | ✓ |
+| AC-7 | Klick auf Trend navigiert zur Trend-Detailseite | ✓ |
+
+---
+
+### US PROJ-5/3: Branchenfilter auf HF-Seite — complete
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-8 | Branchenfilter auf der Handlungsfeld-Seite vorhanden | ✓ |
+| AC-9 | Filterung funktioniert analog zur Startseite | ✓ |
+
+#### Ralph Loop — PROJ-5
+- Iterations: 1
+- AC-1..9 verified by browser smoke test + unit tests
+- Commit: `feat(PROJ-5): implement Handlungsfeld page with collapsible trend list`
+
+---
+
+### US PROJ-6/1: Trend-Beschreibung — complete
+
+#### Tasks
+| Task | Tests Written | Tests Passing | Done |
+|------|:---:|:---:|:---:|
+| 1.1 Trend-Detailseite erstellen | ✓ | ✓ | ✓ |
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-1 | Titel zeigt "Trend: [Name]" | ✓ |
+| AC-2 | Beschreibungstext vollstaendig angezeigt | ✓ |
+| AC-3 | Zeitbereich visuell gekennzeichnet (Badge) | ✓ |
+| AC-4 | Seite ueber URL /trend/[slug] erreichbar | ✓ |
+
+---
+
+### US PROJ-6/2-5: Detail-Sektionen — complete
+
+#### Tasks
+| Task | Tests Written | Tests Passing | Done |
+|------|:---:|:---:|:---:|
+| 2.1 ReflexionsFragen + MetaTags + Sektionen | ✓ | ✓ | ✓ |
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-5 | Reflexionsfragen als eigener Abschnitt | ✓ |
+| AC-6 | Fragen als nummerierte Liste | ✓ |
+| AC-7 | Verknuepfte Megatrends namentlich angezeigt | ✓ |
+| AC-8 | Klick auf Megatrend navigiert zur Megatrend-Seite | ✓ |
+| AC-9 | Branchenspezifische Texte in getrennten Abschnitten | ✓ |
+| AC-10 | Leere Abschnitte werden nicht angezeigt | ✓ |
+| AC-11 | Zugeordnete Handlungsfelder angezeigt | ✓ |
+| AC-12 | Klick auf Handlungsfeld navigiert zur HF-Seite | ✓ |
+
+#### Ralph Loop — PROJ-6
+- Iterations: 1
+- AC-1..12 verified by browser smoke test + unit tests
+- Commit: `feat(PROJ-6): implement trend detail page with all sections`
+
+---
+
+### US PROJ-7/1: Megatrend-Beschreibung — complete
+
+#### Tasks
+| Task | Tests Written | Tests Passing | Done |
+|------|:---:|:---:|:---:|
+| 1.1 Megatrend-Seite erstellen | ✓ | ✓ | ✓ |
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-1 | Titel zeigt "Megatrend: [Name]" | ✓ |
+| AC-2 | Beschreibungstext wird angezeigt | ✓ |
+| AC-3 | Seite ueber URL /megatrend/[slug] erreichbar | ✓ |
+
+---
+
+### US PROJ-7/2: Liste beeinflusster Trends — complete
+
+#### Tasks
+| Task | Tests Written | Tests Passing | Done |
+|------|:---:|:---:|:---:|
+| 2.1 Trendliste auf Megatrend-Seite | ✓ | ✓ | ✓ |
+
+#### Acceptance Criteria
+| AC | Text | Verified |
+|----|------|:---:|
+| AC-4 | Liste aller verknuepften Trends angezeigt | ✓ |
+| AC-5 | Jeder Trend zeigt Name und Zeitbereich | ✓ |
+| AC-6 | Klick auf Trend navigiert zur Trend-Detailseite | ✓ |
+
+#### Ralph Loop — PROJ-7
+- Iterations: 1
+- AC-1..6 verified by browser smoke test + unit tests
+- Commit: `feat(PROJ-7): add Megatrend page with description and trend list`
+
+---
+
+### Browser Smoke Test — Wave 4
+- Pages tested: `/`, `/handlungsfeld/betrieb`, `/trend/automatisierte-administration`, `/megatrend/demografischer-wandel`
+- Result: PASS
+- Details: All 4 pages render correctly. Homepage shows 3-column layout with radar, sidebars, and filter. Subpages show breadcrumbs, navigation, content sections.
+
+### CodeRabbit Review — Wave 4
+- 1 minor finding: missing `vi` import in MetaTags.test.tsx — fixed in 32dd017
+
+### Wave 4 Completion
+- [x] All teammates completed (4 parallel implementers)
+- [x] Ralph Loop: all ACs verified (PROJ-4: 10/10, PROJ-5: 9/9, PROJ-6: 12/12, PROJ-7: 6/6)
+- [x] Smoke Test: PASS on /, /handlungsfeld/betrieb, /trend/automatisierte-administration, /megatrend/demografischer-wandel
+- [x] CodeRabbit review: 1 minor finding fixed
+- [x] progress.md updated with AC results
+- [x] Wave committed (f8a7bd2, cf3e4d9, 5b91818, 3c0ed87)
+
+---
+
+## Quality Gate — pending
+
+## QA Results — pending
 
 ---
 
 ## Open Blockers
 - None
-
----
-
-## Naechste Schritte (fuer neue Session)
-
-### 1. Wave 4: Alle 4 Seiten (parallel)
-- PROJ-4: Startseite Layout (3-Spalten: Neuste Entwicklungen | Radar + Filter | Megatrends)
-- PROJ-5: Handlungsfeld-Seite (`/handlungsfeld/[slug]`)
-- PROJ-6: Trend-Detailseite (`/trend/[slug]`)
-- PROJ-7: Megatrend-Seite (`/megatrend/[slug]`)
-- Alle mit SSG (generateStaticParams), PageHeader, Breadcrumbs
-- Ralph Loop: alle ACs pro Seite verifizieren
-- CodeRabbit review: `coderabbit review --agent --base-commit e2a0b4c`
-- Browser Smoke Test: `agent-browser` auf /, /handlungsfeld/betrieb, /trend/diversitaet, /megatrend/demografischer-wandel
-
-### 2. Offene Wave-Reviews nachholen
-- [ ] CodeRabbit Wave 2: `coderabbit review --agent --base-commit d464d7bc`
-- [ ] CodeRabbit Wave 3: `coderabbit review --agent --base-commit 9292c94`
-- Alternativ: zusammen mit Wave 4 als ein Review ueber alles seit BASE_SHA
-
-### 3. Quality Gate
-- Code Review (diff seit BASE_SHA d464d7bc)
-- Alle Tests passing (`pnpm --filter @trendradar/shared test` + `pnpm --filter v1 test`)
-- Build erfolgreich (`pnpm build`)
-
-### 4. QA
-- Dev-Server starten: `pnpm dev`
-- Browser Smoke Test mit `agent-browser` auf allen Routen
-- End-to-End: alle ACs im Browser verifizieren
-- Radar: Dreiecke, Hover-Tooltip, Klick-Navigation, Branchenfilter
-- Unterseiten: Breadcrumbs, Zurueck/Home, Trendlisten, Megatrend-Links
-
-### Referenz-Dateien
-- Plan: `specs/PROJ-1-8-implementation-plan.md`
-- Specs: `specs/PROJ-1..8-*-spec.md`
-- Mockups: `specs/mockups/*.html`
-- Konzept: `specs/concepts/2026-04-13-trendradar-prototyp-concept.md`
