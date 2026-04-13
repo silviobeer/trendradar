@@ -1,0 +1,1 @@
+// @trendradar/shared — barrel export
