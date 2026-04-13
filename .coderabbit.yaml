@@ -1,0 +1,47 @@
+language: de-CH
+reviews:
+  path_filters:
+    # Specs, Mockups, Docs — keine Code-Reviews noetig
+    - "!specs/**"
+    - "!**/*.md"
+    - "!**/*.html"
+
+    # JSON-Daten — keine Code-Reviews noetig
+    - "!packages/shared/data/**"
+
+    # Build-Artefakte, Lock-Files, Config
+    - "!**/node_modules/**"
+    - "!**/.next/**"
+    - "!**/dist/**"
+    - "!pnpm-lock.yaml"
+    - "!**/*.lock"
+
+    # IDE / Editor
+    - "!.vscode/**"
+    - "!.idea/**"
+    - "!.claude/**"
+    - "!.bg-shell/**"
+
+    # Test Snapshots
+    - "!**/__snapshots__/**"
+  auto_review:
+    enabled: true
+    drafts: false
+  path_instructions:
+    - path: "packages/shared/src/**"
+      instructions: |
+        This is a shared data layer used by multiple Next.js apps.
+        It must remain framework-agnostic (no React, no Next.js imports).
+        All functions are pure and synchronous (JSON data loaded at import time).
+    - path: "apps/*/src/components/radar/**"
+      instructions: |
+        SVG radar visualization built with pure React (no D3.js).
+        Coordinates are in a 600x600 viewBox. Blip positions are calculated
+        by radar-geometry.ts. Review for correct SVG structure, accessibility
+        (aria-labels on interactive elements), and clean separation of
+        geometry logic from rendering.
+    - path: "apps/*/src/app/**"
+      instructions: |
+        Next.js App Router pages. Most pages use SSG (generateStaticParams).
+        Only components using React state/effects should be marked "use client".
+        Server Components are the default — flag unnecessary "use client" directives.
