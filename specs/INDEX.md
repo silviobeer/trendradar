@@ -21,6 +21,7 @@ Interaktive Webanwendung zur Visualisierung gesellschaftlicher Trends fuer ARTIS
 | PROJ-6 | Trend-Detailseite | Designed |
 | PROJ-7 | Megatrend-Seite | Designed |
 | PROJ-8 | Navigation | Designed |
+| PROJ-9 | Fullscreen Radar Layout | In Progress |
 
 ## Abhaengigkeitskette
 
@@ -29,6 +30,7 @@ PROJ-1 (Daten) --> PROJ-2 (Radar) --> PROJ-3 (Filter) --> PROJ-4 (Startseite)
 PROJ-1 + PROJ-8 (Nav) --> PROJ-5 (Handlungsfeld)
 PROJ-1 + PROJ-8 (Nav) --> PROJ-6 (Trend-Detail)
 PROJ-1 + PROJ-8 (Nav) --> PROJ-7 (Megatrend)
+PROJ-2 + PROJ-3 + PROJ-4 --> PROJ-9 (Fullscreen Radar Layout)
 ```
 
 ## Artefakte

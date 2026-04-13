@@ -93,6 +93,24 @@ Siehe [Fullscreen Radar Layout Concept](concepts/2026-04-13-fullscreen-radar-lay
 4. **Browser-Zoom (125%, 150%):** Layout passt sich an wie bei kleinerem Viewport — gleiche Breakpoint-Logik
 5. **Tooltip bei grossem Radar:** Tooltip muss relativ zum SVG positioniert bleiben, nicht absolut zum Viewport
 
+## Tech Design (Solution Architect)
+
+### System Boundaries
+
+Keine Aenderung. Alles bleibt Frontend-only (SSG, lokale JSON-Daten). Keine neuen externen Abhaengigkeiten.
+
+### Key Tech Decisions
+
+1. **CSS Grid fuer Viewport-Layout (statt Flexbox):** Grid erlaubt gleichzeitige Kontrolle von Zeilen UND Spalten. Flexbox wuerde verschachtelte Container brauchen und Radar-Sizing erschweren.
+
+2. **SVG skaliert via viewBox (keine Koordinaten-Aenderung):** Radar-Geometrie (viewBox 600x600, Ringradien, Blip-Positionen) bleibt identisch. CSS-Begrenzung (max-w-[600px]) wird entfernt. SVG viewBox skaliert automatisch proportional. Kein Refactoring der Geometrie-Logik.
+
+3. **Client-side State fuer Sidebar-Toggle (< 1024px):** Lokaler useState in der Startseite. Kein neuer Context noetig — konsistent mit bestehendem Pattern.
+
+### Dependencies
+
+Keine neuen Packages. Alles mit Tailwind CSS und bestehendem React umsetzbar.
+
 ## Technische Anforderungen
 
 - Keine Aenderungen am Datenmodell oder shared package
