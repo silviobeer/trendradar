@@ -115,6 +115,24 @@
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary);
+    font-family: var(--font-serif);
+    font-weight: 300;
+  }
+  h1 {
+    font-size: var(--text-h1);
+    line-height: var(--text-h1--line-height);
+  }
+  h2 {
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
+  }
+  h3 {
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+  }
+  body {
+    font-size: var(--text-body-lg);
+    line-height: var(--text-body-lg--line-height);
   }
   a {
     color: var(--color-primary);

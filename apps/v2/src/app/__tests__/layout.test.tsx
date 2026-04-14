@@ -66,4 +66,29 @@ describe('RootLayout', () => {
     const body = document.body
     expect(body.className).toContain('text-text-medium')
   })
+
+  // P11-US-2 AC-8: Body uses Roboto 300 (Light) as default font
+  it('body has font-sans class for Roboto font family (AC-8)', async () => {
+    vi.resetModules()
+    const { default: RootLayout } = await import('../layout')
+    render(
+      <RootLayout>
+        <div>content</div>
+      </RootLayout>
+    )
+    const body = document.body
+    expect(body.className).toContain('font-sans')
+  })
+
+  it('body has font-light class for 300 weight default (AC-8)', async () => {
+    vi.resetModules()
+    const { default: RootLayout } = await import('../layout')
+    render(
+      <RootLayout>
+        <div>content</div>
+      </RootLayout>
+    )
+    const body = document.body
+    expect(body.className).toContain('font-light')
+  })
 })

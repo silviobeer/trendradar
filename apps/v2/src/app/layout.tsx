@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className={`${roboto.variable} ${robotoSlab.variable}`}>
-      <body className="bg-bg-warm-light text-text-medium">{children}</body>
+      <body className="bg-bg-warm-light text-text-medium font-sans font-light">{children}</body>
     </html>
   );
 }

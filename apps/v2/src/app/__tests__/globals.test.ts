@@ -186,11 +186,89 @@ describe('globals.css design tokens', () => {
     })
 
     it('sets link color to var(--color-primary) (AC-6)', () => {
-      // link 'a' selector inside @layer base
-      const layerBaseStart = css.indexOf('@layer base')
-      const layerBaseEnd = css.indexOf('}', css.indexOf('}', layerBaseStart) + 1)
-      const layerBaseBlock = css.slice(layerBaseStart, layerBaseEnd + 1)
+      // link 'a' selector inside @layer base — use depth-aware extraction
+      const start = css.indexOf('@layer base')
+      let depth = 0
+      let end = start
+      for (let i = start; i < css.length; i++) {
+        if (css[i] === '{') depth++
+        if (css[i] === '}') {
+          depth--
+          if (depth === 0) { end = i; break }
+        }
+      }
+      const layerBaseBlock = css.slice(start, end + 1)
       expect(layerBaseBlock).toMatch(/\ba\b/)
+    })
+  })
+
+  // P11-US-2 AC-4/AC-5/AC-6/AC-8: Typography base styles applied via @layer base
+  describe('Typography base styles (P11-US-2)', () => {
+    // Helper: extract the full @layer base block from the CSS
+    const getLayerBaseBlock = () => {
+      const start = css.indexOf('@layer base')
+      if (start === -1) return ''
+      // Find the matching closing brace (accounting for nested braces)
+      let depth = 0
+      let end = start
+      for (let i = start; i < css.length; i++) {
+        if (css[i] === '{') depth++
+        if (css[i] === '}') {
+          depth--
+          if (depth === 0) { end = i; break }
+        }
+      }
+      return css.slice(start, end + 1)
+    }
+
+    it('sets font-family to var(--font-serif) on all headings (AC-4/AC-5/AC-6)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('font-family: var(--font-serif)')
+    })
+
+    it('sets font-weight to 300 on all headings (AC-4/AC-5/AC-6)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('font-weight: 300')
+    })
+
+    it('sets h1 font-size to var(--text-h1) (AC-4)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('font-size: var(--text-h1)')
+    })
+
+    it('sets h1 line-height to var(--text-h1--line-height) (AC-4)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('line-height: var(--text-h1--line-height)')
+    })
+
+    it('sets h2 font-size to var(--text-h2) (AC-5)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('font-size: var(--text-h2)')
+    })
+
+    it('sets h2 line-height to var(--text-h2--line-height) (AC-5)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('line-height: var(--text-h2--line-height)')
+    })
+
+    it('sets h3 font-size to var(--text-h3) (AC-6)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('font-size: var(--text-h3)')
+    })
+
+    it('sets h3 line-height to var(--text-h3--line-height) (AC-6)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('line-height: var(--text-h3--line-height)')
+    })
+
+    it('sets body font-size to var(--text-body-lg) (AC-8)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('font-size: var(--text-body-lg)')
+    })
+
+    it('sets body line-height to var(--text-body-lg--line-height) (AC-8)', () => {
+      const block = getLayerBaseBlock()
+      expect(block).toContain('line-height: var(--text-body-lg--line-height)')
     })
   })
 
