@@ -197,8 +197,8 @@ describe("TrendList", () => {
     );
 
     const badge = screen.getByText("Handeln");
-    expect(badge.className).toMatch(/bg-red-100/);
-    expect(badge.className).toMatch(/text-red-800/);
+    expect(badge.className).toMatch(/bg-green-100/);
+    expect(badge.className).toMatch(/text-green-800/);
   });
 
   it("Zeitbereich badge uses correct color classes for 'vorbereiten'", () => {

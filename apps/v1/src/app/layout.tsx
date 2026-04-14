@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <body>
+      <body className="text-gray-900 bg-white">
         <BranchenFilterProvider>{children}</BranchenFilterProvider>
       </body>
     </html>

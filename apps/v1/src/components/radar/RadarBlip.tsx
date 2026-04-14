@@ -4,10 +4,11 @@ interface RadarBlipProps {
   x: number;
   y: number;
   fill: string;
+  stroke: string;
+  strokeWidth: number;
   trendSlug: string;
   trendName: string;
   visible?: boolean;
-  isMultiBranch?: boolean;
   onClick: () => void;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
@@ -24,10 +25,11 @@ export function RadarBlip({
   x,
   y,
   fill,
+  stroke,
+  strokeWidth,
   trendSlug,
   trendName,
   visible = true,
-  isMultiBranch = false,
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -42,8 +44,8 @@ export function RadarBlip({
     <polygon
       points={points}
       fill={fill}
-      stroke={isMultiBranch ? "#333" : "#fff"}
-      strokeWidth={isMultiBranch ? 2 : 1}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
       className="cursor-pointer transition-transform transition-opacity duration-300 hover:scale-[1.3]"
       style={{
         transformOrigin: `${x}px ${y}px`,

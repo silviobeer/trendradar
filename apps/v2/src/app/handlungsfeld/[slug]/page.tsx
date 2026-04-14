@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import {
   handlungsfelder,
   getHandlungsfeldBySlug,
   getTrendsByHandlungsfeld,
 } from "@trendradar/shared";
 import Breadcrumb from "@/components/navigation/Breadcrumb";
-import { Button } from "@/components/ui/Button";
 import { BranchenFilter } from "@/components/filter/BranchenFilter";
 import { TrendList } from "@/components/trends/TrendList";
 import { ContentLayout, SectionDivider } from "@/components/layout/ContentLayout";
@@ -35,9 +35,12 @@ export default async function HandlungsfeldPage({ params }: Props) {
       <h1 className="mt-6">{hf.name}</h1>
       <p className="mt-4">{hf.beschreibung}</p>
       <div className="mt-8">
-        <a href="#trendliste">
-          <Button variant="primary">Trends anzeigen</Button>
-        </a>
+        <Link
+          href="#trendliste"
+          className="inline-flex items-center rounded-md bg-accent px-6 py-2.5 font-normal text-nav text-white transition-colors hover:bg-accent-rollover"
+        >
+          Trends anzeigen
+        </Link>
       </div>
       <div className="mt-8" id="trendliste">
         <BranchenFilter />

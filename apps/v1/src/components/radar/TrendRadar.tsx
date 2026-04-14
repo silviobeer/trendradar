@@ -20,6 +20,15 @@ const VIEWBOX_SIZE = 600;
 const ZOOM_STEPS = [1, 1.5, 2, 3] as const;
 const ZOOM_LABELS = ["1×", "1.5×", "2×", "3×"] as const;
 
+const COLORS = {
+  ringStroke: "#ccc",
+  dividerStroke: "#bbb",
+  ringLabel: "#6b7280",     // gray-500
+  segmentLabel: "#374151",  // gray-700
+  multiBranchFill: "#666",
+  multiBranchStroke: "#333",
+} as const;
+
 /** Ring definitions: label, inner radius, outer radius, fill color */
 const RINGS = [
   { label: "BEOBACHTEN", rInner: 210, rOuter: 270, fill: "#edf1f5" },
@@ -64,9 +73,9 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
   function getBlipColor(blip: BlipPosition): string {
     if (blip.branchenIds.length === 1) {
       const b = brancheMap.get(blip.branchenIds[0]);
-      return b?.farbe ?? "#666";
+      return b?.farbe ?? COLORS.multiBranchFill;
     }
-    return "#666";
+    return COLORS.multiBranchFill;
   }
 
   function handleBlipClick(slug: string) {
@@ -100,7 +109,7 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
             cy={CENTER}
             r={ring.rOuter}
             fill={ring.fill}
-            stroke="#ccc"
+            stroke={COLORS.ringStroke}
             strokeWidth={0.5}
           />
         ))}
@@ -121,7 +130,7 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
               y1={CENTER}
               x2={x2}
               y2={y2}
-              stroke="#bbb"
+              stroke={COLORS.dividerStroke}
               strokeWidth={1}
               strokeDasharray="4 3"
             />
@@ -140,7 +149,7 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
               dominantBaseline="middle"
               fontSize={9}
               fontWeight={600}
-              fill="#6b7280"
+              fill={COLORS.ringLabel}
               letterSpacing="0.1em"
             >
               {ring.label}
@@ -164,13 +173,13 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
               dominantBaseline="middle"
               fontSize={11}
               fontWeight={600}
-              fill="#374151"
+              fill={COLORS.segmentLabel}
               className="cursor-pointer hover:fill-blue-600"
               onClick={() => handleSegmentClick(hf.slug)}
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
-                if (e.key === "Enter") handleSegmentClick(hf.slug);
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleSegmentClick(hf.slug); }
               }}
             >
               {hf.name}
@@ -181,16 +190,18 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
         {/* Blips */}
         {blipPositions.map((blip) => {
           const visible = isTrendVisible({ branchenIds: blip.branchenIds });
+          const isMulti = blip.branchenIds.length > 1;
           return (
             <RadarBlip
               key={`${blip.trendId}-${blip.handlungsfeldId}`}
               x={blip.x}
               y={blip.y}
               fill={getBlipColor(blip)}
+              stroke={isMulti ? COLORS.multiBranchStroke : "#fff"}
+              strokeWidth={isMulti ? 2 : 1}
               trendSlug={blip.trendSlug}
               trendName={blip.trendName}
               visible={visible}
-              isMultiBranch={blip.branchenIds.length > 1}
               onClick={() => handleBlipClick(blip.trendSlug)}
               onMouseEnter={() =>
                 setTooltip({ visible: true, x: blip.x, y: blip.y, name: blip.trendName })
@@ -209,7 +220,7 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
           aria-label="Herauszoomen"
           onClick={() => setZoomIndex((i) => Math.max(0, i - 1))}
           disabled={zoomIndex === 0}
-          className="bg-white border border-gray-200 rounded-md px-2 py-1 text-sm shadow-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50"
+          className="bg-white border border-gray-200 rounded-md px-2 py-1 text-sm shadow-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
         >
           −
         </button>
@@ -220,7 +231,7 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
           aria-label="Hineinzoomen"
           onClick={() => setZoomIndex((i) => Math.min(ZOOM_STEPS.length - 1, i + 1))}
           disabled={zoomIndex === ZOOM_STEPS.length - 1}
-          className="bg-white border border-gray-200 rounded-md px-2 py-1 text-sm shadow-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50"
+          className="bg-white border border-gray-200 rounded-md px-2 py-1 text-sm shadow-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
         >
           +
         </button>
@@ -228,7 +239,7 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
           <button
             aria-label="Zoom zurücksetzen"
             onClick={() => setZoomIndex(0)}
-            className="bg-white border border-gray-200 rounded-md px-2 py-1 text-xs shadow-sm hover:bg-gray-50"
+            className="bg-white border border-gray-200 rounded-md px-2 py-1 text-xs shadow-sm hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
             ↺
           </button>

@@ -8,6 +8,7 @@ import {
 } from "@trendradar/shared";
 import type { Trend } from "@trendradar/shared";
 import { PageHeader } from "@/components/navigation/PageHeader";
+import { ZeitrahmenBadge } from "@/components/trends/ZeitrahmenBadge";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -17,18 +18,6 @@ const ZEITRAHMEN_ORDER: Record<string, number> = {
   handeln: 0,
   vorbereiten: 1,
   beobachten: 2,
-};
-
-const ZEITRAHMEN_LABELS: Record<string, string> = {
-  handeln: "Handeln",
-  vorbereiten: "Vorbereiten",
-  beobachten: "Beobachten",
-};
-
-const ZEITRAHMEN_COLORS: Record<string, string> = {
-  handeln: "bg-red-100 text-red-800",
-  vorbereiten: "bg-yellow-100 text-yellow-800",
-  beobachten: "bg-blue-100 text-blue-800",
 };
 
 export async function generateStaticParams() {
@@ -59,7 +48,7 @@ export default async function MegatrendPage({ params }: Props) {
       <PageHeader breadcrumbItems={breadcrumbItems} backHref="/" />
 
       <article>
-        <h1 className="mt-4 text-3xl font-bold text-gray-900">
+        <h1 className="mt-4 text-2xl font-bold sm:text-3xl text-gray-900">
           Megatrend: {megatrend.name}
         </h1>
         <p className="mt-4 text-base leading-relaxed text-gray-700">
@@ -89,11 +78,7 @@ export default async function MegatrendPage({ params }: Props) {
                   >
                     {trend.name}
                   </Link>
-                  <span
-                    className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${ZEITRAHMEN_COLORS[trend.zeitrahmen]}`}
-                  >
-                    {ZEITRAHMEN_LABELS[trend.zeitrahmen]}
-                  </span>
+                  <ZeitrahmenBadge zeitrahmen={trend.zeitrahmen} />
                   {handlungsfelder.length > 0 && (
                     <span className="text-xs text-gray-500">
                       {handlungsfelder.map((h) => h.name).join(", ")}

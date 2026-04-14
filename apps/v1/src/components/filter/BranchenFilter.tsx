@@ -3,6 +3,8 @@
 import type { Branche } from "@trendradar/shared";
 import { useBranchenFilter } from "@/contexts/BranchenFilterContext";
 
+const INACTIVE_TEXT_COLOR = "#6b7280"; // gray-500
+
 interface BranchenFilterProps {
   branchen: Branche[];
 }
@@ -27,12 +29,12 @@ export function BranchenFilter({ branchen }: BranchenFilterProps) {
                 ? {
                     backgroundColor: branche.farbe,
                     borderColor: branche.farbe,
-                    color: "#fff",
+                    color: "white",
                   }
                 : {
                     backgroundColor: "transparent",
                     borderColor: branche.farbe,
-                    color: "#6b7280",
+                    color: INACTIVE_TEXT_COLOR,
                   }
             }
           >

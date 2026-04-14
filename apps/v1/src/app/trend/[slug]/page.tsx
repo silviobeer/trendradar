@@ -9,6 +9,7 @@ import {
 import { PageHeader } from "@/components/navigation/PageHeader";
 import { ReflexionsFragen } from "@/components/trends/ReflexionsFragen";
 import { MetaTags } from "@/components/trends/MetaTags";
+import { ZeitrahmenBadge } from "@/components/trends/ZeitrahmenBadge";
 
 export async function generateStaticParams() {
   const trends = getAllTrends();
@@ -18,21 +19,6 @@ export async function generateStaticParams() {
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
-
-const zeitrahmenConfig = {
-  handeln: {
-    label: "Handeln",
-    classes: "bg-red-100 text-red-800 border border-red-200",
-  },
-  vorbereiten: {
-    label: "Vorbereiten",
-    classes: "bg-yellow-100 text-yellow-800 border border-yellow-200",
-  },
-  beobachten: {
-    label: "Beobachten",
-    classes: "bg-blue-100 text-blue-800 border border-blue-200",
-  },
-} as const;
 
 export default async function TrendDetailPage({ params }: PageProps) {
   const { slug } = await params;
@@ -61,8 +47,6 @@ export default async function TrendDetailPage({ params }: PageProps) {
     { label: `Trend: ${trend.name}`, href: `/trend/${trend.slug}` },
   ];
 
-  const zeitrahmen = zeitrahmenConfig[trend.zeitrahmen];
-
   const handlungsfeldItems = handlungsfelder.map((hf) => ({
     label: hf.name,
     href: `/handlungsfeld/${hf.slug}`,
@@ -88,11 +72,7 @@ export default async function TrendDetailPage({ params }: PageProps) {
           <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
             Trend: {trend.name}
           </h1>
-          <span
-            className={`inline-flex items-center self-start rounded-full px-3 py-1 text-sm font-medium ${zeitrahmen.classes}`}
-          >
-            {zeitrahmen.label}
-          </span>
+          <ZeitrahmenBadge zeitrahmen={trend.zeitrahmen} className="self-start" />
         </div>
 
         {/* Beschreibung */}

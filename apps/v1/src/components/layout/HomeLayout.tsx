@@ -49,7 +49,7 @@ export function HomeLayout({
         {/* Left sidebar — inline, desktop only */}
         <aside
           data-sidebar="left-inline"
-          className="hidden lg:block w-full max-w-[160px] overflow-y-auto border-r border-gray-200 bg-white p-2"
+          className="hidden lg:block w-full max-w-[160px] overflow-y-auto border-r border-gray-200 bg-white p-3"
         >
           <NeusteEntwicklungen trends={neusteTrends} />
         </aside>
@@ -62,12 +62,12 @@ export function HomeLayout({
             aria-label="Neueste Entwicklungen einblenden"
             aria-expanded={leftOpen}
             onClick={() => setLeftOpen(true)}
-            className="lg:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-md p-1.5 shadow-sm"
+            className="lg:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-md p-2.5 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -88,12 +88,12 @@ export function HomeLayout({
             aria-label="Megatrends einblenden"
             aria-expanded={rightOpen}
             onClick={() => setRightOpen(true)}
-            className="lg:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-md p-1.5 shadow-sm"
+            className="lg:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-md p-2.5 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -110,7 +110,7 @@ export function HomeLayout({
         {/* Right sidebar — inline, desktop only */}
         <aside
           data-sidebar="right-inline"
-          className="hidden lg:block w-full max-w-[160px] overflow-y-auto border-l border-gray-200 bg-white p-2"
+          className="hidden lg:block w-full max-w-[160px] overflow-y-auto border-l border-gray-200 bg-white p-3"
         >
           <MegatrendSidebar megatrends={megatrends} />
         </aside>
@@ -124,12 +124,11 @@ export function HomeLayout({
       {/* Left overlay sidebar — mobile (outside grid, uses position: fixed) */}
       {leftOpen && (
         <>
-          <div
+          <button
+            type="button"
             data-testid="overlay-backdrop-left"
-            className="fixed inset-0 z-40 bg-black/40"
+            className="fixed inset-0 z-40 bg-black/40 cursor-default"
             onClick={() => setLeftOpen(false)}
-            role="button"
-            tabIndex={0}
             onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setLeftOpen(false); }}
             aria-label="Sidebar schliessen"
           />
@@ -141,7 +140,7 @@ export function HomeLayout({
               data-action="close"
               aria-label="Sidebar schliessen"
               onClick={() => setLeftOpen(false)}
-              className="mb-4 flex items-center justify-end w-full text-gray-500 hover:text-gray-900"
+              className="mb-4 flex items-center justify-end w-full text-gray-500 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -167,12 +166,11 @@ export function HomeLayout({
       {/* Right overlay sidebar — mobile (outside grid, uses position: fixed) */}
       {rightOpen && (
         <>
-          <div
+          <button
+            type="button"
             data-testid="overlay-backdrop-right"
-            className="fixed inset-0 z-40 bg-black/40"
+            className="fixed inset-0 z-40 bg-black/40 cursor-default"
             onClick={() => setRightOpen(false)}
-            role="button"
-            tabIndex={0}
             onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setRightOpen(false); }}
             aria-label="Sidebar schliessen"
           />
@@ -184,7 +182,7 @@ export function HomeLayout({
               data-action="close"
               aria-label="Sidebar schliessen"
               onClick={() => setRightOpen(false)}
-              className="mb-4 flex items-center justify-end w-full text-gray-500 hover:text-gray-900"
+              className="mb-4 flex items-center justify-end w-full text-gray-500 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

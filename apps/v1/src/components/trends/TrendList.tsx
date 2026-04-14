@@ -2,31 +2,21 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import type { Trend, Zeitrahmen } from "@trendradar/shared";
+import type { Trend } from "@trendradar/shared";
 import { useBranchenFilter } from "@/contexts/BranchenFilterContext";
+import { ZeitrahmenBadge } from "@/components/trends/ZeitrahmenBadge";
 
 interface TrendListProps {
   handlungsfeldName: string;
   trends: Trend[];
 }
 
-const ZEITRAHMEN_LABELS: Record<Zeitrahmen, string> = {
-  handeln: "Handeln",
-  vorbereiten: "Vorbereiten",
-  beobachten: "Beobachten",
-};
-
-const ZEITRAHMEN_CLASSES: Record<Zeitrahmen, string> = {
-  handeln: "bg-red-100 text-red-800",
-  vorbereiten: "bg-yellow-100 text-yellow-800",
-  beobachten: "bg-blue-100 text-blue-800",
-};
-
 export function TrendList({ handlungsfeldName, trends }: TrendListProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { isTrendVisible } = useBranchenFilter();
 
   const visibleTrends = trends.filter(isTrendVisible);
+  const listId = `trendlist-${handlungsfeldName.toLowerCase().replace(/\s+/g, "-")}`;
 
   return (
     <section>
@@ -35,6 +25,7 @@ export function TrendList({ handlungsfeldName, trends }: TrendListProps) {
         onClick={() => setIsOpen((prev) => !prev)}
         className="flex items-center gap-2 rounded px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
         aria-expanded={isOpen}
+        aria-controls={listId}
       >
         <span>
           {isOpen
@@ -57,7 +48,7 @@ export function TrendList({ handlungsfeldName, trends }: TrendListProps) {
       </button>
 
       {isOpen && (
-        <ul className="mt-2 flex flex-col gap-1" role="list">
+        <ul id={listId} className="mt-2 flex flex-col gap-1" role="list">
           {visibleTrends.map((trend) => (
             <li
               key={trend.id}
@@ -69,10 +60,8 @@ export function TrendList({ handlungsfeldName, trends }: TrendListProps) {
               >
                 {trend.name}
               </Link>
-              <span
-                className={`ml-3 shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${ZEITRAHMEN_CLASSES[trend.zeitrahmen]}`}
-              >
-                {ZEITRAHMEN_LABELS[trend.zeitrahmen]}
+              <span className="ml-3 shrink-0">
+                <ZeitrahmenBadge zeitrahmen={trend.zeitrahmen} />
               </span>
             </li>
           ))}
