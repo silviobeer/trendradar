@@ -1,1 +1,122 @@
 @import "tailwindcss";
+
+@theme {
+  /* =====================================================
+     PRIMARY — Navy scale
+     ===================================================== */
+  --color-primary: #003060;
+  --color-primary-120: #002854;
+  --color-primary-80: #335980;
+  --color-primary-60: #6683a0;
+  --color-primary-40: #99acbf;
+  --color-primary-20: #ccd6df;
+  --color-primary-10: #e5eaef;
+
+  /* =====================================================
+     ACCENT — Orange
+     ===================================================== */
+  --color-accent: #F59702;
+  --color-accent-rollover: #F7AC35;
+
+  /* =====================================================
+     TEXT
+     ===================================================== */
+  --color-text-dark: #003060;
+  --color-text-medium: #363636;
+  --color-text-light: rgba(54, 54, 54, 0.85);
+
+  /* =====================================================
+     BACKGROUNDS — warm beige tones
+     ===================================================== */
+  --color-bg-warm-light: #F5F3F1;
+  --color-bg-warm-medium: #EAE7E3;
+
+  /* =====================================================
+     BUTTONS
+     ===================================================== */
+  --color-button-light: #EAE7E3;
+  --color-button-medium: #E0DBD6;
+  --color-button-dark: #D6CFC8;
+
+  /* =====================================================
+     PRIMARY LIGHT — warm beige scale
+     ===================================================== */
+  --color-primary-light-120: #8C7B68;
+  --color-primary-light-100: #988875;
+  --color-primary-light-80: #ADA091;
+  --color-primary-light-60: #C1B8AC;
+  --color-primary-light-40: #D6CFC8;
+  --color-primary-light-20: #EAE7E3;
+  --color-primary-light-10: #F5F3F1;
+
+  /* =====================================================
+     ERROR
+     ===================================================== */
+  --color-error: #C30017;
+
+  /* =====================================================
+     HANDLUNGSFELDER
+     ===================================================== */
+  --color-hf-klientel: #5A8A3C;
+  --color-hf-mitarbeitende: #335980;
+  --color-hf-extern: #8C7B68;
+  --color-hf-betrieb: #3D7A80;
+
+  /* =====================================================
+     BRANCHEN (ARTISET member organisations)
+     ===================================================== */
+  --color-brand-curaviva: #207003;
+  --color-brand-insos: #B8032C;
+  --color-brand-youvita: #2D518C;
+
+  /* =====================================================
+     RADAR RINGS — semantic tokens
+     ===================================================== */
+  --color-ring-handeln: #ccd6df;
+  --color-ring-vorbereiten: #e5eaef;
+  --color-ring-beobachten: #F5F3F1;
+  --color-ring-border: #6683a0;
+
+  /* =====================================================
+     TYPOGRAPHY — Font families (P11-US-3 AC-11)
+     --font-body / --font-heading are set on <html> by next/font
+     --font-sans / --font-serif are Tailwind v4 theme tokens that
+     reference those CSS variables, generating font-sans/font-serif
+     utility classes backed by Roboto and Roboto Slab.
+     ===================================================== */
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-heading), ui-serif, Georgia, serif;
+
+  /* =====================================================
+     TYPOGRAPHY — Font size scale (P11-US-3 AC-12)
+     The --text-*--line-height convention is Tailwind v4's way
+     to associate a line-height with a named font-size token.
+     ===================================================== */
+  --text-h1: 54px;
+  --text-h1--line-height: 62px;
+  --text-h2: 32px;
+  --text-h2--line-height: 38px;
+  --text-h3: 24px;
+  --text-h3--line-height: 30px;
+  --text-nav: 16px;
+  --text-body-lg: 20px;
+  --text-body-lg--line-height: 32px;
+  --text-small: 14px;
+  --text-small--line-height: 20px;
+  --text-tag: 12px;
+}
+
+/* =====================================================
+   BASE STYLES — P10-US-2 AC-6/AC-7
+   Headings and links use Navy (#003060) via --color-primary.
+   Body text color is handled via the bg-bg-warm-light and
+   text-text-medium classes on <body> in layout.tsx.
+   ===================================================== */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-primary);
+  }
+  a {
+    color: var(--color-primary);
+  }
+}
