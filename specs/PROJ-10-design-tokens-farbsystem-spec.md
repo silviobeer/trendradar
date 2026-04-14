@@ -4,7 +4,9 @@
 
 ## Kontext
 
-Die aktuellen Farben im Trendradar sind Platzhalter und entsprechen nicht der ARTISET Corporate Identity. Dieses Feature fuehrt ein CI-konformes Farbsystem als CSS Custom Properties / Tailwind-Theme ein und korrigiert die Verbandsfarben in den Seed-Daten.
+Die aktuellen Farben im Trendradar (apps/v1) sind Platzhalter und entsprechen nicht der ARTISET Corporate Identity. Dieses Feature fuehrt ein CI-konformes Farbsystem als CSS Custom Properties / Tailwind-Theme ein und korrigiert die Verbandsfarben in den Seed-Daten.
+
+**Scope: Neue App `apps/v2`** — PROJ-10 bis PROJ-13 werden als neue App im Monorepo umgesetzt. `apps/v1` bleibt als funktionale Referenz erhalten. `packages/shared` (Daten, Types, Data-Access-Layer) wird von v2 wiederverwendet.
 
 ## Abhaengigkeiten
 
@@ -81,6 +83,9 @@ Die aktuellen Farben im Trendradar sind Platzhalter und entsprechen nicht der AR
 
 ## Technische Anforderungen
 
+- **Neue App `apps/v2`** als Next.js 15 App Router Projekt im Monorepo anlegen
 - Tailwind CSS v4 Token-System nutzen (CSS Custom Properties in globals.css oder @theme Direktive)
-- Seed-Daten in packages/shared/data/ muessen die korrekten Verbandsfarben enthalten
-- Bestehende Tests muessen nach Farb-Update angepasst werden
+- Design-Tokens leben in `apps/v2/src/app/globals.css` (nicht in packages/shared — UI-spezifisch)
+- Seed-Daten in `packages/shared/data/` muessen die korrekten Verbandsfarben enthalten (wirkt auf v1 und v2)
+- Bestehende Tests in packages/shared muessen nach Farb-Update angepasst werden
+- `apps/v2` importiert `@trendradar/shared` fuer Daten und Types

@@ -4,11 +4,13 @@
 
 ## Kontext
 
-Der Trendradar verwendet aktuell Tailwinds Standard-Fonts (System-Fonts). Die ARTISET CI schreibt Roboto Slab (Serif, Ueberschriften) und Roboto (Sans-Serif, Fliesstext) vor — beide in auffallend leichtem Gewicht (300/Light). Die Fonts muessen self-hosted eingebunden werden (DSGVO-konform, keine Google-Fonts-Links).
+Der Trendradar v1 verwendet Tailwinds Standard-Fonts (System-Fonts). Die ARTISET CI schreibt Roboto Slab (Serif, Ueberschriften) und Roboto (Sans-Serif, Fliesstext) vor — beide in auffallend leichtem Gewicht (300/Light). Die Fonts muessen self-hosted eingebunden werden (DSGVO-konform, keine Google-Fonts-Links).
+
+**Scope: `apps/v2`** — Fonts werden in der neuen v2 App eingebunden. v1 bleibt unveraendert.
 
 ## Abhaengigkeiten
 
-- Benoetigt: PROJ-10 (Design-Tokens fuer Text-Farben)
+- Benoetigt: PROJ-10 (Design-Tokens fuer Text-Farben, v2 App-Setup)
 
 ## User Stories
 
@@ -58,6 +60,7 @@ Der Trendradar verwendet aktuell Tailwinds Standard-Fonts (System-Fonts). Die AR
 
 ## Technische Anforderungen
 
-- Fonts als WOFF2 (Variable Font) in apps/v1/public/fonts/ ablegen
+- Fonts als WOFF2 (Variable Font) in `apps/v2/public/fonts/` ablegen
 - Next.js `next/font/local` fuer optimiertes Font-Loading verwenden
 - DSGVO-konform: Self-hosted, keine externen Font-Requests
+- v1 bleibt mit System-Fonts unveraendert

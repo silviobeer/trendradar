@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typografie — PROJ-11 (Mockup)</title>
+<!-- Google Fonts fuer Mockup-Vorschau (Produktion: self-hosted) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Roboto', sans-serif; font-weight: 300; background: #F5F3F1; color: #363636; line-height: 1.6; }
+
+  .mockup-banner { background: #fff3cd; padding: 8px 16px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0d5a8; font-family: -apple-system, sans-serif; }
+  .mockup-banner a { color: #856404; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+  .spec-ref { display: inline-block; background: #e5eaef; color: #003060; font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: 600; font-family: -apple-system, sans-serif; margin-left: 8px; }
+
+  h1 { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 54px; line-height: 62px; color: #003060; margin-bottom: 8px; }
+  .subtitle { color: #6683a0; font-size: 14px; margin-bottom: 40px; }
+  h2 { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 32px; line-height: 38px; color: #003060; margin: 48px 0 16px; border-bottom: 1px solid #6683a0; padding-bottom: 8px; }
+  h3 { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 24px; line-height: 30px; color: #003060; margin: 24px 0 12px; }
+
+  /* Type specimen cards */
+  .specimen { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,48,96,0.08); margin: 16px 0; overflow: hidden; }
+  .specimen-header { background: #e5eaef; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; }
+  .specimen-label { font-family: -apple-system, sans-serif; font-size: 12px; font-weight: 600; color: #003060; }
+  .specimen-meta { font-family: monospace; font-size: 11px; color: #6683a0; }
+  .specimen-body { padding: 24px; }
+
+  /* Scale table */
+  .scale-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  .scale-table th { text-align: left; padding: 10px 12px; background: #e5eaef; font-family: -apple-system, sans-serif; font-size: 12px; font-weight: 600; color: #003060; }
+  .scale-table td { padding: 12px; border-bottom: 1px solid #EAE7E3; vertical-align: middle; }
+  .scale-table .preview-cell { max-width: 400px; }
+
+  /* Comparison */
+  .compare { display: flex; gap: 24px; margin: 16px 0; flex-wrap: wrap; }
+  .compare-box { flex: 1; min-width: 300px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,48,96,0.08); padding: 24px; }
+  .compare-box h4 { font-family: -apple-system, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6683a0; margin-bottom: 16px; }
+
+  /* Note box */
+  .note { background: #FBD59A; border-radius: 8px; padding: 16px; font-size: 13px; color: #764300; margin: 16px 0; font-family: -apple-system, sans-serif; }
+  .note strong { color: #003060; }
+
+  /* State sections */
+  .state-section { margin-top: 40px; padding: 20px; background: white; border: 2px dashed #ccd6df; border-radius: 8px; }
+  .state-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6683a0; margin-bottom: 12px; font-family: -apple-system, sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- Mockup Banner -->
+<div class="mockup-banner">
+  <span><strong>MOCKUP</strong> — Typografie · PROJ-11</span>
+  <span><a href="PROJ-10-design-tokens.html">PROJ-10 Farben</a> · <a href="PROJ-12-ui-komponenten.html">PROJ-12 Komponenten</a> · <a href="sitemap.html">&larr; Sitemap</a></span>
+</div>
+
+<div class="container">
+
+<h1>Typografie <span class="spec-ref">PROJ-11</span></h1>
+<p class="subtitle">Roboto Slab (Ueberschriften) + Roboto (Fliesstext) — ARTISET CI, self-hosted, DSGVO-konform</p>
+
+<div class="note">
+  <strong>Hinweis:</strong> Dieses Mockup laed die Fonts von Google Fonts zur Vorschau. In der Produktion werden sie als Variable Fonts (WOFF2) self-hosted via <code>next/font/local</code> eingebunden. Keine externen Requests.
+</div>
+
+<!-- ==================== SECTION: Font Families ==================== -->
+
+<h2>Schriftfamilien <span class="spec-ref">US-1 / AC-1-3</span></h2>
+
+<div class="compare">
+  <div class="compare-box">
+    <h4>Roboto Slab — Ueberschriften</h4>
+    <p style="font-family:'Roboto Slab',serif; font-weight:300; font-size:32px; color:#003060; line-height:1.2; margin-bottom:12px;">
+      Trendradar ARTISET
+    </p>
+    <p style="font-family:'Roboto Slab',serif; font-weight:300; font-size:20px; color:#003060; line-height:1.4;">
+      Wuerdevoll — Warm — Zurueckhaltend
+    </p>
+    <p style="font-family:monospace; font-size:11px; color:#6683a0; margin-top:12px;">
+      Slab Serif · Variable Font (100-900) · Primaer: 300 (Light)
+    </p>
+  </div>
+  <div class="compare-box">
+    <h4>Roboto — Fliesstext</h4>
+    <p style="font-family:'Roboto',sans-serif; font-weight:300; font-size:20px; color:#363636; line-height:1.6; margin-bottom:12px;">
+      Das interaktive Trend-Tool hilft Ihnen, gesellschaftliche Entwicklungen zu erkennen und strategisch einzuordnen.
+    </p>
+    <p style="font-family:monospace; font-size:11px; color:#6683a0; margin-top:12px;">
+      Sans Serif · Variable Font (100-900) · Primaer: 300 (Light)
+    </p>
+  </div>
+</div>
+
+<!-- ==================== SECTION: Type Scale ==================== -->
+
+<h2>Typografie-Skala <span class="spec-ref">US-2 / AC-4-10</span></h2>
+
+<table class="scale-table">
+  <tr>
+    <th style="width:140px;">Element</th>
+    <th style="width:180px;">Font / Gewicht</th>
+    <th style="width:100px;">Groesse</th>
+    <th>Vorschau</th>
+  </tr>
+  <tr>
+    <td><span class="spec-ref">AC-4</span> H1</td>
+    <td>Roboto Slab / 300</td>
+    <td>54px / 62px</td>
+    <td class="preview-cell" style="font-family:'Roboto Slab',serif; font-weight:300; font-size:54px; line-height:62px; color:#003060;">Seitentitel</td>
+  </tr>
+  <tr>
+    <td><span class="spec-ref">AC-5</span> H2</td>
+    <td>Roboto Slab / 300</td>
+    <td>32px / 38px</td>
+    <td class="preview-cell" style="font-family:'Roboto Slab',serif; font-weight:300; font-size:32px; line-height:38px; color:#003060;">Sektions-Titel</td>
+  </tr>
+  <tr>
+    <td><span class="spec-ref">AC-6</span> H3</td>
+    <td>Roboto Slab / 300</td>
+    <td>24px / 30px</td>
+    <td class="preview-cell" style="font-family:'Roboto Slab',serif; font-weight:300; font-size:24px; line-height:30px; color:#003060;">Karten-Titel</td>
+  </tr>
+  <tr>
+    <td><span class="spec-ref">AC-7</span> Navigation</td>
+    <td>Roboto Slab / 400</td>
+    <td>16px</td>
+    <td class="preview-cell" style="font-family:'Roboto Slab',serif; font-weight:400; font-size:16px; color:#003060;">Startseite &nbsp; Handlungsfelder &nbsp; Megatrends</td>
+  </tr>
+  <tr>
+    <td><span class="spec-ref">AC-8</span> Body</td>
+    <td>Roboto / 300</td>
+    <td>20px / 32px</td>
+    <td class="preview-cell" style="font-family:'Roboto',sans-serif; font-weight:300; font-size:20px; line-height:32px; color:#363636;">Der Trendradar macht gesellschaftliche Trends sichtbar und hilft bei der strategischen Einordnung.</td>
+  </tr>
+  <tr>
+    <td><span class="spec-ref">AC-9</span> Small/Meta</td>
+    <td>Roboto / 300</td>
+    <td>14px / 20px</td>
+    <td class="preview-cell" style="font-family:'Roboto',sans-serif; font-weight:300; font-size:14px; line-height:20px; color:rgba(54,54,54,0.85);">Erstellt am 14. April 2026 &middot; 3 Handlungsfelder</td>
+  </tr>
+  <tr>
+    <td><span class="spec-ref">AC-10</span> Tags</td>
+    <td>Roboto / 400</td>
+    <td>12px</td>
+    <td class="preview-cell">
+      <span style="font-family:'Roboto',sans-serif; font-weight:400; font-size:12px; background:#e5eaef; color:#003060; padding:3px 8px; border-radius:4px;">Handlungsfeld</span>
+      <span style="font-family:'Roboto',sans-serif; font-weight:400; font-size:12px; background:#003060; color:white; padding:3px 8px; border-radius:4px;">Handeln</span>
+    </td>
+  </tr>
+</table>
+
+<!-- ==================== SECTION: Weight Comparison ==================== -->
+
+<h2>Gewichts-Vergleich: Light vs. Regular vs. Bold</h2>
+<p style="font-size:14px; color:#6683a0; margin-bottom:16px;">ARTISET nutzt bewusst Light (300) — das wirkt elegant und einladend statt autoritaer:</p>
+
+<div class="specimen">
+  <div class="specimen-header">
+    <span class="specimen-label">Roboto Slab — Gewichtsvergleich</span>
+  </div>
+  <div class="specimen-body">
+    <p style="font-family:'Roboto Slab',serif; font-weight:100; font-size:28px; color:#003060; margin-bottom:8px;">Thin (100) — Zu leicht fuer Produktion</p>
+    <p style="font-family:'Roboto Slab',serif; font-weight:300; font-size:28px; color:#003060; margin-bottom:8px; background:rgba(245,151,2,0.08); padding:4px 8px; border-radius:4px;"><strong style="font-weight:300;">Light (300) — ARTISET Standard &#10003;</strong></p>
+    <p style="font-family:'Roboto Slab',serif; font-weight:400; font-size:28px; color:#003060; margin-bottom:8px;">Regular (400) — Nur fuer Navigation</p>
+    <p style="font-family:'Roboto Slab',serif; font-weight:700; font-size:28px; color:#003060;">Bold (700) — Nicht verwendet</p>
+  </div>
+</div>
+
+<!-- ==================== SECTION: Tailwind Tokens ==================== -->
+
+<h2>Tailwind-Tokens <span class="spec-ref">US-3 / AC-11-13</span></h2>
+
+<div class="specimen">
+  <div class="specimen-header">
+    <span class="specimen-label">Geplante CSS Custom Properties / Tailwind-Klassen</span>
+    <span class="specimen-meta">globals.css / @theme</span>
+  </div>
+  <div class="specimen-body" style="font-family:monospace; font-size:13px; color:#363636; line-height:1.8; background:#f8f9fa; padding:20px; border-radius:4px;">
+    <span style="color:#6683a0;">/* Font Families */</span><br>
+    --font-heading: 'Roboto Slab', serif;<br>
+    --font-body: 'Roboto', sans-serif;<br><br>
+    <span style="color:#6683a0;">/* Tailwind Utility-Klassen */</span><br>
+    font-heading &rarr; Roboto Slab<br>
+    font-body &rarr; Roboto<br><br>
+    <span style="color:#6683a0;">/* Verwendung in Komponenten */</span><br>
+    &lt;h1 className="<span style="color:#F59702;">font-heading font-light text-[54px] leading-[62px] text-primary</span>"&gt;<br>
+    &lt;p className="<span style="color:#F59702;">font-body font-light text-xl leading-8 text-text</span>"&gt;
+  </div>
+</div>
+
+<!-- ==================== SECTION: Full Page Preview ==================== -->
+
+<h2>Seiten-Vorschau mit CI-Typografie</h2>
+
+<div style="background:white; border-radius:8px; box-shadow:0 1px 3px rgba(0,48,96,0.08); padding:40px; max-width:700px;">
+  <!-- Breadcrumb -->
+  <p style="font-family:'Roboto',sans-serif; font-weight:300; font-size:14px; line-height:20px; color:#6683a0; margin-bottom:24px;">
+    <a href="#" style="color:#003060; text-decoration:none;">Startseite</a> &gt;
+    <a href="#" style="color:#003060; text-decoration:none;">Klientinnen und Klienten</a> &gt;
+    <span style="color:#363636;">Personalisierte Betreuung</span>
+  </p>
+
+  <!-- H1 -->
+  <p style="font-family:'Roboto',sans-serif; font-weight:300; font-size:14px; color:#6683a0; margin-bottom:4px;">Trend:</p>
+  <h1 style="font-size:54px; margin-bottom:16px;">Personalisierte Betreuung</h1>
+
+  <!-- Tags -->
+  <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
+    <span style="font-family:'Roboto',sans-serif; font-weight:400; font-size:12px; background:#003060; color:white; padding:4px 10px; border-radius:4px;">Handeln</span>
+    <span style="font-family:'Roboto',sans-serif; font-weight:400; font-size:12px; background:#e5eaef; color:#003060; padding:4px 10px; border-radius:4px;">Klientinnen und Klienten</span>
+    <span style="font-family:'Roboto',sans-serif; font-weight:400; font-size:12px; background:#e5eaef; color:#003060; padding:4px 10px; border-radius:4px;">Mitarbeitende</span>
+  </div>
+
+  <hr style="border:none; border-top:1px solid #EAE7E3; margin:24px 0;">
+
+  <!-- Body text -->
+  <p style="font-family:'Roboto',sans-serif; font-weight:300; font-size:20px; line-height:32px; color:#363636; margin-bottom:24px;">
+    Die Betreuung und Begleitung von Menschen wird zunehmend individueller gestaltet. Standardisierte Angebote weichen massgeschneiderten Loesungen, die auf die spezifischen Beduerfnisse und Wuensche der Klientinnen und Klienten eingehen.
+  </p>
+
+  <hr style="border:none; border-top:1px solid #EAE7E3; margin:24px 0;">
+
+  <!-- H2 -->
+  <h2 style="border:none; margin-top:0; padding-bottom:0;">Reflexionsfragen</h2>
+  <ul style="font-family:'Roboto',sans-serif; font-weight:300; font-size:20px; line-height:32px; color:#363636; padding-left:24px; margin-top:12px;">
+    <li>Wie veraendert sich die Erwartungshaltung der Klientinnen und Klienten?</li>
+    <li style="margin-top:8px;">Welche Ressourcen braucht es fuer personalisierte Betreuung?</li>
+  </ul>
+</div>
+
+<!-- ==================== SECTION: Edge Cases ==================== -->
+
+<div class="state-section">
+  <div class="state-label">Edge Case: Font Loading (FOUT)</div>
+  <div style="display:flex; gap:16px; flex-wrap:wrap;">
+    <div style="flex:1; min-width:250px;">
+      <p style="font-size:13px; color:#666; margin-bottom:8px;"><strong>Waehrend Font-Download:</strong></p>
+      <p style="font-family:Georgia, serif; font-weight:300; font-size:28px; color:#003060;">Trendradar (Fallback Serif)</p>
+      <p style="font-family:Arial, sans-serif; font-weight:300; font-size:18px; color:#363636;">Fliesstext im System-Font (Fallback Sans)</p>
+    </div>
+    <div style="flex:1; min-width:250px;">
+      <p style="font-size:13px; color:#666; margin-bottom:8px;"><strong>Nach Font-Download:</strong></p>
+      <p style="font-family:'Roboto Slab', serif; font-weight:300; font-size:28px; color:#003060;">Trendradar (Roboto Slab)</p>
+      <p style="font-family:'Roboto', sans-serif; font-weight:300; font-size:18px; color:#363636;">Fliesstext in Roboto Light</p>
+    </div>
+  </div>
+  <p style="font-size:12px; color:#999; margin-top:8px;">Strategie: font-display: swap + Preload der Variable Fonts fuer minimalen FOUT.</p>
+</div>
+
+</div>
+</body>
+</html>

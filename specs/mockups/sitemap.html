@@ -6,9 +6,10 @@
 <title>Sitemap — Trendradar ARTISET</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #1a1a2e; padding: 40px; }
-  h1 { font-size: 24px; margin-bottom: 8px; }
-  .subtitle { color: #666; margin-bottom: 40px; font-size: 14px; }
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@100..900&display=swap');
+  body { font-family: 'Roboto', sans-serif; font-weight: 300; background: #F5F3F1; color: #363636; padding: 40px; }
+  h1 { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 32px; color: #003060; margin-bottom: 8px; }
+  .subtitle { color: #6683a0; margin-bottom: 40px; font-size: 14px; }
   .legend { display: flex; gap: 24px; margin-bottom: 32px; font-size: 13px; color: #555; }
   .legend-item { display: flex; align-items: center; gap: 6px; }
   .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
@@ -17,16 +18,16 @@
 
   /* Page boxes */
   .page { background: white; border: 2px solid #ddd; border-radius: 8px; padding: 16px 20px; min-width: 200px; text-align: center; position: relative; cursor: pointer; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s; display: block; }
-  .page:hover { border-color: #4a6fa5; box-shadow: 0 2px 12px rgba(74,111,165,0.15); }
-  .page-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
-  .page-spec { font-size: 11px; color: #888; }
+  .page:hover { border-color: #003060; box-shadow: 0 2px 12px rgba(0,48,96,0.15); }
+  .page-title { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 16px; color: #003060; margin-bottom: 4px; }
+  .page-spec { font-size: 11px; color: #6683a0; }
   .page-desc { font-size: 12px; color: #666; margin-top: 6px; }
 
   /* Color coding */
-  .page--start { border-color: #4a6fa5; border-width: 3px; }
-  .page--handlungsfeld { border-left: 4px solid #e07b39; }
-  .page--trend { border-left: 4px solid #2a9d8f; }
-  .page--megatrend { border-left: 4px solid #9b59b6; }
+  .page--start { border-color: #003060; border-width: 3px; }
+  .page--handlungsfeld { border-left: 4px solid #5A8A3C; }
+  .page--trend { border-left: 4px solid #335980; }
+  .page--megatrend { border-left: 4px solid #003060; }
 
   /* Levels */
   .level { display: flex; gap: 24px; justify-content: center; align-items: flex-start; flex-wrap: wrap; position: relative; }
@@ -51,10 +52,10 @@
 <p class="subtitle">Phase 1 Prototype · 4 Seitentypen · Frontend-only mit lokalen JSON-Daten</p>
 
 <div class="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:#4a6fa5"></div> Startseite</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#e07b39"></div> Handlungsfeld</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#2a9d8f"></div> Trend</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#9b59b6"></div> Megatrend</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#003060"></div> Startseite</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#5A8A3C"></div> Handlungsfeld</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#335980"></div> Trend</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#003060"></div> Megatrend</div>
 </div>
 
 <div class="sitemap">
@@ -120,6 +121,37 @@
     <strong>Navigation (PROJ-8):</strong><br>
     Breadcrumbs auf allen Unterseiten · Home-Button · Zurueck-Button<br>
     Branchenfilter-Zustand bleibt beim Navigieren erhalten
+  </div>
+
+  <!-- Design System (PROJ-10-13) -->
+  <div style="margin-top:40px; text-align:center;">
+    <div style="font-size:11px; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px;">Design-System (ARTISET CI)</div>
+  </div>
+
+  <div class="level">
+    <a href="PROJ-10-design-tokens.html" class="page" style="border-left:4px solid #F59702;">
+      <div class="page-title">Design-Tokens & Farbsystem</div>
+      <div class="page-spec">PROJ-10</div>
+      <div class="page-desc">Verbandsfarben · Radar-Ringe · Handlungsfeld-Farben · Beige-Toene</div>
+    </a>
+
+    <a href="PROJ-11-typografie.html" class="page" style="border-left:4px solid #F59702;">
+      <div class="page-title">Typografie</div>
+      <div class="page-spec">PROJ-11</div>
+      <div class="page-desc">Roboto Slab + Roboto · Font-Skala · DSGVO-konform</div>
+    </a>
+
+    <a href="PROJ-12-ui-komponenten.html" class="page" style="border-left:4px solid #F59702;">
+      <div class="page-title">UI-Komponenten</div>
+      <div class="page-spec">PROJ-12</div>
+      <div class="page-desc">Buttons · Tags · Karten · Filter · Breadcrumb</div>
+    </a>
+
+    <a href="PROJ-13-layouts.html" class="page" style="border-left:4px solid #F59702;">
+      <div class="page-title">Seiten-Layouts (CI)</div>
+      <div class="page-spec">PROJ-13</div>
+      <div class="page-desc">Alle 4 Seiten im ARTISET-Look</div>
+    </a>
   </div>
 
 </div>

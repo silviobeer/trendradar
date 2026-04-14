@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI-Komponenten — PROJ-12 (Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Roboto', sans-serif; font-weight: 300; background: #F5F3F1; color: #363636; line-height: 1.6; font-size: 20px; }
+
+  .mockup-banner { background: #fff3cd; padding: 8px 16px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0d5a8; font-family: -apple-system, sans-serif; }
+  .mockup-banner a { color: #856404; }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 54px; line-height: 62px; color: #003060; margin-bottom: 8px; }
+  .subtitle { color: #6683a0; font-size: 14px; margin-bottom: 40px; font-family: 'Roboto', sans-serif; }
+  h2 { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 32px; line-height: 38px; color: #003060; margin: 48px 0 16px; border-bottom: 1px solid #6683a0; padding-bottom: 8px; }
+  h3 { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 24px; line-height: 30px; color: #003060; margin: 24px 0 12px; }
+  .spec-ref { display: inline-block; background: #e5eaef; color: #003060; font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: 600; font-family: -apple-system, sans-serif; margin-left: 8px; }
+
+  /* Component showcase cards */
+  .showcase { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,48,96,0.08); margin: 16px 0; padding: 24px; }
+  .showcase-label { font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6683a0; margin-bottom: 16px; }
+  .showcase-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .showcase-row:last-child { margin-bottom: 0; }
+
+  /* Buttons */
+  .btn { display: inline-block; padding: 10px 24px; border-radius: 6px; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px; text-decoration: none; cursor: pointer; border: none; transition: background 0.2s; }
+  .btn-primary { background: #F59702; color: white; }
+  .btn-primary:hover { background: #F7AC35; }
+  .btn-secondary { background: #EAE7E3; color: #003060; }
+  .btn-secondary:hover { background: #E0DBD6; }
+  .btn-ghost { background: transparent; color: #003060; border: 1px solid #003060; }
+  .btn-ghost:hover { background: #e5eaef; }
+  .btn-label { font-family: -apple-system, sans-serif; font-size: 11px; color: #6683a0; min-width: 120px; }
+
+  /* Tags / Badges */
+  .tag { display: inline-block; padding: 4px 10px; border-radius: 4px; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 12px; white-space: nowrap; }
+  .tag-handeln { background: #003060; color: white; }
+  .tag-vorbereiten { background: #335980; color: white; }
+  .tag-beobachten { background: #ccd6df; color: #003060; }
+  .tag-handlungsfeld { background: #e5eaef; color: #003060; }
+  .tag-megatrend { background: #ccd6df; color: #003060; }
+  .tag-curaviva { background: rgba(32,112,3,0.15); color: #207003; }
+  .tag-insos { background: rgba(184,3,44,0.15); color: #B8032C; }
+  .tag-youvita { background: rgba(45,81,140,0.15); color: #2D518C; }
+
+  /* Filter toggles */
+  .filter-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 20px; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 14px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+  .filter-toggle-active-curaviva { background: #207003; color: white; border-color: #207003; }
+  .filter-toggle-active-insos { background: #B8032C; color: white; border-color: #B8032C; }
+  .filter-toggle-active-youvita { background: #2D518C; color: white; border-color: #2D518C; }
+  .filter-toggle-inactive { background: #EAE7E3; color: #363636; border-color: #EAE7E3; }
+  .filter-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  /* Cards */
+  .card { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,48,96,0.08); padding: 20px; }
+  .card-branded { border-left: 4px solid; }
+
+  /* Breadcrumb */
+  .breadcrumb { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 14px; line-height: 20px; }
+  .breadcrumb a { color: #003060; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb .current { color: #363636; }
+  .breadcrumb .sep { color: #6683a0; margin: 0 6px; }
+
+  /* Trend list item */
+  .trend-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #EAE7E3; cursor: pointer; }
+  .trend-item:hover { background: #F5F3F1; }
+  .trend-icon { width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 14px solid; }
+  .trend-name { flex: 1; font-size: 16px; font-weight: 300; color: #003060; }
+  .trend-branches { display: flex; gap: 4px; }
+  .trend-branch-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  /* State section */
+  .state-section { margin-top: 32px; padding: 20px; background: white; border: 2px dashed #ccd6df; border-radius: 8px; }
+  .state-label { font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6683a0; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<!-- Mockup Banner -->
+<div class="mockup-banner">
+  <span><strong>MOCKUP</strong> — UI-Komponenten · PROJ-12</span>
+  <span><a href="PROJ-10-design-tokens.html">PROJ-10 Farben</a> · <a href="PROJ-11-typografie.html">PROJ-11 Typo</a> · <a href="PROJ-13-layouts.html">PROJ-13 Layouts</a> · <a href="sitemap.html">&larr; Sitemap</a></span>
+</div>
+
+<div class="container">
+
+<h1>UI-Komponenten <span class="spec-ref">PROJ-12</span></h1>
+<p class="subtitle">Alle Komponenten im ARTISET CI-Styling — Buttons, Tags, Karten, Filter, Breadcrumb</p>
+
+<!-- ==================== SECTION: Buttons ==================== -->
+
+<h2>Buttons <span class="spec-ref">US-1 / AC-1-5</span></h2>
+
+<div class="showcase">
+  <div class="showcase-row">
+    <span class="btn-label">Primary CTA <span class="spec-ref">AC-1</span></span>
+    <button class="btn btn-primary">Trends anzeigen</button>
+    <button class="btn btn-primary" style="background:#F7AC35;">Trends anzeigen (Hover) <span class="spec-ref">AC-2</span></button>
+  </div>
+  <div class="showcase-row">
+    <span class="btn-label">Secondary <span class="spec-ref">AC-3</span></span>
+    <button class="btn btn-secondary">Zurueck</button>
+    <button class="btn btn-secondary" style="background:#E0DBD6;">Zurueck (Hover) <span class="spec-ref">AC-4</span></button>
+  </div>
+  <div class="showcase-row">
+    <span class="btn-label">Ghost <span class="spec-ref">AC-5</span></span>
+    <button class="btn btn-ghost">Home</button>
+    <button class="btn btn-ghost" style="background:#e5eaef;">Home (Hover)</button>
+  </div>
+</div>
+
+<!-- ==================== SECTION: Zeitbereich-Badges ==================== -->
+
+<h2>Zeitbereich-Badges <span class="spec-ref">US-2 / AC-6-8</span></h2>
+
+<div class="showcase">
+  <div class="showcase-row">
+    <span class="btn-label">Zeitbereiche</span>
+    <span class="tag tag-handeln">Handeln</span>
+    <span class="tag tag-vorbereiten">Vorbereiten</span>
+    <span class="tag tag-beobachten">Beobachten</span>
+  </div>
+  <p style="font-size:14px; color:#6683a0; margin-top:8px;">Abstufung von dunkel (dringend) nach hell (langfristig) — je intensiver die Farbe, desto naeher der Handlungsbedarf.</p>
+</div>
+
+<!-- ==================== SECTION: Handlungsfeld & Megatrend Tags ==================== -->
+
+<h2>Handlungsfeld- & Megatrend-Tags <span class="spec-ref">US-3 / AC-9-11</span></h2>
+
+<div class="showcase">
+  <div class="showcase-row">
+    <span class="btn-label">Handlungsfelder <span class="spec-ref">AC-9</span></span>
+    <span class="tag tag-handlungsfeld">Klientinnen und Klienten</span>
+    <span class="tag tag-handlungsfeld">Mitarbeitende</span>
+    <span class="tag tag-handlungsfeld">Externes Umfeld</span>
+    <span class="tag tag-handlungsfeld">Betrieb</span>
+  </div>
+  <div class="showcase-row">
+    <span class="btn-label">Megatrends <span class="spec-ref">AC-10</span></span>
+    <span class="tag tag-megatrend">Demografischer Wandel</span>
+    <span class="tag tag-megatrend">Wertewandel</span>
+    <span class="tag tag-megatrend">Health</span>
+  </div>
+  <p style="font-size:14px; color:#6683a0; margin-top:8px;">Alle Tags sind klickbar und fuehren zur jeweiligen Seite. <span class="spec-ref">AC-11</span></p>
+</div>
+
+<!-- ==================== SECTION: Branchenfilter ==================== -->
+
+<h2>Branchenfilter-Toggles <span class="spec-ref">US-4 / AC-12-14</span></h2>
+
+<div class="showcase">
+  <div class="showcase-label">Aktiver Zustand (Default) <span class="spec-ref">AC-12</span></div>
+  <div class="showcase-row">
+    <span class="filter-toggle filter-toggle-active-curaviva"><span class="filter-dot" style="background:white;"></span> CURAVIVA</span>
+    <span class="filter-toggle filter-toggle-active-insos"><span class="filter-dot" style="background:white;"></span> INSOS</span>
+    <span class="filter-toggle filter-toggle-active-youvita"><span class="filter-dot" style="background:white;"></span> YOUVITA</span>
+  </div>
+
+  <div class="showcase-label" style="margin-top:20px;">Inaktiver Zustand <span class="spec-ref">AC-13</span></div>
+  <div class="showcase-row">
+    <span class="filter-toggle filter-toggle-active-curaviva"><span class="filter-dot" style="background:white;"></span> CURAVIVA</span>
+    <span class="filter-toggle filter-toggle-inactive"><span class="filter-dot" style="background:#B8032C;"></span> INSOS</span>
+    <span class="filter-toggle filter-toggle-active-youvita"><span class="filter-dot" style="background:white;"></span> YOUVITA</span>
+  </div>
+  <p style="font-size:14px; color:#6683a0; margin-top:8px;">Inaktiv: Beige-Hintergrund, Farbpunkt bleibt als Identifikation.</p>
+
+  <div class="showcase-label" style="margin-top:20px;">Branchen-Tags in Listen <span class="spec-ref">AC-14</span></div>
+  <div class="showcase-row">
+    <span class="tag tag-curaviva">CURAVIVA</span>
+    <span class="tag tag-insos">INSOS</span>
+    <span class="tag tag-youvita">YOUVITA</span>
+  </div>
+  <p style="font-size:14px; color:#6683a0; margin-top:8px;">15% Opacity Hintergrund in Verbandsfarbe, Text in voller Verbandsfarbe.</p>
+</div>
+
+<!-- ==================== SECTION: Karten ==================== -->
+
+<h2>Karten <span class="spec-ref">US-5 / AC-15-18</span></h2>
+
+<div class="showcase" style="background:#F5F3F1;">
+  <div class="showcase-label">Standard-Karte <span class="spec-ref">AC-15-17</span></div>
+  <div class="card" style="margin-bottom:16px; max-width:500px;">
+    <h3 style="margin-top:0;">Karten-Titel</h3>
+    <p style="font-size:16px; line-height:1.6; color:#363636;">
+      Weisser Hintergrund, Navy-basierter Schatten (0 1px 3px rgba(0,48,96,0.08)), Border-Radius 8px.
+    </p>
+  </div>
+
+  <div class="showcase-label" style="margin-top:24px;">Branchenspezifische Karten <span class="spec-ref">AC-18</span></div>
+  <div style="display:flex; flex-direction:column; gap:12px; max-width:500px;">
+    <div class="card card-branded" style="border-color:#207003;">
+      <p style="font-size:14px; font-weight:400; color:#207003; margin-bottom:4px;">CURAVIVA — Menschen im Alter</p>
+      <p style="font-size:16px; line-height:1.6;">4px gruener Rand links. Text spezifisch fuer die Altersbranche...</p>
+    </div>
+    <div class="card card-branded" style="border-color:#B8032C;">
+      <p style="font-size:14px; font-weight:400; color:#B8032C; margin-bottom:4px;">INSOS — Menschen mit Behinderung</p>
+      <p style="font-size:16px; line-height:1.6;">4px roter Rand links. Text spezifisch fuer die Behindertenbranche...</p>
+    </div>
+    <div class="card card-branded" style="border-color:#2D518C;">
+      <p style="font-size:14px; font-weight:400; color:#2D518C; margin-bottom:4px;">YOUVITA — Kinder und Jugendliche</p>
+      <p style="font-size:16px; line-height:1.6;">4px blauer Rand links. Text spezifisch fuer die Kinder-/Jugendbranche...</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION: Breadcrumb ==================== -->
+
+<h2>Breadcrumb <span class="spec-ref">US-6 / AC-19-22</span></h2>
+
+<div class="showcase">
+  <div class="showcase-label">Ebene 1 — Handlungsfeld</div>
+  <div class="breadcrumb" style="margin-bottom:16px;">
+    <a href="#">Startseite</a><span class="sep">&gt;</span><span class="current">Klientinnen und Klienten</span>
+  </div>
+
+  <div class="showcase-label">Ebene 2 — Trend-Detail</div>
+  <div class="breadcrumb" style="margin-bottom:16px;">
+    <a href="#">Startseite</a><span class="sep">&gt;</span><a href="#">Klientinnen und Klienten</a><span class="sep">&gt;</span><span class="current">Personalisierte Betreuung</span>
+  </div>
+
+  <div class="showcase-label">Ebene 1 — Megatrend</div>
+  <div class="breadcrumb">
+    <a href="#">Startseite</a><span class="sep">&gt;</span><span class="current">Demografischer Wandel</span>
+  </div>
+
+  <p style="font-size:13px; color:#6683a0; margin-top:12px;">Roboto 300, 14px. Links in Navy #003060, aktuelle Seite in #363636. Trennzeichen &gt; in #6683a0.</p>
+</div>
+
+<!-- ==================== SECTION: Trendliste ==================== -->
+
+<h2>Trendliste (zusammengesetzt)</h2>
+
+<div class="showcase" style="padding:0; max-width:600px;">
+  <div style="padding:16px 16px 8px;">
+    <div class="showcase-label">Trendliste mit Zeitbereich-Badges und Branchen-Punkten</div>
+  </div>
+  <div class="trend-item">
+    <span class="trend-icon" style="border-bottom-color:#207003;"></span>
+    <span class="trend-name">Personalisierte Betreuung</span>
+    <span class="tag tag-handeln" style="font-size:11px; padding:2px 8px;">Handeln</span>
+    <span class="trend-branches">
+      <span class="trend-branch-dot" style="background:#207003;" title="CURAVIVA"></span>
+      <span class="trend-branch-dot" style="background:#B8032C;" title="INSOS"></span>
+    </span>
+  </div>
+  <div class="trend-item">
+    <span class="trend-icon" style="border-bottom-color:#B8032C;"></span>
+    <span class="trend-name">Selbstbestimmung und Teilhabe</span>
+    <span class="tag tag-vorbereiten" style="font-size:11px; padding:2px 8px;">Vorbereiten</span>
+    <span class="trend-branches">
+      <span class="trend-branch-dot" style="background:#207003;" title="CURAVIVA"></span>
+      <span class="trend-branch-dot" style="background:#B8032C;" title="INSOS"></span>
+      <span class="trend-branch-dot" style="background:#2D518C;" title="YOUVITA"></span>
+    </span>
+  </div>
+  <div class="trend-item">
+    <span class="trend-icon" style="border-bottom-color:#2D518C;"></span>
+    <span class="trend-name">Digitale Inklusion</span>
+    <span class="tag tag-beobachten" style="font-size:11px; padding:2px 8px;">Beobachten</span>
+    <span class="trend-branches">
+      <span class="trend-branch-dot" style="background:#B8032C;" title="INSOS"></span>
+    </span>
+  </div>
+</div>
+
+<!-- ==================== SECTION: Empty/Error States ==================== -->
+
+<h2>Zustaende</h2>
+
+<div class="state-section">
+  <div class="state-label">Empty State — Keine Trends nach Filterung</div>
+  <div class="card" style="text-align:center; padding:32px; max-width:500px;">
+    <p style="font-size:18px; color:#6683a0; font-weight:300;">Keine Trends fuer die ausgewaehlten Branchen.</p>
+    <p style="font-size:14px; color:#99acbf; margin-top:8px;">Aktiviere mindestens eine Branche im Filter.</p>
+  </div>
+</div>
+
+<div class="state-section">
+  <div class="state-label">Error State — Seite nicht gefunden</div>
+  <div class="card" style="text-align:center; padding:32px; max-width:500px; border-left:4px solid #C30017;">
+    <p style="font-size:18px; color:#C30017; font-weight:400;">Seite nicht gefunden</p>
+    <p style="font-size:14px; color:#363636; margin-top:8px;">Der angeforderte Trend existiert nicht.</p>
+    <button class="btn btn-secondary" style="margin-top:16px;">Zurueck zur Startseite</button>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -4,62 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Handlungsfeld-Seite — Trendradar ARTISET (Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #1a1a2e; }
-  .mockup-banner { background: #fff3cd; padding: 8px 16px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0d5a8; }
+  body { font-family: 'Roboto', sans-serif; font-weight: 300; background: #F5F3F1; color: #363636; }
+  .mockup-banner { background: #fff3cd; padding: 8px 16px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0d5a8; font-family: -apple-system, sans-serif; }
   .mockup-banner a { color: #856404; }
-  .topbar { background: #1a1a2e; color: white; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
-  .topbar-title { font-size: 18px; font-weight: 600; }
+  .topbar { background: #003060; color: white; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .topbar-title { font-family: 'Roboto Slab', serif; font-weight: 400; font-size: 18px; }
   .topbar-actions { display: flex; gap: 12px; }
-  .topbar-btn { background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+  .topbar-btn { background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-family: 'Roboto', sans-serif; font-size: 12px; text-decoration: none; }
   .topbar-btn:hover { background: rgba(255,255,255,0.1); }
-  .spec-ref { display: inline-block; background: #e8f0fe; color: #4a6fa5; font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+  .spec-ref { display: inline-block; background: #e5eaef; color: #003060; font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: 600; font-family: -apple-system, sans-serif; }
 
-  .content { max-width: 800px; margin: 0 auto; padding: 24px 32px; }
+  .content { max-width: 780px; margin: 0 auto; padding: 24px 32px; }
 
   /* Breadcrumb */
-  .breadcrumb { font-size: 13px; color: #888; margin-bottom: 24px; }
-  .breadcrumb a { color: #4a6fa5; text-decoration: none; }
+  .breadcrumb { font-size: 14px; font-weight: 300; color: #363636; margin-bottom: 24px; line-height: 20px; }
+  .breadcrumb a { color: #003060; text-decoration: none; }
   .breadcrumb a:hover { text-decoration: underline; }
-  .breadcrumb .sep { margin: 0 8px; color: #ccc; }
+  .breadcrumb .sep { margin: 0 6px; color: #6683a0; }
 
   /* Page title */
-  .page-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-  .page-subtitle { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .page-label { font-size: 14px; color: #6683a0; margin-bottom: 4px; }
+  .page-title { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 54px; line-height: 62px; color: #003060; margin-bottom: 16px; }
 
   /* Description */
-  .description { font-size: 15px; line-height: 1.7; color: #444; margin-bottom: 32px; padding: 20px; background: white; border-radius: 8px; border: 1px solid #e8e8e8; }
+  .description { font-size: 20px; line-height: 32px; color: #363636; margin-bottom: 32px; }
 
-  /* Trend list toggle */
-  .trend-toggle { display: flex; align-items: center; justify-content: space-between; background: #4a6fa5; color: white; padding: 12px 20px; border-radius: 8px; cursor: pointer; margin-bottom: 4px; }
-  .trend-toggle:hover { background: #3a5a8a; }
-  .trend-toggle-title { font-size: 15px; font-weight: 600; }
-  .trend-toggle-arrow { font-size: 18px; transition: transform 0.2s; }
+  /* Trend list toggle (CTA Button) */
+  .trend-toggle { display: inline-block; background: #F59702; color: white; padding: 12px 28px; border-radius: 6px; cursor: pointer; margin-bottom: 16px; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px; border: none; }
+  .trend-toggle:hover { background: #F7AC35; }
 
   /* Trend list */
-  .trend-list { background: white; border: 1px solid #e8e8e8; border-radius: 0 0 8px 8px; overflow: hidden; }
-  .trend-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #f0f0f0; cursor: pointer; text-decoration: none; color: inherit; }
-  .trend-item:hover { background: #f8f9fa; }
+  .trend-list { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,48,96,0.08); overflow: hidden; }
+  .trend-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #EAE7E3; cursor: pointer; text-decoration: none; color: inherit; }
+  .trend-item:hover { background: #F5F3F1; }
   .trend-item:last-child { border-bottom: none; }
-  .trend-name { font-size: 14px; font-weight: 500; }
+  .trend-name { font-size: 16px; font-weight: 300; color: #003060; }
   .trend-meta { display: flex; gap: 8px; align-items: center; }
-  .zeitbereich { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 12px; }
-  .zeitbereich--handeln { background: #b8c8db; color: #1a1a2e; }
-  .zeitbereich--vorbereiten { background: #d4dce8; color: #333; }
-  .zeitbereich--beobachten { background: #e8edf3; color: #555; }
-  .branche-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .zeitbereich { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 11px; padding: 3px 10px; border-radius: 4px; }
+  .zeitbereich--handeln { background: #003060; color: white; }
+  .zeitbereich--vorbereiten { background: #335980; color: white; }
+  .zeitbereich--beobachten { background: #ccd6df; color: #003060; }
+  .branche-dot { width: 8px; height: 8px; border-radius: 2px; }
 
   /* Branchenfilter */
   .filter-bar { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; }
-  .filter-btn { padding: 5px 12px; border-radius: 16px; border: 2px solid; font-size: 11px; font-weight: 600; cursor: pointer; }
-  .filter-btn--curaviva { border-color: #e07b39; background: #e07b39; color: white; }
-  .filter-btn--insos { border-color: #4a6fa5; background: #4a6fa5; color: white; }
-  .filter-btn--youvita { border-color: #2a9d8f; background: #2a9d8f; color: white; }
+  .filter-btn { padding: 6px 14px; border-radius: 20px; border: 2px solid; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 12px; cursor: pointer; }
+  .filter-btn--curaviva { border-color: #207003; background: #207003; color: white; }
+  .filter-btn--insos { border-color: #B8032C; background: #B8032C; color: white; }
+  .filter-btn--youvita { border-color: #2D518C; background: #2D518C; color: white; }
 
   /* State sections */
-  .state-section { margin-top: 32px; padding: 16px; background: #fff; border: 2px dashed #ddd; border-radius: 8px; }
-  .state-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 8px; }
+  .state-section { margin-top: 32px; padding: 16px; background: #fff; border: 2px dashed #ccd6df; border-radius: 8px; }
+  .state-label { font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6683a0; margin-bottom: 8px; }
   .state-desc { font-size: 13px; color: #666; }
 </style>
 </head>
@@ -73,8 +74,8 @@
 <div class="topbar">
   <div class="topbar-title">ARTISET Trendradar</div>
   <div class="topbar-actions">
-    <a href="PROJ-4-startseite.html" class="topbar-btn" title="Zurueck zur Uebersicht">&#8592; Zurueck</a>
-    <a href="PROJ-4-startseite.html" class="topbar-btn" title="Home">&#8962; Home</a>
+    <a href="PROJ-4-startseite.html" class="topbar-btn">&#8592; Zurueck</a>
+    <a href="PROJ-4-startseite.html" class="topbar-btn">&#8962; Home</a>
   </div>
 </div>
 
@@ -84,117 +85,95 @@
   <div class="breadcrumb">
     <span class="spec-ref">PROJ-8 AC-1</span>
     <a href="PROJ-4-startseite.html">Startseite</a>
-    <span class="sep">&rsaquo;</span>
-    <strong>Handlungsfeld: Betrieb</strong>
+    <span class="sep">&gt;</span>
+    <span>Betrieb</span>
   </div>
 
   <!-- Title -->
-  <h1 class="page-title">Handlungsfeld: Betrieb</h1>
-  <div class="page-subtitle">
-    <span class="spec-ref">PROJ-5 AC-1..2</span>
-  </div>
+  <div class="page-label">Handlungsfeld:</div>
+  <h1 class="page-title">Betrieb</h1>
 
   <!-- Description -->
   <div class="description">
-    Die Trends in diesem Handlungsfeld betreffen die Organisation und Steuerung der Mitgliederorganisationen von ARTISET selbst. Dazu gehoeren Strukturen, Prozesse, Fuehrung, Finanzierung, Infrastruktur und Digitalisierung. Im Fokus steht, wie Betriebe ihre Leistungen nachhaltig, wirksam und wirtschaftlich erbringen.
+    Die Trends in diesem Handlungsfeld betreffen die Organisation und Steuerung der Mitgliederorganisationen von ARTISET selbst. Dazu gehoeren Strukturen, Prozesse, Fuehrung, Finanzierung, Infrastruktur und Digitalisierung.
   </div>
 
   <!-- Branchenfilter -->
   <div class="filter-bar">
-    <span style="font-size:12px; color:#888;">Branchen:</span>
     <button class="filter-btn filter-btn--curaviva">CURAVIVA</button>
     <button class="filter-btn filter-btn--insos">INSOS</button>
     <button class="filter-btn filter-btn--youvita">YOUVITA</button>
     <span class="spec-ref" style="margin-left:8px;">PROJ-5 AC-8..9</span>
   </div>
 
-  <!-- Toggle Button -->
-  <div class="trend-toggle">
-    <span class="trend-toggle-title">Trends zu Betrieb anzeigen <span class="spec-ref" style="background:rgba(255,255,255,0.2); color:white;">PROJ-5 AC-4..5</span></span>
-    <span class="trend-toggle-arrow">&#9660;</span>
-  </div>
+  <!-- CTA Button -->
+  <button class="trend-toggle">
+    Trends zu Betrieb anzeigen &#9660; <span class="spec-ref" style="background:rgba(255,255,255,0.2); color:white; margin-left:6px;">PROJ-5 AC-4..5</span>
+  </button>
 
   <!-- Trend List (expanded) -->
   <div class="trend-list">
     <a href="PROJ-6-trend-detail.html" class="trend-item">
-      <div>
-        <div class="trend-name">Mentale Gesundheit</div>
-      </div>
+      <div><div class="trend-name">Mentale Gesundheit</div></div>
       <div class="trend-meta">
         <span class="zeitbereich zeitbereich--handeln">Handeln</span>
-        <span class="branche-dot" style="background:#e07b39" title="CURAVIVA"></span>
+        <span class="branche-dot" style="background:#207003" title="CURAVIVA"></span>
       </div>
     </a>
     <a href="PROJ-6-trend-detail.html" class="trend-item">
-      <div>
-        <div class="trend-name">New Work</div>
-      </div>
+      <div><div class="trend-name">New Work</div></div>
       <div class="trend-meta">
         <span class="zeitbereich zeitbereich--handeln">Handeln</span>
-        <span class="branche-dot" style="background:#e07b39" title="CURAVIVA"></span>
+        <span class="branche-dot" style="background:#207003" title="CURAVIVA"></span>
       </div>
     </a>
     <a href="PROJ-6-trend-detail.html" class="trend-item">
-      <div>
-        <div class="trend-name">Konsolidierungsdruck</div>
-      </div>
+      <div><div class="trend-name">Konsolidierungsdruck</div></div>
       <div class="trend-meta">
         <span class="zeitbereich zeitbereich--handeln">Handeln</span>
-        <span class="branche-dot" style="background:#e07b39" title="CURAVIVA"></span>
+        <span class="branche-dot" style="background:#207003" title="CURAVIVA"></span>
       </div>
     </a>
     <a href="PROJ-6-trend-detail.html" class="trend-item">
-      <div>
-        <div class="trend-name">Skandalisierung</div>
-      </div>
+      <div><div class="trend-name">Skandalisierung</div></div>
       <div class="trend-meta">
         <span class="zeitbereich zeitbereich--handeln">Handeln</span>
-        <span class="branche-dot" style="background:#e07b39" title="CURAVIVA"></span>
+        <span class="branche-dot" style="background:#207003" title="CURAVIVA"></span>
       </div>
     </a>
     <a href="PROJ-6-trend-detail.html" class="trend-item">
-      <div>
-        <div class="trend-name">Klimaneutrale Betriebskonzepte</div>
-      </div>
+      <div><div class="trend-name">Klimaneutrale Betriebskonzepte</div></div>
       <div class="trend-meta">
         <span class="zeitbereich zeitbereich--handeln">Handeln</span>
-        <span class="branche-dot" style="background:#2a9d8f" title="YOUVITA"></span>
+        <span class="branche-dot" style="background:#2D518C" title="YOUVITA"></span>
       </div>
     </a>
     <a href="PROJ-6-trend-detail.html" class="trend-item">
-      <div>
-        <div class="trend-name">Hybridisierung</div>
-      </div>
+      <div><div class="trend-name">Hybridisierung</div></div>
       <div class="trend-meta">
         <span class="zeitbereich zeitbereich--vorbereiten">Vorbereiten</span>
-        <span class="branche-dot" style="background:#4a6fa5" title="INSOS"></span>
+        <span class="branche-dot" style="background:#B8032C" title="INSOS"></span>
       </div>
     </a>
     <a href="PROJ-6-trend-detail.html" class="trend-item">
-      <div>
-        <div class="trend-name">Automatisierte Administration</div>
-      </div>
+      <div><div class="trend-name">Automatisierte Administration</div></div>
       <div class="trend-meta">
         <span class="zeitbereich zeitbereich--vorbereiten">Vorbereiten</span>
-        <span class="branche-dot" style="background:#4a6fa5" title="INSOS"></span>
+        <span class="branche-dot" style="background:#B8032C" title="INSOS"></span>
       </div>
     </a>
     <a href="PROJ-6-trend-detail.html" class="trend-item">
-      <div>
-        <div class="trend-name">Netto-Null-Ziel</div>
-      </div>
+      <div><div class="trend-name">Netto-Null-Ziel</div></div>
       <div class="trend-meta">
         <span class="zeitbereich zeitbereich--beobachten">Beobachten</span>
-        <span class="branche-dot" style="background:#2a9d8f" title="YOUVITA"></span>
+        <span class="branche-dot" style="background:#2D518C" title="YOUVITA"></span>
       </div>
     </a>
     <a href="PROJ-6-trend-detail.html" class="trend-item">
-      <div>
-        <div class="trend-name">Outcome-Finanzierung</div>
-      </div>
+      <div><div class="trend-name">Outcome-Finanzierung</div></div>
       <div class="trend-meta">
         <span class="zeitbereich zeitbereich--beobachten">Beobachten</span>
-        <span class="branche-dot" style="background:#e07b39" title="CURAVIVA"></span>
+        <span class="branche-dot" style="background:#207003" title="CURAVIVA"></span>
       </div>
     </a>
   </div>

@@ -4,7 +4,9 @@
 
 ## Kontext
 
-Die bestehenden UI-Komponenten (Buttons, Tags, Karten, Breadcrumb, Branchenfilter) verwenden generische Tailwind-Klassen ohne CI-Bezug. Dieses Feature stylt alle Komponenten gemaess dem ARTISET-Design-Konzept um, basierend auf den Design-Tokens (PROJ-10) und der Typografie (PROJ-11).
+Die v1 UI-Komponenten verwenden generische Tailwind-Klassen ohne CI-Bezug. Dieses Feature erstellt neue Komponenten in `apps/v2` gemaess dem ARTISET-Design-Konzept, basierend auf den Design-Tokens (PROJ-10) und der Typografie (PROJ-11).
+
+**Scope: `apps/v2`** — Neue Komponenten in v2, nicht v1 refactoren. v1-Komponenten dienen als funktionale Referenz fuer Verhalten und State-Management.
 
 ## Abhaengigkeiten
 
@@ -92,6 +94,7 @@ Die bestehenden UI-Komponenten (Buttons, Tags, Karten, Breadcrumb, Branchenfilte
 
 ## Technische Anforderungen
 
+- Neue Komponenten in `apps/v2/src/components/` erstellen
 - Alle Komponenten verwenden Design-Tokens aus PROJ-10 (keine hardcodierten Farben)
 - Alle Text-Elemente verwenden Typografie-Tokens aus PROJ-11
-- Bestehende Tailwind-Utility-Klassen durch Token-basierte Klassen ersetzen
+- v1-Komponenten als Referenz fuer Logik und State-Management nutzen, aber visuell neu aufbauen

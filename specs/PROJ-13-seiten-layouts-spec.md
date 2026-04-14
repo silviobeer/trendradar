@@ -4,11 +4,14 @@
 
 ## Kontext
 
-Das bestehende Fullscreen-Radar-Layout (PROJ-9) wird beibehalten und visuell an die ARTISET CI angepasst. Die Unterseiten (Handlungsfeld, Trend, Megatrend) werden gemaess dem Frontend-Design-Konzept ueberarbeitet. Dieses Feature fokussiert auf Layout-Struktur, Spacing und visuelle Hierarchie — nicht auf einzelne Komponenten (PROJ-12).
+Die Seiten-Layouts werden in `apps/v2` neu aufgebaut, orientiert am ARTISET-Design-Konzept und den Wireframes. Die Fullscreen-Radar-Architektur aus v1 (PROJ-9) dient als funktionale Referenz fuer das 3-Spalten-Layout der Startseite. Dieses Feature fokussiert auf Layout-Struktur, Spacing und visuelle Hierarchie — nicht auf einzelne Komponenten (PROJ-12).
+
+**Scope: `apps/v2`** — Alle Seiten werden in v2 neu erstellt. v1-Layouts (insb. HomeLayout, Radar-Integration) dienen als Referenz fuer Grid-Struktur und responsive Sidebar-Logik.
 
 ## Abhaengigkeiten
 
 - Benoetigt: PROJ-10 (Design-Tokens), PROJ-11 (Typografie), PROJ-12 (Komponenten-Styling)
+- Referenz: apps/v1 (PROJ-9 Fullscreen-Radar-Layout fuer Startseite)
 
 ## User Stories
 
@@ -91,7 +94,10 @@ Das bestehende Fullscreen-Radar-Layout (PROJ-9) wird beibehalten und visuell an 
 
 ## Technische Anforderungen
 
-- Bestehendes PROJ-9 Fullscreen-Radar-Layout als Basis beibehalten
+- Neue Layouts in `apps/v2/src/app/` und `apps/v2/src/components/layout/`
+- v1 PROJ-9 Fullscreen-Radar-Layout als funktionale Referenz (Grid, Sidebar-Toggle, Radar-Integration)
+- Radar-Komponenten aus v1 (`TrendRadar`, `RadarBlip`, `RadarTooltip`) werden nach v2 uebernommen und CI-gestylt
 - Unterseiten-Layouts als wiederverwendbare Layout-Komponenten
 - Spacing und Weissraum grosszuegig gemaess ARTISET CI ("die Seite atmet")
 - Desktop-first (Phase 1), keine Mobile-Optimierung des Radars
+- `packages/shared` wird fuer alle Daten und Types importiert — keine Duplikation
