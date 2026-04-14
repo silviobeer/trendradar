@@ -22,6 +22,10 @@ Interaktive Webanwendung zur Visualisierung gesellschaftlicher Trends fuer ARTIS
 | PROJ-7 | Megatrend-Seite | Designed |
 | PROJ-8 | Navigation | Designed |
 | PROJ-9 | Fullscreen Radar Layout | In Progress |
+| PROJ-10 | Design-Tokens & Farbsystem | Planned |
+| PROJ-11 | Typografie | Planned |
+| PROJ-12 | UI-Komponenten-Styling | Planned |
+| PROJ-13 | Seiten-Layouts | Planned |
 
 ## Abhaengigkeitskette
 
@@ -31,11 +35,14 @@ PROJ-1 + PROJ-8 (Nav) --> PROJ-5 (Handlungsfeld)
 PROJ-1 + PROJ-8 (Nav) --> PROJ-6 (Trend-Detail)
 PROJ-1 + PROJ-8 (Nav) --> PROJ-7 (Megatrend)
 PROJ-2 + PROJ-3 + PROJ-4 --> PROJ-9 (Fullscreen Radar Layout)
+PROJ-10 (Tokens) --> PROJ-11 (Typo) --> PROJ-12 (Komponenten) --> PROJ-13 (Layouts)
 ```
 
 ## Artefakte
 
 - `specs/concepts/2026-04-13-trendradar-prototyp-concept.md` — Freigegebenes Konzept
+- `specs/concepts/2026-04-14-artiset-corporate-identity.md` — ARTISET CI Recherche
+- `specs/concepts/2026-04-14-frontend-design-konzept.md` — Frontend-Design-Konzept
 - `specs/PROJ-*-spec.md` — Feature Specifications
 - `specs/PROJ-1-8-implementation-plan.md` — Implementierungsplan
 - `specs/mockups/*.html` — UI Mockups (klickbar)
