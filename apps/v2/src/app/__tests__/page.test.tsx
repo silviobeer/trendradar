@@ -1,18 +1,34 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import HomePage from '../page';
+import { describe, it, expect, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
+import Home from "../page";
 
-describe('HomePage', () => {
-  it('renders the trend count from shared data', () => {
-    render(<HomePage />);
-    // getAllTrends() returns 33 trends per the shared package
-    expect(screen.getByText(/\d+ Trends/)).toBeInTheDocument();
+// Mock next/navigation
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: vi.fn() }),
+}));
+
+// Mock BranchenFilterContext
+vi.mock("@/contexts/BranchenFilterContext", () => ({
+  useBranchenFilter: () => ({
+    isTrendVisible: () => true,
+    isBrancheActive: () => true,
+    toggleBranche: vi.fn(),
+  }),
+}));
+
+describe("Home page", () => {
+  it("renders the HomeLayout with TrendRadar", () => {
+    render(<Home />);
+    expect(screen.getByRole("img", { name: "Trendradar" })).toBeInTheDocument();
   });
 
-  it('displays a non-zero number of trends', () => {
-    render(<HomePage />);
-    const el = screen.getByText(/\d+ Trends/);
-    const count = parseInt(el.textContent ?? '0', 10);
-    expect(count).toBeGreaterThan(0);
+  it("renders the NeusteEntwicklungen section", () => {
+    render(<Home />);
+    expect(screen.getAllByText(/neueste entwicklungen/i).length).toBeGreaterThan(0);
+  });
+
+  it("renders the Megatrends section", () => {
+    render(<Home />);
+    expect(screen.getAllByText(/megatrends/i).length).toBeGreaterThan(0);
   });
 });
