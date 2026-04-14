@@ -101,3 +101,20 @@ Die Seiten-Layouts werden in `apps/v2` neu aufgebaut, orientiert am ARTISET-Desi
 - Spacing und Weissraum grosszuegig gemaess ARTISET CI ("die Seite atmet")
 - Desktop-first (Phase 1), keine Mobile-Optimierung des Radars
 - `packages/shared` wird fuer alle Daten und Types importiert — keine Duplikation
+
+## Tech Design (Solution Architect)
+
+### Key Tech-Entscheidungen
+
+**1. Gleiche Routen-Struktur wie v1**
+v2 hat die gleichen 4 Routen: `/`, `/handlungsfeld/[slug]`, `/trend/[slug]`, `/megatrend/[slug]`. Die Seitenstruktur ist durch die Daten und das Pflichtenheft vorgegeben. Nur das visuelle Erscheinungsbild aendert sich.
+
+**2. Radar aus v1 uebernehmen**
+Die Radar-Komponenten (`TrendRadar`, `RadarBlip`, `RadarTooltip`, `radar-geometry.ts`) werden aus v1 kopiert und CI-gestylt. Der Positionierungsalgorithmus ist komplex und getestet — Neuschreiben waere riskant und bringt keinen Mehrwert.
+
+**3. BranchenFilterContext wiederverwenden**
+Der React Context fuer den seitenuebergreifenden Branchenfilter-State funktioniert unabhaengig vom Styling und wird 1:1 uebernommen.
+
+### Neue Dependencies
+
+Keine. Gleicher Stack wie v1.

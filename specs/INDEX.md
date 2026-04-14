@@ -22,10 +22,10 @@ Interaktive Webanwendung zur Visualisierung gesellschaftlicher Trends fuer ARTIS
 | PROJ-7 | Megatrend-Seite | Designed |
 | PROJ-8 | Navigation | Designed |
 | PROJ-9 | Fullscreen Radar Layout | In Progress |
-| PROJ-10 | Design-Tokens & Farbsystem (v2) | Planned |
-| PROJ-11 | Typografie (v2) | Planned |
-| PROJ-12 | UI-Komponenten-Styling (v2) | Planned |
-| PROJ-13 | Seiten-Layouts (v2) | Planned |
+| PROJ-10 | Design-Tokens & Farbsystem (v2) | Designed |
+| PROJ-11 | Typografie (v2) | Designed |
+| PROJ-12 | UI-Komponenten-Styling (v2) | Designed |
+| PROJ-13 | Seiten-Layouts (v2) | Designed |
 
 ## Abhaengigkeitskette
 

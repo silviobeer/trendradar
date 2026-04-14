@@ -89,3 +89,32 @@ Die aktuellen Farben im Trendradar (apps/v1) sind Platzhalter und entsprechen ni
 - Seed-Daten in `packages/shared/data/` muessen die korrekten Verbandsfarben enthalten (wirkt auf v1 und v2)
 - Bestehende Tests in packages/shared muessen nach Farb-Update angepasst werden
 - `apps/v2` importiert `@trendradar/shared` fuer Daten und Types
+
+## Tech Design (Solution Architect)
+
+### System-Grenzen
+
+Keine Aenderung — v2 bleibt eine reine Frontend-App ohne Backend:
+
+```
+Browser → Next.js v2 App (SSG) → Lokale JSON-Daten (packages/shared)
+```
+
+### Datenmodell
+
+Keine neuen Datenstrukturen. v2 nutzt die gleichen Types und JSON-Daten wie v1 aus `@trendradar/shared`. Einzige Aenderung: Die `farbe`-Werte in `branchen.json` werden auf die echten CI-Farben korrigiert (#207003, #B8032C, #2D518C). Wirkt auf v1 und v2 gleichzeitig.
+
+### Key Tech-Entscheidungen
+
+**1. v2 als eigenstaendige App im Monorepo**
+`apps/v2` wird als separate Next.js App angelegt. v1 bleibt als funktionale Referenz. `packages/shared` liefert die Daten, die Apps liefern je eine eigene UI.
+
+**2. Design-Tokens via Tailwind v4 @theme**
+Alle CI-Farben und Spacing-Werte als Tailwind v4 Theme-Tokens in `apps/v2/src/app/globals.css`. Kein `tailwind.config.ts` noetig — Tailwind v4 nutzt CSS Custom Properties nativ. Utility-Klassen wie `bg-primary` oder `text-accent` werden automatisch generiert.
+
+**3. Seed-Daten-Update wirkt auf beide Apps**
+Die Korrektur der Verbandsfarben in `packages/shared/data/branchen.json` veraendert auch v1. Das ist gewollt — die Platzhalterfarben waren immer falsch.
+
+### Neue Dependencies
+
+Keine. Gleicher Stack wie v1 (Next.js 15, Tailwind v4, Vitest, TypeScript).

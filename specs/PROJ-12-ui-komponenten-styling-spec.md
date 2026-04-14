@@ -98,3 +98,18 @@ Die v1 UI-Komponenten verwenden generische Tailwind-Klassen ohne CI-Bezug. Diese
 - Alle Komponenten verwenden Design-Tokens aus PROJ-10 (keine hardcodierten Farben)
 - Alle Text-Elemente verwenden Typografie-Tokens aus PROJ-11
 - v1-Komponenten als Referenz fuer Logik und State-Management nutzen, aber visuell neu aufbauen
+
+## Tech Design (Solution Architect)
+
+### Key Tech-Entscheidung: Komponenten neu bauen, Logik uebernehmen
+
+Die v2-Komponenten werden neu geschrieben, aber bewaehrte Logik aus v1 wird uebernommen:
+
+- **Uebernommen:** `BranchenFilterContext` (React Context fuer seitenuebergreifenden Filter-State) — funktioniert unabhaengig vom Styling
+- **Neu gebaut:** Alle visuellen Komponenten (Buttons, Tags, Karten, Breadcrumb, Filter-Toggles) — mit CI-Tokens statt generischem Tailwind
+
+Die Radar-Logik und der Positionierungsalgorithmus sind komplex und getestet. Diese werden aus v1 kopiert und CI-gestylt, nicht neu geschrieben.
+
+### Neue Dependencies
+
+Keine.

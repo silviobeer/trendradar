@@ -64,3 +64,15 @@ Der Trendradar v1 verwendet Tailwinds Standard-Fonts (System-Fonts). Die ARTISET
 - Next.js `next/font/local` fuer optimiertes Font-Loading verwenden
 - DSGVO-konform: Self-hosted, keine externen Font-Requests
 - v1 bleibt mit System-Fonts unveraendert
+
+## Tech Design (Solution Architect)
+
+### Key Tech-Entscheidung: Self-hosted Fonts via next/font/local
+
+Roboto und Roboto Slab als Variable Fonts (WOFF2) in `apps/v2/public/fonts/` ablegen und via `next/font/local` einbinden. Variable Fonts erlauben alle Gewichte (100-900) mit nur 2 Dateien. `next/font/local` optimiert Font-Loading automatisch (Preload, size-adjust fuer minimalen Layout-Shift). Keine externen Requests — DSGVO-konform.
+
+Font-Dateien sind statische Assets — kein npm-Paket noetig.
+
+### Neue Dependencies
+
+Keine. `next/font/local` ist in Next.js enthalten.
