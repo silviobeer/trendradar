@@ -1,5 +1,5 @@
 [
-  { "id": "curaviva", "name": "Menschen im Alter", "organisation": "CURAVIVA", "slug": "curaviva", "farbe": "#e07b39" },
-  { "id": "insos", "name": "Menschen mit Behinderungen", "organisation": "INSOS", "slug": "insos", "farbe": "#4a6fa5" },
-  { "id": "youvita", "name": "Kinder und Jugendliche", "organisation": "YOUVITA", "slug": "youvita", "farbe": "#2a9d8f" }
+  { "id": "curaviva", "name": "Menschen im Alter", "organisation": "CURAVIVA", "slug": "curaviva", "farbe": "#207003" },
+  { "id": "insos", "name": "Menschen mit Behinderungen", "organisation": "INSOS", "slug": "insos", "farbe": "#B8032C" },
+  { "id": "youvita", "name": "Kinder und Jugendliche", "organisation": "YOUVITA", "slug": "youvita", "farbe": "#2D518C" }
 ]

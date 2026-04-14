@@ -69,6 +69,15 @@ describe('JSON data files are valid and have expected fields', () => {
     }
   });
 
+  it('branchen.json has correct ARTISET CI colors', () => {
+    const curaviva = branchen.find((b) => b.id === 'curaviva');
+    const insos = branchen.find((b) => b.id === 'insos');
+    const youvita = branchen.find((b) => b.id === 'youvita');
+    expect(curaviva?.farbe).toBe('#207003');
+    expect(insos?.farbe).toBe('#B8032C');
+    expect(youvita?.farbe).toBe('#2D518C');
+  });
+
   it('handlungsfelder.json has required fields', () => {
     expect(handlungsfelder.length).toBeGreaterThanOrEqual(4);
     for (const h of handlungsfelder) {
