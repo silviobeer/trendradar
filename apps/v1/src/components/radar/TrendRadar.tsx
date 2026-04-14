@@ -15,6 +15,10 @@ interface TrendRadarProps {
 }
 
 const CENTER = 300;
+const VIEWBOX_SIZE = 600;
+
+const ZOOM_STEPS = [1, 1.5, 2, 3] as const;
+const ZOOM_LABELS = ["1×", "1.5×", "2×", "3×"] as const;
 
 /** Ring definitions: label, inner radius, outer radius, fill color */
 const RINGS = [
@@ -32,6 +36,11 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
     y: number;
     name: string;
   }>({ visible: false, x: 0, y: 0, name: "" });
+
+  const [zoomIndex, setZoomIndex] = useState(0);
+  const scale = ZOOM_STEPS[zoomIndex];
+  const viewBoxSizeScaled = VIEWBOX_SIZE / scale;
+  const viewBoxOffset = (VIEWBOX_SIZE - viewBoxSizeScaled) / 2;
 
   const sortedHf = useMemo(
     () => [...handlungsfelder].sort((a, b) => a.position - b.position),
@@ -69,10 +78,16 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
   }
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="relative aspect-square max-w-full max-h-full">
+    <div
+      className="w-full h-full min-h-0 flex items-center justify-center"
+      style={{ containerType: "size" }}
+    >
+      <div
+        className="relative"
+        style={{ width: "min(100cqw, 100cqh)", height: "min(100cqw, 100cqh)" }}
+      >
       <svg
-        viewBox="0 0 600 600"
+        viewBox={`${viewBoxOffset} ${viewBoxOffset} ${viewBoxSizeScaled} ${viewBoxSizeScaled}`}
         className="w-full h-full"
         role="img"
         aria-label="Trendradar"
@@ -188,12 +203,46 @@ export function TrendRadar({ trends, handlungsfelder, branchen }: TrendRadarProp
         })}
       </svg>
 
+      {/* Zoom controls */}
+      <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1">
+        <button
+          aria-label="Herauszoomen"
+          onClick={() => setZoomIndex((i) => Math.max(0, i - 1))}
+          disabled={zoomIndex === 0}
+          className="bg-white border border-gray-200 rounded-md px-2 py-1 text-sm shadow-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50"
+        >
+          −
+        </button>
+        <span className="bg-white border border-gray-200 rounded-md px-2 py-1 text-xs font-medium shadow-sm min-w-[2.5rem] text-center">
+          {ZOOM_LABELS[zoomIndex]}
+        </span>
+        <button
+          aria-label="Hineinzoomen"
+          onClick={() => setZoomIndex((i) => Math.min(ZOOM_STEPS.length - 1, i + 1))}
+          disabled={zoomIndex === ZOOM_STEPS.length - 1}
+          className="bg-white border border-gray-200 rounded-md px-2 py-1 text-sm shadow-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50"
+        >
+          +
+        </button>
+        {zoomIndex > 0 && (
+          <button
+            aria-label="Zoom zurücksetzen"
+            onClick={() => setZoomIndex(0)}
+            className="bg-white border border-gray-200 rounded-md px-2 py-1 text-xs shadow-sm hover:bg-gray-50"
+          >
+            ↺
+          </button>
+        )}
+      </div>
+
       {/* Tooltip (HTML overlay) */}
       <RadarTooltip
         visible={tooltip.visible}
         x={tooltip.x}
         y={tooltip.y}
         name={tooltip.name}
+        viewBoxOffset={viewBoxOffset}
+        viewBoxSize={viewBoxSizeScaled}
       />
       </div>
     </div>

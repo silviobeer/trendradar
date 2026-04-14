@@ -55,7 +55,7 @@ export function HomeLayout({
         </aside>
 
         {/* Radar center + mobile toggle buttons */}
-        <div className="relative flex items-center justify-center overflow-hidden p-4">
+        <div className="relative flex items-center justify-center overflow-hidden p-4 h-full min-h-0">
           {/* Left toggle — mobile only */}
           <button
             data-testid="toggle-left-sidebar"

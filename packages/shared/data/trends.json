@@ -5,9 +5,20 @@
     "slug": "diversitaet",
     "beschreibung": "",
     "zeitrahmen": "vorbereiten",
-    "handlungsfeldIds": ["klientel", "betrieb", "mitarbeitende"],
-    "megatrendIds": ["demografischer-wandel", "wertewandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "klientel",
+      "betrieb",
+      "mitarbeitende"
+    ],
+    "megatrendIds": [
+      "demografischer-wandel",
+      "wertewandel"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wie können Sie Ihre interkulturelle Kompetenz erweitern?",
       "Wie können Sie individuelle Lebensgewohnheiten managen?",
@@ -22,9 +33,18 @@
     "slug": "langlebigkeit",
     "beschreibung": "",
     "zeitrahmen": "vorbereiten",
-    "handlungsfeldIds": ["klientel", "betrieb", "mitarbeitende"],
-    "megatrendIds": ["demografischer-wandel", "health-shift"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "klientel",
+      "betrieb",
+      "mitarbeitende"
+    ],
+    "megatrendIds": [
+      "demografischer-wandel",
+      "health-shift"
+    ],
+    "branchenIds": [
+      "curaviva"
+    ],
     "fragen": [
       "Wie bewältigen Sie die steigende Pflegekomplexität?",
       "Welche Herausforderungen stellen selbst betagte Angehörige dar?",
@@ -39,9 +59,18 @@
     "slug": "medizinischer-fortschritt",
     "beschreibung": "",
     "zeitrahmen": "vorbereiten",
-    "handlungsfeldIds": ["externes-umfeld", "klientel"],
-    "megatrendIds": ["health-shift", "technologisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "externes-umfeld",
+      "klientel"
+    ],
+    "megatrendIds": [
+      "health-shift",
+      "technologisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos"
+    ],
     "fragen": [
       "Wie schätzen Sie die langfristige Nachfrage nach Ihren Leistungen ein?",
       "Haben Sie Richtlinien für experimentelle Methoden zur Lebensverlängerung oder Sterbehilfe?",
@@ -56,9 +85,20 @@
     "slug": "ki-als-therapeutin",
     "beschreibung": "",
     "zeitrahmen": "beobachten",
-    "handlungsfeldIds": ["klientel", "mitarbeitende", "betrieb"],
-    "megatrendIds": ["technologisierung", "health-shift", "wertewandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "klientel",
+      "mitarbeitende",
+      "betrieb"
+    ],
+    "megatrendIds": [
+      "technologisierung",
+      "health-shift",
+      "wertewandel"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos"
+    ],
     "fragen": [
       "Welche therapeutischen Leistungen könnten durch KI sinnvoll ergänzt werden?",
       "Wie stellen Sie Datenschutz und ethische Standards bei KI-Anwendungen sicher?",
@@ -73,9 +113,19 @@
     "slug": "betreuungs-und-pflegerobotik",
     "beschreibung": "",
     "zeitrahmen": "vorbereiten",
-    "handlungsfeldIds": ["klientel", "mitarbeitende", "betrieb"],
-    "megatrendIds": ["health-shift", "technologisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "klientel",
+      "mitarbeitende",
+      "betrieb"
+    ],
+    "megatrendIds": [
+      "health-shift",
+      "technologisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos"
+    ],
     "fragen": [
       "In welchen Bereichen kann Robotik konkret zur Entlastung beitragen?",
       "Wie beeinflusst Robotik das Erleben und die Selbstbestimmung der Klientel?",
@@ -90,9 +140,18 @@
     "slug": "hybridisierung",
     "beschreibung": "",
     "zeitrahmen": "vorbereiten",
-    "handlungsfeldIds": ["betrieb", "klientel"],
-    "megatrendIds": ["technologisierung", "oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "klientel"
+    ],
+    "megatrendIds": [
+      "technologisierung",
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos"
+    ],
     "fragen": [
       "Über welche Kompetenzen müsste Ihre Institution verfügen für hybride Versorgungsmodelle?",
       "Für welche Bewohnenden können Sie sich hybride Versorgung vorstellen?",
@@ -107,9 +166,18 @@
     "slug": "mentale-gesundheit",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "mitarbeitende"],
-    "megatrendIds": ["demografischer-wandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "mitarbeitende"
+    ],
+    "megatrendIds": [
+      "demografischer-wandel"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Mit welchen Herausforderungen sind Ihre Mitarbeitenden im Umgang mit psychischen Erkrankungen konfrontiert?",
       "Ist das Personal ausreichend geschult im Umgang mit psychischen Erkrankungen?",
@@ -124,9 +192,19 @@
     "slug": "new-work",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "mitarbeitende"],
-    "megatrendIds": ["wertewandel", "oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "mitarbeitende"
+    ],
+    "megatrendIds": [
+      "wertewandel",
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wie stellen Sie sicher, dass Bedürfnisse Ihrer Mitarbeitenden bei Arbeitszeitmodellen erhoben werden?",
       "Sind Ihre Arbeitszeitmodelle zukunftsfähig?",
@@ -141,9 +219,18 @@
     "slug": "predictive-healthcare",
     "beschreibung": "",
     "zeitrahmen": "vorbereiten",
-    "handlungsfeldIds": ["betrieb", "klientel"],
-    "megatrendIds": ["technologisierung", "health-shift"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "klientel"
+    ],
+    "megatrendIds": [
+      "technologisierung",
+      "health-shift"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos"
+    ],
     "fragen": [
       "Sind Sie in der Lage, Gesundheitsdaten wirksam zu nutzen?",
       "Lernt Ihre Organisation den Umgang mit KI im Dienst der prädiktiven Gesundheitsförderung?",
@@ -158,9 +245,20 @@
     "slug": "multikrisen",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "externes-umfeld"],
-    "megatrendIds": ["health-shift", "technologisierung", "wertewandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "health-shift",
+      "technologisierung",
+      "wertewandel"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wie ist Ihre Infrastruktur geschützt?",
       "Welche Lehren haben Sie aus vergangenen Krisen gezogen?",
@@ -175,9 +273,19 @@
     "slug": "laenger-daheim",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "mitarbeitende", "klientel"],
-    "megatrendIds": ["health-shift", "wertewandel", "oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "mitarbeitende",
+      "klientel"
+    ],
+    "megatrendIds": [
+      "health-shift",
+      "wertewandel",
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "curaviva"
+    ],
     "fragen": [
       "Welche erweiterten Kompetenzen braucht Ihr Betrieb aufgrund der steigenden Komplexität?",
       "Wie wirkt sich der steigende Pflegebedarf auf die Wirtschaftlichkeit aus?",
@@ -192,9 +300,18 @@
     "slug": "assistierter-suizid",
     "beschreibung": "",
     "zeitrahmen": "beobachten",
-    "handlungsfeldIds": ["betrieb", "mitarbeitende", "klientel"],
-    "megatrendIds": ["wertewandel", "demografischer-wandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "mitarbeitende",
+      "klientel"
+    ],
+    "megatrendIds": [
+      "wertewandel",
+      "demografischer-wandel"
+    ],
+    "branchenIds": [
+      "curaviva"
+    ],
     "fragen": [
       "Wie sieht das Konzept im Umgang mit assistiertem Suizid in Ihrer Institution aus?",
       "Wie berücksichtigen Sie die unterschiedlichen Einstellungen Ihres Personals?",
@@ -209,9 +326,18 @@
     "slug": "neues-alter",
     "beschreibung": "",
     "zeitrahmen": "beobachten",
-    "handlungsfeldIds": ["externes-umfeld", "klientel", "betrieb"],
-    "megatrendIds": ["wertewandel", "demografischer-wandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "externes-umfeld",
+      "klientel",
+      "betrieb"
+    ],
+    "megatrendIds": [
+      "wertewandel",
+      "demografischer-wandel"
+    ],
+    "branchenIds": [
+      "curaviva"
+    ],
     "fragen": [
       "Bestehen in Ihrer Institution Strukturen, die Altersbilder zu reflektieren?",
       "Wie gut entsprechen Ihre Altersbilder diesem Wandel?",
@@ -226,9 +352,19 @@
     "slug": "skandalisierung",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "externes-umfeld"],
-    "megatrendIds": ["wertewandel", "technologisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "wertewandel",
+      "technologisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wie sind Sie auf Reputationsrisiken vorbereitet?",
       "Haben Sie einen Kommunikationsnotfallplan?",
@@ -243,9 +379,18 @@
     "slug": "konsolidierungsdruck",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "externes-umfeld"],
-    "megatrendIds": ["oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Welche anderen Dienstleister bestehen aktuell in der Region?",
       "Welches Dienstleistungsspektrum wollen Sie künftig erbringen?",
@@ -260,9 +405,18 @@
     "slug": "zunehmende-regulationsdichte",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "externes-umfeld"],
-    "megatrendIds": ["oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wie stellen Sie sicher, dass neue Vorschriften effizient umgesetzt werden?",
       "Welche Arbeitsprozesse bergen Potenzial zur Effizienzsteigerung?",
@@ -277,9 +431,20 @@
     "slug": "deinstitutionalisierung",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "klientel", "externes-umfeld"],
-    "megatrendIds": ["health-shift", "wertewandel", "oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "klientel",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "health-shift",
+      "wertewandel",
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Welche Entwicklungen finden in Ihrem Einzugsgebiet zur integrierten Versorgung statt?",
       "Wie definieren Sie die Rolle Ihrer Institution in einer ambulant geprägten Versorgungslandschaft?",
@@ -294,9 +459,20 @@
     "slug": "fachkraeftemangel",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "mitarbeitende"],
-    "megatrendIds": ["demografischer-wandel", "wertewandel", "oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "mitarbeitende"
+    ],
+    "megatrendIds": [
+      "demografischer-wandel",
+      "wertewandel",
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wie positionieren Sie sich als attraktive Arbeitgeberin?",
       "Entspricht der Skill- und Grade-Mix den zukünftigen Anforderungen?",
@@ -311,9 +487,20 @@
     "slug": "kostentransparenz",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "externes-umfeld"],
-    "megatrendIds": ["oekonomisierung", "wertewandel", "oekologisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "oekonomisierung",
+      "wertewandel",
+      "oekologisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Welche Daten brauchen Sie, um Ihren Betrieb effizient zu steuern?",
       "Verfügen Sie über Instrumente zur transparenten Leistungsdarstellung?",
@@ -328,9 +515,19 @@
     "slug": "versorgungsluecke",
     "beschreibung": "",
     "zeitrahmen": "vorbereiten",
-    "handlungsfeldIds": ["betrieb", "externes-umfeld", "klientel"],
-    "megatrendIds": ["demografischer-wandel", "oekonomisierung", "health-shift"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "externes-umfeld",
+      "klientel"
+    ],
+    "megatrendIds": [
+      "demografischer-wandel",
+      "oekonomisierung",
+      "health-shift"
+    ],
+    "branchenIds": [
+      "insos"
+    ],
     "fragen": [
       "Wie ist Ihre Einrichtung in die kantonale Bedarfsplanung eingebunden?",
       "Welche Rolle können alternative Wohn- und Versorgungsformen spielen?",
@@ -345,9 +542,18 @@
     "slug": "netto-null-ziel",
     "beschreibung": "",
     "zeitrahmen": "beobachten",
-    "handlungsfeldIds": ["externes-umfeld", "betrieb"],
-    "megatrendIds": ["oekologisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "externes-umfeld",
+      "betrieb"
+    ],
+    "megatrendIds": [
+      "oekologisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Haben Sie ein minimales Set an Kennzahlen definiert (Energie, CO2, Verpflegung, Abfall)?",
       "Gibt es klare Verantwortlichkeiten bei der Zuständigkeit im Betrieb?",
@@ -362,9 +568,18 @@
     "slug": "oeko-kueche",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "klientel"],
-    "megatrendIds": ["oekologisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "klientel"
+    ],
+    "megatrendIds": [
+      "oekologisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Welche Ziele setzen Sie sich im Bereich nachhaltige Ernährung?",
       "Welche Strategie verfolgen Sie gegen Food Waste?",
@@ -379,9 +594,19 @@
     "slug": "klimaneutrale-betriebskonzepte",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "externes-umfeld"],
-    "megatrendIds": ["oekologisierung", "technologisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "oekologisierung",
+      "technologisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Planen Sie eine CO2-Hotspot Analyse?",
       "Setzen Sie auf Ökostrom und erneuerbare Energien?",
@@ -396,9 +621,18 @@
     "slug": "gruene-gebaeude",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb"],
-    "megatrendIds": ["oekologisierung", "technologisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb"
+    ],
+    "megatrendIds": [
+      "oekologisierung",
+      "technologisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Planen Sie einen Energie- und Gebäudecheck?",
       "Rüsten Sie um auf LED-Beleuchtung und Präsenzsensoren?",
@@ -413,9 +647,21 @@
     "slug": "hitze-stress",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "klientel", "mitarbeitende"],
-    "megatrendIds": ["oekologisierung", "wertewandel", "technologisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "klientel",
+      "mitarbeitende"
+    ],
+    "megatrendIds": [
+      "oekologisierung",
+      "wertewandel",
+      "technologisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wie sieht Ihr Hitzeschutzkonzept aus?",
       "Wie schützen Sie Bewohnende und Mitarbeitende vor Hitze?",
@@ -430,9 +676,19 @@
     "slug": "automatisierte-administration",
     "beschreibung": "",
     "zeitrahmen": "vorbereiten",
-    "handlungsfeldIds": ["betrieb", "mitarbeitende"],
-    "megatrendIds": ["technologisierung", "oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "mitarbeitende"
+    ],
+    "megatrendIds": [
+      "technologisierung",
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Welche administrativen Prozesse eignen sich für Automatisierung?",
       "Wie stellen Sie Datenqualität und Datenschutz bei KI-gestützter Administration sicher?",
@@ -447,9 +703,21 @@
     "slug": "outcome-finanzierung",
     "beschreibung": "",
     "zeitrahmen": "beobachten",
-    "handlungsfeldIds": ["betrieb", "klientel", "externes-umfeld"],
-    "megatrendIds": ["oekonomisierung", "health-shift", "wertewandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "klientel",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "oekonomisierung",
+      "health-shift",
+      "wertewandel"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Welche Risiken und Chancen ergeben sich aus dem Paradigmenwechsel?",
       "Welche Wirkungsziele setzen Sie sich?",
@@ -464,9 +732,20 @@
     "slug": "angehoerige",
     "beschreibung": "",
     "zeitrahmen": "beobachten",
-    "handlungsfeldIds": ["betrieb", "klientel", "mitarbeitende"],
-    "megatrendIds": ["demografischer-wandel", "wertewandel", "oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "klientel",
+      "mitarbeitende"
+    ],
+    "megatrendIds": [
+      "demografischer-wandel",
+      "wertewandel",
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wie definieren Sie die Rolle pflegender Angehöriger?",
       "Wie reagieren Sie auf die abnehmende Verfügbarkeit familiärer Unterstützung?",
@@ -481,9 +760,20 @@
     "slug": "kostendruck",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "externes-umfeld"],
-    "megatrendIds": ["oekonomisierung", "wertewandel", "health-shift"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "oekonomisierung",
+      "wertewandel",
+      "health-shift"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wie beurteilen Sie die langfristige Finanzierbarkeit Ihrer Leistungen?",
       "Welche strategischen Konsequenzen ergeben sich aus möglicher Begrenzung finanzierter Pflegeleistungen?",
@@ -498,9 +788,19 @@
     "slug": "berufsprofile-und-kompetenzen",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["betrieb", "mitarbeitende"],
-    "megatrendIds": ["demografischer-wandel", "wertewandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "betrieb",
+      "mitarbeitende"
+    ],
+    "megatrendIds": [
+      "demografischer-wandel",
+      "wertewandel"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wissen Sie, welche Kompetenzen für Ihre Dienstleistungen zentral sind?",
       "Wie bilden Sie Fachkräfte von morgen aus?",
@@ -515,9 +815,18 @@
     "slug": "neuausrichtung-pflegerischer-versorgungsmodelle",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["mitarbeitende", "betrieb", "externes-umfeld"],
-    "megatrendIds": ["health-shift", "wertewandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "mitarbeitende",
+      "betrieb",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "health-shift",
+      "wertewandel"
+    ],
+    "branchenIds": [
+      "curaviva"
+    ],
     "fragen": [
       "Welchen Stellenwert hat Interdisziplinarität in Ihrer Institution?",
       "Welche neuen Rollen sind notwendig für zukünftige Versorgungsanforderungen?",
@@ -532,9 +841,20 @@
     "slug": "nicht-lineare-bildungswege-und-karrieren",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["mitarbeitende", "betrieb", "externes-umfeld"],
-    "megatrendIds": ["wertewandel", "demografischer-wandel", "oekonomisierung"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "mitarbeitende",
+      "betrieb",
+      "externes-umfeld"
+    ],
+    "megatrendIds": [
+      "wertewandel",
+      "demografischer-wandel",
+      "oekonomisierung"
+    ],
+    "branchenIds": [
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Welche strategische Personal- und Skill-Mix-Planung benötigen Sie?",
       "Wie stellen Sie sicher, dass Personalentwicklungskonzepte diese Entwicklungen abdecken?",
@@ -549,9 +869,18 @@
     "slug": "interprofessionalitaet",
     "beschreibung": "",
     "zeitrahmen": "handeln",
-    "handlungsfeldIds": ["mitarbeitende", "betrieb"],
-    "megatrendIds": ["wertewandel"],
-    "branchenIds": ["curaviva"],
+    "handlungsfeldIds": [
+      "mitarbeitende",
+      "betrieb"
+    ],
+    "megatrendIds": [
+      "wertewandel"
+    ],
+    "branchenIds": [
+      "curaviva",
+      "insos",
+      "youvita"
+    ],
     "fragen": [
       "Wo liegen ungenutzte Potenziale für stärkere Einbindung aller Berufsgruppen?",
       "Wie transparent sind Rollen und Verantwortlichkeiten zwischen den Berufsgruppen definiert?",

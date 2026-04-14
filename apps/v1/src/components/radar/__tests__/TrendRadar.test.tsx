@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { TrendRadar } from "../TrendRadar";
 import { BranchenFilterProvider } from "@/contexts/BranchenFilterContext";
 import type { Trend, Handlungsfeld, Branche } from "@trendradar/shared";
@@ -69,7 +69,7 @@ describe("TrendRadar SVG scaling (US-1 PROJ-9)", () => {
     expect(svg!.className.baseVal).not.toContain("max-w-[600px]");
   });
 
-  it("AC-2: aspect-square wrapper has max-h-full class (tooltip coordinate fix)", () => {
+  it("AC-2: radar inner wrapper uses container-query sizing (no aspect-square needed)", () => {
     const { container } = render(
       <TrendRadar
         trends={mockTrends}
@@ -78,11 +78,13 @@ describe("TrendRadar SVG scaling (US-1 PROJ-9)", () => {
       />,
       { wrapper }
     );
-    const wrapper2 = container.querySelector(".aspect-square") as HTMLElement;
-    expect(wrapper2.className).toContain("max-h-full");
+    // Container query approach: inner div has inline style with min(100cqw, 100cqh)
+    const relativeDiv = container.querySelector("div.relative") as HTMLElement;
+    expect(relativeDiv).not.toBeNull();
+    expect(relativeDiv.style.width).toContain("min(");
   });
 
-  it("AC-3: SVG has viewBox '0 0 600 600' (aspect ratio preserved)", () => {
+  it("AC-3: SVG has viewBox '0 0 600 600' at default zoom (aspect ratio preserved)", () => {
     const { container } = render(
       <TrendRadar
         trends={mockTrends}
@@ -95,7 +97,7 @@ describe("TrendRadar SVG scaling (US-1 PROJ-9)", () => {
     expect(svg).toHaveAttribute("viewBox", "0 0 600 600");
   });
 
-  it("AC-4: SVG wrapper div has w-full and h-full for horizontal centering", () => {
+  it("AC-4: outer SVG wrapper div has w-full and h-full for responsive sizing", () => {
     const { container } = render(
       <TrendRadar
         trends={mockTrends}
@@ -104,9 +106,10 @@ describe("TrendRadar SVG scaling (US-1 PROJ-9)", () => {
       />,
       { wrapper }
     );
-    const wrapper_div = container.querySelector("div.relative");
-    expect(wrapper_div!.className).toContain("w-full");
-    expect(wrapper_div!.className).toContain("h-full");
+    // The outermost div (flex container) carries w-full h-full
+    const outerDiv = container.firstElementChild as HTMLElement;
+    expect(outerDiv.className).toContain("w-full");
+    expect(outerDiv.className).toContain("h-full");
   });
 });
 
@@ -167,5 +170,69 @@ describe("TrendRadar blip visibility", () => {
     expect(polygon).not.toBeNull();
     expect(polygon).toHaveAttribute("stroke", "#333");
     expect(polygon).toHaveAttribute("stroke-width", "2");
+  });
+});
+
+describe("TrendRadar zoom controls", () => {
+  function renderRadar() {
+    return render(
+      <TrendRadar
+        trends={mockTrends}
+        handlungsfelder={mockHandlungsfelder}
+        branchen={mockBranchen}
+      />,
+      { wrapper }
+    );
+  }
+
+  it("zoom-out button is disabled at default zoom", () => {
+    const { getByRole } = renderRadar();
+    const zoomOut = getByRole("button", { name: "Herauszoomen" });
+    expect(zoomOut).toBeDisabled();
+  });
+
+  it("zoom-in button is enabled at default zoom", () => {
+    const { getByRole } = renderRadar();
+    const zoomIn = getByRole("button", { name: "Hineinzoomen" });
+    expect(zoomIn).not.toBeDisabled();
+  });
+
+  it("clicking zoom-in changes viewBox to 1.5× (100 100 400 400)", () => {
+    const { getByRole, container } = renderRadar();
+    fireEvent.click(getByRole("button", { name: "Hineinzoomen" }));
+    const svg = container.querySelector("svg");
+    expect(svg).toHaveAttribute("viewBox", "100 100 400 400");
+  });
+
+  it("clicking zoom-in twice changes viewBox to 2× (150 150 300 300)", () => {
+    const { getByRole, container } = renderRadar();
+    fireEvent.click(getByRole("button", { name: "Hineinzoomen" }));
+    fireEvent.click(getByRole("button", { name: "Hineinzoomen" }));
+    const svg = container.querySelector("svg");
+    expect(svg).toHaveAttribute("viewBox", "150 150 300 300");
+  });
+
+  it("zoom-in button is disabled at maximum zoom (3×)", () => {
+    const { getByRole } = renderRadar();
+    const zoomIn = getByRole("button", { name: "Hineinzoomen" });
+    fireEvent.click(zoomIn);
+    fireEvent.click(zoomIn);
+    fireEvent.click(zoomIn);
+    expect(zoomIn).toBeDisabled();
+  });
+
+  it("reset button appears after zooming and restores default viewBox", () => {
+    const { getByRole, container } = renderRadar();
+    fireEvent.click(getByRole("button", { name: "Hineinzoomen" }));
+    const resetBtn = getByRole("button", { name: "Zoom zurücksetzen" });
+    expect(resetBtn).toBeTruthy();
+    fireEvent.click(resetBtn);
+    const svg = container.querySelector("svg");
+    expect(svg).toHaveAttribute("viewBox", "0 0 600 600");
+  });
+
+  it("reset button is not shown at default zoom", () => {
+    const { queryByRole } = renderRadar();
+    expect(queryByRole("button", { name: "Zoom zurücksetzen" })).toBeNull();
   });
 });
