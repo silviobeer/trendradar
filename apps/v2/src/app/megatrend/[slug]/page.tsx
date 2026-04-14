@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { megatrends, getMegatrendBySlug, getTrendsByMegatrend } from "@trendradar/shared";
 import type { Trend } from "@trendradar/shared";
 import Breadcrumb from "@/components/navigation/Breadcrumb";
-import { ZeitbereichBadge } from "@/components/trends/ZeitbereichBadge";
+import { TrendList } from "@/components/trends/TrendList";
 import { ContentLayout, SectionDivider } from "@/components/layout/ContentLayout";
 
 const ZEITRAHMEN_ORDER: Record<string, number> = {
@@ -49,19 +48,7 @@ export default async function MegatrendPage({ params }: Props) {
         {trends.length === 0 ? (
           <p className="mt-4 text-text-light">Keine Trends zugeordnet</p>
         ) : (
-          <div className="mt-4 divide-y divide-primary-60/20">
-            {trends.map((trend) => (
-              <div key={trend.id} className="py-3 flex items-center gap-3">
-                <Link
-                  href={`/trend/${trend.slug}`}
-                  className="flex-1 text-primary hover:underline font-normal"
-                >
-                  {trend.name}
-                </Link>
-                <ZeitbereichBadge zeitrahmen={trend.zeitrahmen} />
-              </div>
-            ))}
-          </div>
+          <TrendList trends={trends} />
         )}
       </section>
     </ContentLayout>

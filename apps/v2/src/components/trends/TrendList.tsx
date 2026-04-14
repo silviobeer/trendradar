@@ -14,6 +14,14 @@ export function TrendList({ trends }: TrendListProps) {
   const { isTrendVisible } = useBranchenFilter();
   const visibleTrends = trends.filter((t) => isTrendVisible(t));
 
+  if (visibleTrends.length === 0) {
+    return (
+      <p className="py-4 text-text-light">
+        Keine Trends fuer die ausgewaehlten Branchen
+      </p>
+    );
+  }
+
   return (
     <div className="divide-y divide-primary-60/20">
       {visibleTrends.map((trend) => {

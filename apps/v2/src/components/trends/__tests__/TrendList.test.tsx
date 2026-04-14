@@ -61,8 +61,7 @@ describe('TrendList', () => {
     renderWithProvider(<TrendList trends={mockTrends} />);
     // Each trend with a real branche ID should produce a colored dot
     const dots = document.querySelectorAll('span[title]');
-    // b1 and b2 are actual branche IDs from shared data (curaviva, insos, youvita)
-    // if IDs don't match real branchen, dots may be 0 — still valid structural test
-    expect(dots.length).toBeGreaterThanOrEqual(0);
+    // Each mock trend has one real branche ID (curaviva, insos) → 2 dots total
+    expect(dots.length).toBe(2);
   });
 });

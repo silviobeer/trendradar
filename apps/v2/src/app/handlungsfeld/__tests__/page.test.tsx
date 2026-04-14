@@ -57,7 +57,7 @@ describe('HandlungsfeldPage', () => {
 
   it('renders "Trends anzeigen" CTA button', async () => {
     await renderPage(REAL_SLUG);
-    const btn = screen.getByRole('button', { name: 'Trends anzeigen' });
+    const btn = screen.getByRole('link', { name: 'Trends anzeigen' });
     expect(btn).toBeInTheDocument();
   });
 

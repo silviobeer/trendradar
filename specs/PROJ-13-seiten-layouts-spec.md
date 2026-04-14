@@ -118,3 +118,122 @@ Der React Context fuer den seitenuebergreifenden Branchenfilter-State funktionie
 ### Neue Dependencies
 
 Keine. Gleicher Stack wie v1.
+
+---
+
+## QA Test Results
+
+**Date:** 2026-04-14
+**Tester:** QA Agent (code-level review + unit test run)
+**Dev server:** `http://localhost:3001` (pnpm --filter v2 dev)
+**Test run:** `pnpm --filter v2 test` → 1 failed, 199 passed (200 total)
+
+### Test Suite Results
+
+| File | Passed | Failed |
+|------|:------:|:------:|
+| `app/__tests__/layout.test.tsx` | ✓ | — |
+| `app/__tests__/page.test.tsx` | ✓ | — |
+| `app/handlungsfeld/__tests__/page.test.tsx` | 7/8 | **1** |
+| `app/trend/__tests__/page.test.tsx` | ✓ | — |
+| `app/megatrend/__tests__/page.test.tsx` | ✓ | — |
+| `components/…` (16 files) | ✓ | — |
+
+### Acceptance Criteria
+
+#### US-1: Startseite 3-Spalten
+
+| AC | Text | Result | Notes |
+|----|------|:------:|-------|
+| AC-1 | Header in Navy #003060 | PASS | `bg-primary` = #003060 in Header |
+| AC-2 | Seitenhintergrund Warm-Beige #F5F3F1 | PASS | `bg-bg-warm-light` on body |
+| AC-3 | Linke Sidebar auf Warm-Beige | PASS | `bg-bg-warm-light p-3` |
+| AC-4 | Rechte Sidebar auf Warm-Beige | PASS | `bg-bg-warm-light p-3` |
+| AC-5 | Branchenfilter unterhalb Radar in CI-Farben | PASS | `BranchenFilter` mit Verbandsfarben |
+| AC-6 | Footer in Navy #003060 | PASS | `bg-primary` in Footer |
+
+#### US-2: Handlungsfeld-Seite
+
+| AC | Text | Result | Notes |
+|----|------|:------:|-------|
+| AC-7 | Breadcrumb "Startseite > [Name]" | PASS | Breadcrumb-Komponente korrekt |
+| AC-8 | H1 in Roboto Slab Light 54px | PASS | `font-serif font-light text-h1` via globals.css |
+| AC-9 | Beschreibungstext Roboto Light 20px, #363636 | PASS | body=20px, text-medium=#363636 |
+| AC-10 | CTA-Button "Trends anzeigen" in Orange #F59702 | **FAIL** | BUG-1: `<Link>` statt `<button>` — Test schlaegt fehl |
+| AC-11 | Trendliste mit Zeitbereich-Badges und Branchen-Indikatoren | PASS | TrendList zeigt beides |
+| AC-12 | Branchenfilter wirkt auf Trendliste | PASS | TrendList nutzt `useBranchenFilter` |
+
+#### US-3: Trend-Detailseite
+
+| AC | Text | Result | Notes |
+|----|------|:------:|-------|
+| AC-13 | Breadcrumb "Startseite > [HF] > [Trend]" | PASS | firstHf als mittlere Ebene |
+| AC-14 | H1 mit Badge und Handlungsfeld-Tags | PASS | ZeitbereichBadge + Tag-Komponenten |
+| AC-15 | Beschreibungstext mit Trennlinien | PASS | SectionDivider verwendet |
+| AC-16 | Reflexionsfragen-Sektion (nur wenn vorhanden) | PASS | `trend.fragen.length > 0` guard |
+| AC-17 | Megatrend-Tags klickbar (Megatrend-Seite) | PASS | `Tag variant="megatrend" href="/megatrend/..."` |
+| AC-18 | Branchenspezifische Karten mit farbigem Rand (nur wenn Inhalt) | PASS | `branchenTextEntries.filter(trim)` + `Card brandColor` |
+| AC-19 | Reihenfolge CURAVIVA, INSOS, YOUVITA | PASS | `brancheOrder` Array erzwingt Reihenfolge |
+
+#### US-4: Megatrend-Seite
+
+| AC | Text | Result | Notes |
+|----|------|:------:|-------|
+| AC-20 | Breadcrumb "Startseite > [Megatrend]" | PASS | Korrekt implementiert |
+| AC-21 | H1 Roboto Slab Light 54px | PASS | Globale h1-Styles |
+| AC-22 | Beschreibungstext Roboto Light 20px | PASS | Globale body-Styles |
+| AC-23 | Sektion "Beeinflusste Trends" mit H2 | PASS | Vorhanden, inkl. Leerstate |
+| AC-24 | Trendliste mit Badges (gleiche Darstellung wie HF-Seite) | **FAIL** | BUG-3: Eigene Inline-Liste statt `<TrendList>` — fehlende Branchen-Dots, kein Branchenfilter |
+
+#### US-5: Konsistentes Grundlayout
+
+| AC | Text | Result | Notes |
+|----|------|:------:|-------|
+| AC-25 | Navy-Header, Warm-Beige Inhalt, Navy-Footer | PASS | RootLayout korrekt |
+| AC-26 | Konsistenter max-width auf Unterseiten | PASS | `max-w-[780px]` in ContentLayout |
+| AC-27 | Grosszuegiges Spacing | PASS | `py-12`, `mt-6..mt-10` |
+| AC-28 | Trennlinien in #6683a0 oder subtiler | PASS | `border-primary-60/30` = #6683a0 @ 30% |
+
+### Bugs
+
+#### BUG-1 (High) — "Trends anzeigen" CTA ist ein Link, kein Button
+
+- **Datei:** `apps/v2/src/app/handlungsfeld/[slug]/page.tsx:41`
+- **Symptom:** Test `renders "Trends anzeigen" CTA button` schlaegt fehl mit `Unable to find an accessible element with the role "button"`. Das Element ist ein `<a>` (role=link), nicht ein `<button>`.
+- **Spec AC-10:** "CTA-Button 'Trends anzeigen' in Orange #F59702"
+- **Fix:** `<Link>` durch `<Button variant="primary">` oder durch `<a>` mit `role="button"` ersetzen. Da es zu einem Anker (`#trendliste`) scrollt, ist ein Anchor mit Scroll-Verhalten semantisch korrekt — der Test muss dann auf `getByRole('link')` angepasst werden, ODER die Komponente wird zu einem echten `<button>` mit `onClick`-Scroll.
+
+#### BUG-2 (Medium) — TrendList: Leerzustand fehlt
+
+- **Datei:** `apps/v2/src/components/trends/TrendList.tsx`
+- **Symptom:** Wenn der Branchenfilter alle Trends ausblendet, rendert `TrendList` ein leeres `<div>`. Kein Hinweistext sichtbar.
+- **Edge Case Spec:** "Keine Trends fuer die ausgewaehlten Branchen"
+- **Fix:** After `visibleTrends.length === 0` guard: `<p className="py-4 text-text-light">Keine Trends fuer die ausgewaehlten Branchen</p>`
+
+#### BUG-3 (Medium) — Megatrend-Seite nutzt eigene Trendliste statt `<TrendList>`
+
+- **Datei:** `apps/v2/src/app/megatrend/[slug]/page.tsx:52–65`
+- **Symptom:** Eigene Inline-Implementierung statt der `<TrendList>`-Komponente. Branchen-Indikatoren (farbige Dots) fehlen. Branchenfilter hat keinen Effekt.
+- **Spec AC-24:** "gleiche Darstellung wie Handlungsfeld-Seite"
+- **Fix:** `<TrendList trends={trends} />` statt der Inline-Variante verwenden (erfordert BranchenFilterContext, der bereits im RootLayout verfuegbar ist).
+
+#### BUG-4 (Low) — ZeitbereichBadge: Hardcodierter Pixelwert statt Token
+
+- **Datei:** `apps/v2/src/components/trends/ZeitbereichBadge.tsx:25`
+- **Symptom:** `text-[12px]` statt `text-tag` (Token aus globals.css). Gleicher Wert, aber verletzt Design-Token-Konvention.
+- **Fix:** `text-[12px]` → `text-tag`
+
+### Zusammenfassung
+
+| Metrik | Wert |
+|--------|------|
+| Acceptance Criteria gesamt | 28 |
+| Bestanden | 26 |
+| Fehlgeschlagen | 2 (AC-10, AC-24) |
+| Bugs Critical | 0 |
+| Bugs High | 1 |
+| Bugs Medium | 2 |
+| Bugs Low | 1 |
+| Production-ready | **NEIN** |
+
+**Urteil:** Nicht production-ready. BUG-1 (High) laesst den Test-Build fehlschlagen. BUG-3 (Medium) verletzt explizite AC. Nach Behebung von BUG-1 und BUG-3 erneutes QA empfohlen.

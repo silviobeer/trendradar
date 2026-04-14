@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import MegatrendPage, { generateStaticParams } from "../[slug]/page";
+import { BranchenFilterProvider } from "@/contexts/BranchenFilterContext";
 
 vi.mock("next/link", () => ({
   default: ({
@@ -45,7 +46,7 @@ describe("MegatrendPage", () => {
       const page = await MegatrendPage({
         params: Promise.resolve({ slug: "demografischer-wandel" }),
       });
-      render(page);
+      render(<BranchenFilterProvider>{page}</BranchenFilterProvider>);
       expect(
         screen.getByRole("heading", { level: 1, name: /Demografischer Wandel/i })
       ).toBeInTheDocument();
@@ -55,7 +56,7 @@ describe("MegatrendPage", () => {
       const page = await MegatrendPage({
         params: Promise.resolve({ slug: "demografischer-wandel" }),
       });
-      render(page);
+      render(<BranchenFilterProvider>{page}</BranchenFilterProvider>);
       // description contains some text — check it is rendered
       const desc = screen.getByText(/steigende Lebenserwartung|sinkende Geburtenraten|Alterung/i);
       expect(desc).toBeInTheDocument();
@@ -65,7 +66,7 @@ describe("MegatrendPage", () => {
       const page = await MegatrendPage({
         params: Promise.resolve({ slug: "demografischer-wandel" }),
       });
-      render(page);
+      render(<BranchenFilterProvider>{page}</BranchenFilterProvider>);
       const link = screen.getByRole("link", { name: /Startseite/i });
       expect(link).toHaveAttribute("href", "/");
     });
@@ -74,7 +75,7 @@ describe("MegatrendPage", () => {
       const page = await MegatrendPage({
         params: Promise.resolve({ slug: "demografischer-wandel" }),
       });
-      render(page);
+      render(<BranchenFilterProvider>{page}</BranchenFilterProvider>);
       // Current page shown as plain text with aria-current="page"
       const current = screen.getByText(/Demografischer Wandel/i, {
         selector: '[aria-current="page"]',
@@ -94,7 +95,7 @@ describe("MegatrendPage", () => {
       const page = await MegatrendPage({
         params: Promise.resolve({ slug: "technologisierung" }),
       });
-      render(page);
+      render(<BranchenFilterProvider>{page}</BranchenFilterProvider>);
       expect(
         screen.getByRole("heading", { level: 2, name: /Beeinflusste Trends/i })
       ).toBeInTheDocument();
@@ -104,7 +105,7 @@ describe("MegatrendPage", () => {
       const page = await MegatrendPage({
         params: Promise.resolve({ slug: "technologisierung" }),
       });
-      render(page);
+      render(<BranchenFilterProvider>{page}</BranchenFilterProvider>);
       const trendLinks = screen
         .getAllByRole("link")
         .filter((el) => el.getAttribute("href")?.startsWith("/trend/"));
@@ -115,7 +116,7 @@ describe("MegatrendPage", () => {
       const page = await MegatrendPage({
         params: Promise.resolve({ slug: "technologisierung" }),
       });
-      render(page);
+      render(<BranchenFilterProvider>{page}</BranchenFilterProvider>);
       const badges = screen.getAllByText(/^(Handeln|Vorbereiten|Beobachten)$/i);
       expect(badges.length).toBeGreaterThan(0);
     });
@@ -124,7 +125,7 @@ describe("MegatrendPage", () => {
       const page = await MegatrendPage({
         params: Promise.resolve({ slug: "technologisierung" }),
       });
-      render(page);
+      render(<BranchenFilterProvider>{page}</BranchenFilterProvider>);
       const badges = screen
         .getAllByText(/^(Handeln|Vorbereiten|Beobachten)$/i)
         .map((el) => el.textContent?.toLowerCase());
@@ -153,7 +154,7 @@ describe("MegatrendPage", () => {
         const page = await MegatrendPage({
           params: Promise.resolve({ slug: "oekologisierung" }),
         });
-        render(page);
+        render(<BranchenFilterProvider>{page}</BranchenFilterProvider>);
         expect(screen.getByText(/Keine Trends zugeordnet/i)).toBeInTheDocument();
       } else {
         expect(relatedTrends.length).toBeGreaterThan(0);

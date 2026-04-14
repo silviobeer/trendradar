@@ -22,7 +22,7 @@ const config: Record<Zeitrahmen, { label: string; classes: string }> = {
 export function ZeitbereichBadge({ zeitrahmen }: ZeitbereichBadgeProps) {
   const { label, classes } = config[zeitrahmen];
   return (
-    <span className={`inline-block rounded-full px-3 py-0.5 text-[12px] font-normal ${classes}`}>
+    <span className={`inline-block rounded-full px-3 py-0.5 text-tag font-normal ${classes}`}>
       {label}
     </span>
   );
